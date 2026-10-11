@@ -3,9 +3,11 @@
 import React, { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
+import { BentoFeatures } from '@/components/BentoFeatures';
 import { LiveExtractor } from '@/components/LiveExtractor';
-import { Pricing } from '@/components/Pricing';
+import { RoiCalculator } from '@/components/RoiCalculator';
 import { DeveloperSection } from '@/components/DeveloperSection';
+import { Pricing } from '@/components/Pricing';
 import { Footer } from '@/components/Footer';
 
 export default function Home() {
@@ -31,35 +33,44 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 selection:bg-indigo-500 selection:text-white">
-      {/* Top Navbar */}
+    <main className="min-h-screen bg-zinc-950 text-white selection:bg-indigo-500 selection:text-white">
+      {/* 1. Global High-Precision Navbar */}
       <Navbar
         freeScansLeft={freeScansLeft}
         onNavigateToDemo={() => scrollTo('demo')}
         onNavigateToPricing={() => scrollTo('pricing')}
         onNavigateToApi={() => scrollTo('developer-api')}
+        onNavigateToRoi={() => scrollTo('roi-calculator')}
+        onNavigateToFeatures={() => scrollTo('features')}
       />
 
-      {/* Hero Section */}
+      {/* 2. Hero Section with Live Product Mockup Preview */}
       <Hero
         onTryDemo={() => scrollTo('demo')}
         onExploreApi={() => scrollTo('developer-api')}
+        onCalculateRoi={() => scrollTo('roi-calculator')}
       />
 
-      {/* Interactive Live Document Extractor */}
+      {/* 3. Enterprise Bento Grid Architecture */}
+      <BentoFeatures />
+
+      {/* 4. Interactive Live Extractor with Animated Laser Scanner & Field Map Inspector */}
       <LiveExtractor
         freeScansLeft={freeScansLeft}
         onScanUsed={handleScanUsed}
         onOutOfCredits={handleOutOfCredits}
       />
 
-      {/* Developer API & RapidAPI Section */}
+      {/* 5. Interactive ROI & Time-Saved Calculator */}
+      <RoiCalculator onNavigateToPricing={() => scrollTo('pricing')} />
+
+      {/* 6. Developer API & RapidAPI Metered Specs */}
       <DeveloperSection />
 
-      {/* Pricing & Razorpay Checkout */}
+      {/* 7. Pricing & High-Converting Razorpay Checkout Drawer */}
       <Pricing onCreditsPurchased={handleCreditsPurchased} />
 
-      {/* Footer */}
+      {/* 8. Global Footer */}
       <Footer />
     </main>
   );

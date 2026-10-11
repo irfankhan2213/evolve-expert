@@ -18,6 +18,21 @@ export async function POST(req: NextRequest) {
     // Check RapidAPI authentication or public trial quota
     const isRapidApi = Boolean(req.headers.get('x-rapidapi-key') || req.headers.get('x-rapidapi-user'));
     
+    // Optional RapidAPI Proxy Secret validation if configured in production
+    const expectedProxySecret = process.env.RAPIDAPI_PROXY_SECRET;
+    if (expectedProxySecret) {
+      const incomingSecret = req.headers.get('x-rapidapi-proxy-secret');
+      if (incomingSecret !== expectedProxySecret) {
+        return NextResponse.json(
+          {
+            success: false,
+            error: 'Unauthorized: Invalid RapidAPI proxy secret',
+          },
+          { status: 401 }
+        );
+      }
+    }
+    
     if (contentType.includes('application/json')) {
       const body = await req.json();
       fileBase64 = body.image || body.fileBase64 || body.document;
@@ -57,16 +72,17 @@ export async function POST(req: NextRequest) {
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-RapidAPI-Key, X-RapidAPI-Host',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-RapidAPI-Key, X-RapidAPI-Host, X-RapidAPI-Proxy-Secret',
         },
       }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error in /api/v1/extract:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Internal document extraction error';
     return NextResponse.json(
       {
         success: false,
-        error: error.message || 'Internal document extraction error',
+        error: errorMessage,
       },
       { status: 500 }
     );
@@ -79,7 +95,7 @@ export async function OPTIONS() {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-RapidAPI-Key, X-RapidAPI-Host',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-RapidAPI-Key, X-RapidAPI-Host, X-RapidAPI-Proxy-Secret',
     },
   });
 }

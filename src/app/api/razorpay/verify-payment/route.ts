@@ -53,10 +53,11 @@ export async function POST(req: NextRequest) {
       apiKey: generatedApiKey,
       message: 'Payment verified successfully! Your credits and API key are active.',
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Payment verification error:', error);
+    const msg = error instanceof Error ? error.message : 'Payment verification failed';
     return NextResponse.json(
-      { success: false, error: error.message || 'Payment verification failed' },
+      { success: false, error: msg },
       { status: 500 }
     );
   }

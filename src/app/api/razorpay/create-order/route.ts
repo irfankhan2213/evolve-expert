@@ -50,10 +50,11 @@ export async function POST(req: NextRequest) {
       currency: order.currency,
       keyId: process.env.RAZORPAY_KEY_ID,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Razorpay order creation error:', error);
+    const msg = error instanceof Error ? error.message : 'Failed to create order';
     return NextResponse.json(
-      { error: error.message || 'Failed to create order' },
+      { error: msg },
       { status: 500 }
     );
   }

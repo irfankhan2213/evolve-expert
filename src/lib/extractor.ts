@@ -8,7 +8,6 @@ import { ExtractedInvoiceData } from '@/types';
 export async function extractDocumentData({
   fileBase64,
   mimeType = 'image/png',
-  rawText,
   documentTypeHint,
 }: {
   fileBase64?: string;
@@ -138,7 +137,7 @@ Return ONLY valid raw JSON without markdown backticks or commentary.`,
   const today = new Date().toISOString().split('T')[0];
 
   return {
-    document_type: (documentTypeHint as any) || 'invoice',
+    document_type: (documentTypeHint === 'receipt' || documentTypeHint === 'bill' || documentTypeHint === 'purchase_order' ? documentTypeHint : 'invoice') as ExtractedInvoiceData['document_type'],
     invoice_number: randomInvoiceNum,
     invoice_date: today,
     due_date: new Date(Date.now() + 15 * 86400000).toISOString().split('T')[0],

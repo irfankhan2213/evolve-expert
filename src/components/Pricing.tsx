@@ -1,7 +1,20 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Check, Sparkles, Zap, ShieldCheck, ArrowRight, Loader2, Key } from 'lucide-react';
+import {
+  Check,
+  Sparkles,
+  Zap,
+  ShieldCheck,
+  ArrowRight,
+  Loader2,
+  Key,
+  X,
+  CreditCard,
+  QrCode,
+  Lock,
+  Building2,
+} from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { PricingPlan } from '@/types';
 
@@ -11,13 +24,15 @@ interface PricingProps {
 
 export const Pricing: React.FC<PricingProps> = ({ onCreditsPurchased }) => {
   const [loadingPlanId, setLoadingPlanId] = useState<string | null>(null);
+  const [selectedPlanForDrawer, setSelectedPlanForDrawer] = useState<PricingPlan | null>(null);
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'upi' | 'cards' | 'netbanking'>('upi');
   const [purchasedPlan, setPurchasedPlan] = useState<{ name: string; apiKey?: string } | null>(null);
 
   const plans: PricingPlan[] = [
     {
       id: 'starter',
       name: 'Starter Pack',
-      tagline: 'Ideal for freelancers and small bill audits',
+      tagline: 'Ideal for solo accountants and small business audits',
       priceInInr: 249,
       priceInUsd: 3.5,
       credits: 50,
@@ -32,7 +47,7 @@ export const Pricing: React.FC<PricingProps> = ({ onCreditsPurchased }) => {
     {
       id: 'pro',
       name: 'Pro Pack',
-      tagline: 'For accountants, agencies & fast-growing teams',
+      tagline: 'For CA firms, agencies & high-volume financial teams',
       priceInInr: 699,
       priceInUsd: 9.0,
       credits: 250,
@@ -40,16 +55,16 @@ export const Pricing: React.FC<PricingProps> = ({ onCreditsPurchased }) => {
       features: [
         '250 AI Document Scans',
         'Instant Excel & CSV Export',
-        'GSTIN & Tax Fraud Verification',
+        'GSTIN & Tax Fraud Checksum Audit',
         'Full RapidAPI Key Access (Metered)',
-        'Priority Sub-second Queue',
+        'Priority Sub-second Queue (<800ms)',
         'Batch Document Processing',
       ],
     },
     {
       id: 'enterprise',
       name: 'Power API & Team',
-      tagline: 'For heavy automated workflows and developers',
+      tagline: 'For automated ERP pipelines, software devs & scale',
       priceInInr: 1999,
       priceInUsd: 25.0,
       credits: 1000,
@@ -63,7 +78,17 @@ export const Pricing: React.FC<PricingProps> = ({ onCreditsPurchased }) => {
     },
   ];
 
-  const handleBuyPlan = async (plan: PricingPlan) => {
+  const handleOpenDrawer = (plan: PricingPlan) => {
+    setSelectedPlanForDrawer(plan);
+  };
+
+  const handleCloseDrawer = () => {
+    setSelectedPlanForDrawer(null);
+  };
+
+  const handleExecutePayment = async () => {
+    if (!selectedPlanForDrawer) return;
+    const plan = selectedPlanForDrawer;
     setLoadingPlanId(plan.id);
 
     try {
@@ -85,10 +110,15 @@ export const Pricing: React.FC<PricingProps> = ({ onCreditsPurchased }) => {
         return;
       }
 
-      // 2. Load Razorpay Checkout Script if not already present
+      // 2. Load Razorpay Checkout Script if not present
+      interface RazorpayWindow {
+        Razorpay?: new (options: Record<string, unknown>) => { open: () => void };
+      }
+
       const loadRazorpayScript = () => {
         return new Promise<boolean>((resolve) => {
-          if ((window as any).Razorpay) return resolve(true);
+          const win = window as unknown as RazorpayWindow;
+          if (win.Razorpay) return resolve(true);
           const script = document.createElement('script');
           script.src = 'https://checkout.razorpay.com/v1/checkout.js';
           script.onload = () => resolve(true);
@@ -98,18 +128,17 @@ export const Pricing: React.FC<PricingProps> = ({ onCreditsPurchased }) => {
       };
 
       const scriptLoaded = await loadRazorpayScript();
+      const win = window as unknown as RazorpayWindow;
 
-      // If Razorpay live credentials exist and script is loaded, launch Razorpay Checkout Modal
-      if (scriptLoaded && !orderData.isDemoMode && (window as any).Razorpay) {
-        const options = {
+      if (scriptLoaded && !orderData.isDemoMode && win.Razorpay) {
+        const options: Record<string, unknown> = {
           key: orderData.keyId,
           amount: orderData.amount,
           currency: orderData.currency,
           name: 'DocuPulse AI',
-          description: `${plan.name} (${plan.credits} Document Scans)`,
+          description: `${plan.name} (${plan.credits} AI Scans)`,
           order_id: orderData.orderId,
-          handler: async (response: any) => {
-            // Verify payment signature
+          handler: async (response: Record<string, unknown>) => {
             const verifyRes = await fetch('/api/razorpay/verify-payment', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -135,10 +164,11 @@ export const Pricing: React.FC<PricingProps> = ({ onCreditsPurchased }) => {
           },
         };
 
-        const rzp = new (window as any).Razorpay(options);
+        const rzp = new win.Razorpay(options);
         rzp.open();
+        handleCloseDrawer();
       } else {
-        // Fallback / Test Mode checkout simulation
+        // Test / Demo Mode fallback
         const verifyRes = await fetch('/api/razorpay/verify-payment', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -149,9 +179,11 @@ export const Pricing: React.FC<PricingProps> = ({ onCreditsPurchased }) => {
         });
         const verifyData = await verifyRes.json();
         handlePaymentSuccess(plan, verifyData.apiKey);
+        handleCloseDrawer();
       }
-    } catch (err: any) {
-      alert('Payment processing error: ' + err.message);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Unknown payment error';
+      alert('Payment processing error: ' + msg);
     } finally {
       setLoadingPlanId(null);
     }
@@ -168,35 +200,36 @@ export const Pricing: React.FC<PricingProps> = ({ onCreditsPurchased }) => {
   };
 
   return (
-    <section id="pricing" className="py-16 md:py-24 bg-zinc-50/50 dark:bg-zinc-950/40 border-t border-b border-zinc-200 dark:border-zinc-800">
+    <section id="pricing" className="py-20 md:py-28 bg-zinc-950 text-white border-t border-b border-zinc-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-800 text-xs text-blue-700 dark:text-blue-300 font-medium mb-4">
-            <ShieldCheck className="w-4 h-4" />
-            <span>Pay-As-You-Go • Instant UPI & Global Cards via Razorpay</span>
+          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-xs font-mono text-indigo-400 mb-4">
+            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <span>PAY-AS-YOU-GO • ZERO MONTHLY COMMITMENT</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white">
             Transparent, Predictable Pricing
           </h2>
-          <p className="mt-3 text-zinc-600 dark:text-zinc-300">
-            Never pay for expensive monthly retainers. Buy credits that never expire, or integrate directly with our RapidAPI endpoints.
+          <p className="mt-4 text-base sm:text-lg text-zinc-400">
+            Never pay for bloated software seats. Purchase document credits that never expire, or connect via RapidAPI endpoints.
           </p>
         </div>
 
         {/* Success Banner if purchased */}
         {purchasedPlan && (
-          <div className="mb-10 max-w-2xl mx-auto p-6 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-teal-950/40 border border-emerald-200 dark:border-emerald-800 text-center shadow-lg">
-            <h3 className="text-lg font-bold text-emerald-900 dark:text-emerald-200">
-              🎉 Thank you! Your {purchasedPlan.name} is active!
+          <div className="mb-12 max-w-2xl mx-auto p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-emerald-950/60 to-teal-950/60 border border-emerald-500/40 text-center shadow-xl">
+            <h3 className="text-xl font-bold text-emerald-300">
+              🎉 Payment Confirmed! Your {purchasedPlan.name} is Active!
             </h3>
-            <p className="text-sm text-emerald-700 dark:text-emerald-300 mt-1">
-              Your credits have been added to your session balance.
+            <p className="text-sm text-zinc-300 mt-1">
+              Your AI document scans have been added to your live balance immediately.
             </p>
             {purchasedPlan.apiKey && (
-              <div className="mt-4 p-3 rounded-xl bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 inline-flex items-center space-x-3 text-xs font-mono text-zinc-800 dark:text-zinc-200">
-                <Key className="w-4 h-4 text-emerald-600" />
-                <span>API Key: <strong>{purchasedPlan.apiKey}</strong></span>
+              <div className="mt-4 p-3.5 rounded-2xl bg-zinc-950 border border-emerald-500/30 inline-flex items-center space-x-3 text-xs font-mono text-zinc-200">
+                <Key className="w-4 h-4 text-emerald-400" />
+                <span>API Key: <strong className="text-emerald-300">{purchasedPlan.apiKey}</strong></span>
               </div>
             )}
           </div>
@@ -209,41 +242,41 @@ export const Pricing: React.FC<PricingProps> = ({ onCreditsPurchased }) => {
               key={plan.id}
               className={`relative rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 ${
                 plan.isPopular
-                  ? 'bg-white dark:bg-zinc-900 border-2 border-indigo-600 dark:border-indigo-500 shadow-xl shadow-indigo-500/10 scale-105 z-10'
-                  : 'bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 shadow-sm'
+                  ? 'bg-zinc-900/90 border-2 border-indigo-500 shadow-2xl shadow-indigo-500/10 scale-105 z-10'
+                  : 'bg-zinc-900/60 border border-zinc-800 hover:border-zinc-700 shadow-sm'
               }`}
             >
               {plan.isPopular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold tracking-wide uppercase shadow-md flex items-center space-x-1">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-indigo-500 to-emerald-500 text-white text-[11px] font-mono font-bold tracking-wider uppercase shadow-md flex items-center space-x-1.5">
                   <Sparkles className="w-3.5 h-3.5" />
-                  <span>Most Popular</span>
+                  <span>Most Popular Choice</span>
                 </div>
               )}
 
               <div>
-                <h3 className="text-xl font-bold text-zinc-900 dark:text-white">{plan.name}</h3>
-                <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400 min-h-[32px]">{plan.tagline}</p>
+                <h3 className="text-xl font-bold text-white">{plan.name}</h3>
+                <p className="mt-1 text-xs text-zinc-400 min-h-[32px] leading-relaxed">{plan.tagline}</p>
 
                 <div className="mt-6 flex items-baseline space-x-2">
-                  <span className="text-4xl font-extrabold text-zinc-900 dark:text-white">
+                  <span className="text-4xl sm:text-5xl font-black font-mono text-white tracking-tight">
                     ₹{plan.priceInInr}
                   </span>
-                  <span className="text-xs text-zinc-500">
+                  <span className="text-xs font-mono text-zinc-400">
                     (~${plan.priceInUsd} USD) / {plan.credits} scans
                   </span>
                 </div>
 
-                <div className="mt-2 text-xs font-medium text-emerald-600 dark:text-emerald-400 flex items-center space-x-1">
-                  <Zap className="w-3.5 h-3.5" />
-                  <span>Only ₹{(plan.priceInInr / plan.credits).toFixed(2)} per document</span>
+                <div className="mt-2 text-xs font-mono text-emerald-400 flex items-center space-x-1.5 font-semibold">
+                  <Zap className="w-3.5 h-3.5 fill-current" />
+                  <span>Only ₹{(plan.priceInInr / plan.credits).toFixed(2)} per document scan</span>
                 </div>
 
-                {/* Features list */}
-                <ul className="mt-8 space-y-3.5 text-sm text-zinc-600 dark:text-zinc-300">
+                {/* Features List */}
+                <ul className="mt-8 space-y-3.5 text-xs sm:text-sm text-zinc-300">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center space-x-3">
-                      <div className="h-5 w-5 rounded-full bg-indigo-50 dark:bg-indigo-950/60 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0">
-                        <Check className="w-3.5 h-3.5" />
+                      <div className="h-5 w-5 rounded-full bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0">
+                        <Check className="w-3 h-3" />
                       </div>
                       <span>{feature}</span>
                     </li>
@@ -253,44 +286,206 @@ export const Pricing: React.FC<PricingProps> = ({ onCreditsPurchased }) => {
 
               {/* Action Button */}
               <button
-                onClick={() => handleBuyPlan(plan)}
+                onClick={() => handleOpenDrawer(plan)}
                 disabled={loadingPlanId !== null}
-                className={`mt-8 w-full py-3.5 px-4 rounded-xl font-semibold text-sm flex items-center justify-center space-x-2 transition-all ${
+                className={`mt-8 w-full py-4 px-5 rounded-2xl font-bold text-sm flex items-center justify-center space-x-2 transition-all ${
                   plan.isPopular
-                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-md hover:shadow-lg'
-                    : 'bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white'
+                    ? 'bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-400 hover:to-indigo-500 text-white shadow-lg shadow-indigo-500/25 hover:scale-[1.01]'
+                    : 'bg-zinc-800 hover:bg-zinc-700 text-white border border-zinc-700'
                 }`}
               >
-                {loadingPlanId === plan.id ? (
-                  <>
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                    <span>Processing...</span>
-                  </>
-                ) : (
-                  <>
-                    <span>Buy with Razorpay</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </>
-                )}
+                <span>Select & Pay via Razorpay</span>
+                <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           ))}
         </div>
 
-        {/* Razorpay Assurance */}
-        <div className="mt-12 text-center text-xs text-zinc-500 flex flex-wrap items-center justify-center gap-6">
-          <span className="flex items-center space-x-1.5">
-            <ShieldCheck className="w-4 h-4 text-emerald-500" />
-            <span>256-bit Bank-grade Encryption</span>
+        {/* Security Seals */}
+        <div className="mt-14 pt-8 border-t border-zinc-900 text-center text-xs font-mono text-zinc-400 flex flex-wrap items-center justify-center gap-6">
+          <span className="flex items-center space-x-1.5 text-emerald-400">
+            <ShieldCheck className="w-4 h-4" />
+            <span>256-Bit Bank-Grade Encryption</span>
           </span>
           <span>•</span>
-          <span>Supports UPI (GPay, PhonePe, Paytm, BHIM)</span>
+          <span>UPI Instant Rails (GPay, PhonePe, Paytm, BHIM)</span>
           <span>•</span>
-          <span>Visa, Mastercard, RuPay & International Cards</span>
+          <span>All Indian & Global Cards (RuPay, Visa, Mastercard)</span>
           <span>•</span>
-          <span>Instant Credit Top-Up</span>
+          <span>Credits Never Expire</span>
         </div>
+
       </div>
+
+      {/* High-Converting Razorpay Checkout Drawer / Modal */}
+      {selectedPlanForDrawer && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center sm:justify-end bg-black/70 backdrop-blur-sm p-4 sm:p-0 transition-opacity">
+          <div className="w-full sm:max-w-md h-auto sm:h-full bg-zinc-950 border-l border-zinc-800 p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-y-auto">
+            
+            {/* Drawer Header */}
+            <div>
+              <div className="flex items-center justify-between pb-5 border-b border-zinc-800">
+                <div className="flex items-center space-x-2.5">
+                  <div className="h-8 w-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-sm">
+                    ₹
+                  </div>
+                  <div>
+                    <h3 className="text-base font-bold text-white">Razorpay Checkout</h3>
+                    <p className="text-[11px] font-mono text-zinc-400">DocuPulse AI Official Billing</p>
+                  </div>
+                </div>
+
+                <button
+                  onClick={handleCloseDrawer}
+                  className="h-8 w-8 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center transition-colors"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Order Summary Card */}
+              <div className="mt-6 p-4 rounded-2xl bg-zinc-900 border border-zinc-800 space-y-3 font-mono">
+                <div className="flex justify-between items-baseline">
+                  <span className="text-xs text-zinc-400">Selected Plan:</span>
+                  <span className="text-sm font-bold text-white">{selectedPlanForDrawer.name}</span>
+                </div>
+                <div className="flex justify-between items-baseline">
+                  <span className="text-xs text-zinc-400">Document Scans:</span>
+                  <span className="text-sm font-bold text-emerald-400">{selectedPlanForDrawer.credits} Scans (Never Expiring)</span>
+                </div>
+                <div className="pt-2 border-t border-zinc-800 flex justify-between items-baseline text-base">
+                  <span className="text-xs text-zinc-300 font-sans font-semibold">Total Amount Due:</span>
+                  <span className="text-xl font-black text-white">₹{selectedPlanForDrawer.priceInInr}</span>
+                </div>
+              </div>
+
+              {/* Friction-Free Payment Selection */}
+              <div className="mt-6 space-y-3">
+                <span className="text-xs uppercase tracking-wider font-mono text-zinc-400">
+                  Select Payment Method:
+                </span>
+
+                {/* Option 1: UPI */}
+                <div
+                  onClick={() => setSelectedPaymentMethod('upi')}
+                  className={`p-3.5 rounded-2xl border transition-all cursor-pointer flex items-center justify-between ${
+                    selectedPaymentMethod === 'upi'
+                      ? 'bg-indigo-950/40 border-indigo-500'
+                      : 'bg-zinc-900/60 border-zinc-800 hover:border-zinc-700'
+                  }`}
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="h-9 w-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                      <QrCode className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-white flex items-center space-x-1.5">
+                        <span>Instant UPI</span>
+                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-400 font-mono">Fastest</span>
+                      </div>
+                      <p className="text-[11px] text-zinc-400">GPay, PhonePe, Paytm, BHIM</p>
+                    </div>
+                  </div>
+                  <div className={`w-4 h-4 rounded-full border flex items-center justify-center ${
+                    selectedPaymentMethod === 'upi' ? 'border-indigo-500 bg-indigo-600' : 'border-zinc-700'
+                  }`}>
+                    {selectedPaymentMethod === 'upi' && <Check className="w-2.5 h-2.5 text-white" />}
+                  </div>
+                </div>
+
+                {/* Option 2: Cards */}
+                <div
+                  onClick={() => setSelectedPaymentMethod('cards')}
+                  className={`p-3.5 rounded-2xl border transition-all cursor-pointer flex items-center justify-between ${
+                    selectedPaymentMethod === 'cards'
+                      ? 'bg-indigo-950/40 border-indigo-500'
+                      : 'bg-zinc-900/60 border-zinc-800 hover:border-zinc-700'
+                  }`}
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="h-9 w-9 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+                      <CreditCard className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-white">Credit & Debit Cards</div>
+                      <p className="text-[11px] text-zinc-400">Visa, Mastercard, RuPay, Amex</p>
+                    </div>
+                  </div>
+                  <div className={`w-4 h-4 rounded-full border flex items-center justify-center ${
+                    selectedPaymentMethod === 'cards' ? 'border-indigo-500 bg-indigo-600' : 'border-zinc-700'
+                  }`}>
+                    {selectedPaymentMethod === 'cards' && <Check className="w-2.5 h-2.5 text-white" />}
+                  </div>
+                </div>
+
+                {/* Option 3: Netbanking */}
+                <div
+                  onClick={() => setSelectedPaymentMethod('netbanking')}
+                  className={`p-3.5 rounded-2xl border transition-all cursor-pointer flex items-center justify-between ${
+                    selectedPaymentMethod === 'netbanking'
+                      ? 'bg-indigo-950/40 border-indigo-500'
+                      : 'bg-zinc-900/60 border-zinc-800 hover:border-zinc-700'
+                  }`}
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="h-9 w-9 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
+                      <Building2 className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-white">Net Banking & Corporate</div>
+                      <p className="text-[11px] text-zinc-400">HDFC, ICICI, SBI, Axis & 50+ Banks</p>
+                    </div>
+                  </div>
+                  <div className={`w-4 h-4 rounded-full border flex items-center justify-center ${
+                    selectedPaymentMethod === 'netbanking' ? 'border-indigo-500 bg-indigo-600' : 'border-zinc-700'
+                  }`}>
+                    {selectedPaymentMethod === 'netbanking' && <Check className="w-2.5 h-2.5 text-white" />}
+                  </div>
+                </div>
+              </div>
+
+              {/* Trust badges inside drawer */}
+              <div className="mt-6 p-3 rounded-xl bg-zinc-900/40 border border-zinc-800 text-[11px] text-zinc-400 space-y-1 font-mono">
+                <div className="flex items-center space-x-2 text-emerald-400">
+                  <Lock className="w-3.5 h-3.5" />
+                  <span>256-Bit SSL Encrypted Razorpay Rails</span>
+                </div>
+                <p className="text-zinc-500 text-[10px]">
+                  Payment is processed directly on Razorpay&apos;s RBI authorized gateway. No card details stored.
+                </p>
+              </div>
+            </div>
+
+            {/* Drawer Bottom CTA */}
+            <div className="mt-8 pt-4 border-t border-zinc-800 space-y-2">
+              <button
+                onClick={handleExecutePayment}
+                disabled={loadingPlanId !== null}
+                className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-400 hover:to-indigo-500 text-white font-bold text-sm shadow-xl shadow-indigo-600/30 flex items-center justify-center space-x-2 transition-all hover:scale-[1.01]"
+              >
+                {loadingPlanId ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Connecting Razorpay...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Proceed to Pay ₹{selectedPlanForDrawer.priceInInr}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </>
+                )}
+              </button>
+              <button
+                onClick={handleCloseDrawer}
+                className="w-full py-2.5 text-xs text-zinc-400 hover:text-zinc-200 transition-colors font-mono"
+              >
+                Cancel and Return
+              </button>
+            </div>
+
+          </div>
+        </div>
+      )}
     </section>
   );
 };
