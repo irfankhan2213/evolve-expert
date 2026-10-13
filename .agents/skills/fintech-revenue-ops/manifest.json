@@ -1,0 +1,8 @@
+{
+  "name": "fintech-revenue-ops",
+  "version": "2.0.0",
+  "category": "Revenue & Billing",
+  "description": "Enterprise billing operations, Razorpay and Stripe dual-mode checkout, webhook signature verification, credit ledgers, and pricing psychology.",
+  "assignedAgent": "revenue_ops",
+  "compat": ["antigravity", "claude-code", "gemini-cli", "cursor"]
+}

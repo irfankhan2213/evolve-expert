@@ -1,0 +1,8 @@
+{
+  "name": "growth-marketing-engine",
+  "version": "2.0.0",
+  "category": "Marketing & Distribution",
+  "description": "Autonomous growth marketing, viral community launch playbooks, directory submission database, and cold outreach engines.",
+  "assignedAgent": "growth_marketer",
+  "compat": ["antigravity", "claude-code", "gemini-cli", "cursor"]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "production-fullstack-dev",
+  "version": "2.0.0",
+  "category": "Software Engineering",
+  "description": "Enterprise Next.js App Router and Node.js architecture with serverless optimizations, API error contracts, canvas downsampling, and type safety.",
+  "assignedAgent": "lead_engineer",
+  "compat": ["antigravity", "claude-code", "gemini-cli", "cursor"]
+}

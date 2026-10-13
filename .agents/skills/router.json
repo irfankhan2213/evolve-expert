@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "description": "Token-efficient Two-Tier Skill Router for DocuPulse Enterprise Suite. Idle footprint <100 tokens.",
+  "skills": [
+    {
+      "id": "web-design-engineer",
+      "name": "Web Design Engineer",
+      "category": "Design & UI/UX",
+      "assignedAgent": "ui_ux_architect",
+      "path": ".agents/skills/web-design-engineer/SKILL.md",
+      "manifest": ".agents/skills/web-design-engineer/manifest.json",
+      "trigger": "Use when creating, redesigning, or refining user interfaces, landing pages, design systems, style recipes, or interactive UI components.",
+      "keywords": ["ui", "ux", "design", "tailwind", "frontend", "components", "responsive", "bento", "animation", "laser", "style-recipes"]
+    },
+    {
+      "id": "production-fullstack-dev",
+      "name": "Production Full-Stack Developer",
+      "category": "Software Engineering",
+      "assignedAgent": "lead_engineer",
+      "path": ".agents/skills/production-fullstack-dev/SKILL.md",
+      "manifest": ".agents/skills/production-fullstack-dev/manifest.json",
+      "trigger": "Use when building Next.js App Router code, API route handlers, serverless integrations, client downsampling, or database operations.",
+      "keywords": ["nextjs", "react", "typescript", "api", "route", "serverless", "canvas", "turbopack", "backend", "performance"]
+    },
+    {
+      "id": "growth-marketing-engine",
+      "name": "Growth Marketing Engine",
+      "category": "Marketing & Distribution",
+      "assignedAgent": "growth_marketer",
+      "path": ".agents/skills/growth-marketing-engine/SKILL.md",
+      "manifest": ".agents/skills/growth-marketing-engine/manifest.json",
+      "trigger": "Use when generating launch campaigns, Show HN posts, Product Hunt kits, Reddit value threads, or submitting to 75+ directories.",
+      "keywords": ["marketing", "producthunt", "hackernews", "reddit", "twitter", "directories", "seo", "cold-outreach", "distribution"]
+    },
+    {
+      "id": "fintech-revenue-ops",
+      "name": "Fintech & Revenue Operations",
+      "category": "Revenue & Billing",
+      "assignedAgent": "revenue_ops",
+      "path": ".agents/skills/fintech-revenue-ops/SKILL.md",
+      "manifest": ".agents/skills/fintech-revenue-ops/manifest.json",
+      "trigger": "Use when configuring Razorpay/Stripe payments, webhook HMAC verification, credit top-up ledgers, UPI checkout, or pricing tiers.",
+      "keywords": ["razorpay", "stripe", "payments", "billing", "webhooks", "hmac", "upi", "credits", "pricing", "subscriptions"]
+    },
+    {
+      "id": "qa-security-auditor",
+      "name": "QA & Security Auditor",
+      "category": "Quality & Security",
+      "assignedAgent": "product_tester",
+      "path": ".agents/skills/qa-security-auditor/SKILL.md",
+      "manifest": ".agents/skills/qa-security-auditor/manifest.json",
+      "trigger": "Use when writing automated test harnesses, benchmarking latency, testing error boundaries, auditing OWASP security, or verifying builds.",
+      "keywords": ["testing", "qa", "e2e", "curl", "security", "owasp", "latency", "benchmark", "validation", "regression"]
+    },
+    {
+      "id": "rapidapi-marketplace-ops",
+      "name": "RapidAPI Marketplace Operations",
+      "category": "Marketplace & API Monetization",
+      "assignedAgent": "rapidapi_publisher",
+      "path": ".agents/skills/rapidapi-marketplace-ops/SKILL.md",
+      "manifest": ".agents/skills/rapidapi-marketplace-ops/manifest.json",
+      "trigger": "Use when publishing to RapidAPI Hub, generating OpenAPI 3.0 specs, producing multi-language SDK snippets, or configuring metered billing.",
+      "keywords": ["rapidapi", "openapi", "swagger", "api-marketplace", "metered-billing", "sdk", "developer-portal", "postman"]
+    }
+  ]
+}

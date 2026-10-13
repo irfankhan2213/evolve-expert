@@ -1,0 +1,8 @@
+{
+  "name": "web-design-engineer",
+  "version": "2.0.0",
+  "category": "Design & UI/UX",
+  "description": "Craft bespoke, high-craft, non-generic web user interfaces with calibrated design dials, contextual anti-pattern checks, concrete style recipes, and browser acceptance testing.",
+  "assignedAgent": "ui_ux_architect",
+  "compat": ["antigravity", "claude-code", "gemini-cli", "cursor"]
+}

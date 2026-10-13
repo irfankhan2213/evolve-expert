@@ -1,0 +1,8 @@
+{
+  "name": "qa-security-auditor",
+  "version": "2.0.0",
+  "category": "Quality & Security",
+  "description": "Zero-defect validation, automated shell E2E integration suites, latency benchmarking, memory profiling, and OWASP security checklists.",
+  "assignedAgent": "product_tester",
+  "compat": ["antigravity", "claude-code", "gemini-cli", "cursor"]
+}

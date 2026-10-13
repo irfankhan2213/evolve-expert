@@ -1,0 +1,8 @@
+{
+  "name": "rapidapi-marketplace-ops",
+  "version": "2.0.0",
+  "category": "Marketplace & API Monetization",
+  "description": "RapidAPI Hub packaging, OpenAPI 3.0.3 specification authoring, Postman collection sync, and developer SDK code generation.",
+  "assignedAgent": "rapidapi_publisher",
+  "compat": ["antigravity", "claude-code", "gemini-cli", "cursor"]
+}
