@@ -1,0 +1,202 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "EvolveExpert: AI Invoice & Receipt OCR with Multi-Region Tax Validation",
+    "description": "Sub-second financial document extraction and deterministic tax validation API. Extracts line items, totals, dates, and vendors into structured JSON while automatically validating Indian GSTIN (Luhn Mod-36), EU VAT (VIES), and UK VAT.",
+    "version": "1.4.0",
+    "contact": {
+      "name": "EvolveExpert Developer Support",
+      "email": "support@evolveexpert.com",
+      "url": "https://evolveexpert.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://evolveexpert.com",
+      "description": "Production API Server"
+    }
+  ],
+  "paths": {
+    "/api/v1/extract-and-validate": {
+      "post": {
+        "summary": "Extract Document & Validate Compliance",
+        "description": "Extracts structured line items and totals from invoices or receipts, and validates vendor tax identifiers and arithmetic reconciliation in a single sub-second call.",
+        "operationId": "extractAndValidateDocument",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sampleProfile": {
+                    "type": "string",
+                    "enum": ["india-gst", "us-cloud", "eu-saas"],
+                    "description": "Preset sample invoice profile for testing"
+                  },
+                  "documentBase64": {
+                    "type": "string",
+                    "description": "Base64-encoded invoice or receipt image/PDF"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful extraction and compliance verification",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtractionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request (RFC 9457 Problem Details)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/validate-tax": {
+      "post": {
+        "summary": "Validate Universal Tax Identifier",
+        "description": "Validates Indian GSTIN (Luhn Mod-36 checksum across 38 states), EU VAT, UK VAT, and US EIN in <5ms.",
+        "operationId": "validateTaxIdentifier",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["taxId"],
+                "properties": {
+                  "taxId": {
+                    "type": "string",
+                    "example": "27AAPFU0939F1ZV",
+                    "description": "Tax identifier to validate"
+                  },
+                  "hint": {
+                    "type": "string",
+                    "enum": ["GSTIN", "EU_VAT", "UK_VAT", "US_EIN"],
+                    "description": "Optional tax type hint"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tax validation result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxValidationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ExtractionResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "data": {
+            "type": "object",
+            "properties": {
+              "invoiceNumber": { "type": "string" },
+              "date": { "type": "string" },
+              "vendor": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "taxId": { "type": "string" },
+                  "taxCompliance": { "$ref": "#/components/schemas/TaxValidationData" }
+                }
+              },
+              "lineItems": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "description": { "type": "string" },
+                    "quantity": { "type": "number" },
+                    "unitPrice": { "type": "number" },
+                    "total": { "type": "number" }
+                  }
+                }
+              },
+              "totals": {
+                "type": "object",
+                "properties": {
+                  "subtotal": { "type": "number" },
+                  "taxAmount": { "type": "number" },
+                  "grandTotal": { "type": "number" },
+                  "currency": { "type": "string" }
+                }
+              },
+              "reconciliation": {
+                "type": "object",
+                "properties": {
+                  "isReconciled": { "type": "boolean" },
+                  "delta": { "type": "number" },
+                  "status": { "type": "string" }
+                }
+              }
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "processingTimeMs": { "type": "number" },
+              "engine": { "type": "string" }
+            }
+          }
+        }
+      },
+      "TaxValidationResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "data": { "$ref": "#/components/schemas/TaxValidationData" }
+        }
+      },
+      "TaxValidationData": {
+        "type": "object",
+        "properties": {
+          "isValid": { "type": "boolean" },
+          "taxType": { "type": "string" },
+          "jurisdiction": { "type": "string" },
+          "stateName": { "type": "string" },
+          "stateCode": { "type": "string" },
+          "checksumValid": { "type": "boolean" }
+        }
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string" },
+          "title": { "type": "string" },
+          "status": { "type": "integer" },
+          "detail": { "type": "string" },
+          "instance": { "type": "string" }
+        }
+      }
+    }
+  }
+}
