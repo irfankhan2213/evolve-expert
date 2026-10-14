@@ -9,13 +9,14 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
         {/* Release / Capability Pill */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-mono tracking-wide">
-          <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-          <span>v1.4 Engine: Sub-Second OCR + Luhn Mod-36 Tax Validation</span>
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-mono tracking-wide max-w-full">
+          <Sparkles className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+          <span className="hidden sm:inline">v1.4 Engine: Sub-Second OCR + Luhn Mod-36 Tax Validation</span>
+          <span className="sm:hidden text-[11px]">v1.4: Sub-Second OCR + Tax Engine</span>
         </div>
 
         {/* Main Title */}
-        <h1 className="max-w-4xl mx-auto text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
+        <h1 className="max-w-4xl mx-auto text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
           Universal Invoice OCR with{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">
             Built-In Multi-Region Tax Compliance
@@ -23,13 +24,13 @@ export default function Hero() {
         </h1>
 
         {/* Subtitle */}
-        <p className="max-w-2xl mx-auto text-base sm:text-lg text-zinc-400 leading-relaxed">
+        <p className="max-w-2xl mx-auto text-sm sm:text-lg text-zinc-400 leading-relaxed px-2 sm:px-0">
           Extract line items, totals, and vendor data from PDFs & images in &lt;800ms. Automatically validate Indian GSTIN (Luhn Mod-36), EU VAT, and UK VAT in the same single API call.{" "}
           <strong className="text-zinc-200 font-semibold">Zero $500/mo enterprise minimum commitments.</strong>
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2">
           <a
             href="#playground"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold text-sm transition-all shadow-[0_0_25px_rgba(16,185,129,0.25)] hover:scale-[1.02]"
@@ -46,22 +47,22 @@ export default function Hero() {
         </div>
 
         {/* Live Metrics Grid */}
-        <div className="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-          <div className="p-4 rounded-xl border border-zinc-800/80 bg-zinc-900/30 text-center space-y-1">
-            <span className="text-2xl sm:text-3xl font-bold font-mono text-emerald-400">782ms</span>
-            <p className="text-xs text-zinc-500 font-mono uppercase tracking-wider">Median Latency (p50)</p>
+        <div className="pt-8 sm:pt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto">
+          <div className="p-3 sm:p-4 rounded-xl border border-zinc-800/80 bg-zinc-900/30 text-center space-y-1">
+            <span className="text-xl sm:text-3xl font-bold font-mono text-emerald-400">782ms</span>
+            <p className="text-[10px] sm:text-xs text-zinc-500 font-mono uppercase tracking-wider">Median Latency (p50)</p>
           </div>
-          <div className="p-4 rounded-xl border border-zinc-800/80 bg-zinc-900/30 text-center space-y-1">
-            <span className="text-2xl sm:text-3xl font-bold font-mono text-white">99.4%</span>
-            <p className="text-xs text-zinc-500 font-mono uppercase tracking-wider">Line-Item Accuracy</p>
+          <div className="p-3 sm:p-4 rounded-xl border border-zinc-800/80 bg-zinc-900/30 text-center space-y-1">
+            <span className="text-xl sm:text-3xl font-bold font-mono text-white">99.4%</span>
+            <p className="text-[10px] sm:text-xs text-zinc-500 font-mono uppercase tracking-wider">Line Accuracy</p>
           </div>
-          <div className="p-4 rounded-xl border border-zinc-800/80 bg-zinc-900/30 text-center space-y-1">
-            <span className="text-2xl sm:text-3xl font-bold font-mono text-white">38 States</span>
-            <p className="text-xs text-zinc-500 font-mono uppercase tracking-wider">Indian GST Coverage</p>
+          <div className="p-3 sm:p-4 rounded-xl border border-zinc-800/80 bg-zinc-900/30 text-center space-y-1">
+            <span className="text-xl sm:text-3xl font-bold font-mono text-white">38 States</span>
+            <p className="text-[10px] sm:text-xs text-zinc-500 font-mono uppercase tracking-wider">Indian GST Coverage</p>
           </div>
-          <div className="p-4 rounded-xl border border-zinc-800/80 bg-zinc-900/30 text-center space-y-1">
-            <span className="text-2xl sm:text-3xl font-bold font-mono text-emerald-400">₹0 / $0</span>
-            <p className="text-xs text-zinc-500 font-mono uppercase tracking-wider">Minimum Spend Floor</p>
+          <div className="p-3 sm:p-4 rounded-xl border border-zinc-800/80 bg-zinc-900/30 text-center space-y-1">
+            <span className="text-xl sm:text-3xl font-bold font-mono text-emerald-400">₹0 / $0</span>
+            <p className="text-[10px] sm:text-xs text-zinc-500 font-mono uppercase tracking-wider">Minimum Spend Floor</p>
           </div>
         </div>
       </div>
