@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "@/components/Hero";
 import ComplianceBadges from "@/components/ComplianceBadges";
 import LivePlayground from "@/components/LivePlayground";
+import RoiCalculator from "@/components/RoiCalculator";
 import BentoFeatures from "@/components/BentoFeatures";
 import PricingCards from "@/components/PricingCards";
 import Link from "next/link";
@@ -10,16 +11,19 @@ import { ArrowRight, HelpCircle } from "lucide-react";
 export default function HomePage() {
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
+      {/* Asymmetric Command Studio Hero */}
       <Hero />
 
-      {/* Trust & Compliance Badges */}
+      {/* Trust & Statutory Badges */}
       <ComplianceBadges />
 
-      {/* Interactive Testing Sandbox */}
+      {/* Interactive Testing Sandbox & Visual Document Inspector */}
       <LivePlayground />
 
-      {/* Bento Grid Architecture Features */}
+      {/* Interactive ROI & TCO Cost Analyzer */}
+      <RoiCalculator />
+
+      {/* High-Density 12-Column Architectural Moat Bento Grid */}
       <BentoFeatures />
 
       {/* Transparent Dual-Currency Pricing */}
