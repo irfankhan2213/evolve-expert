@@ -18,8 +18,8 @@ export default function Hero() {
         {/* Main Title */}
         <h1 className="max-w-4xl mx-auto text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
           Universal Invoice OCR with{" "}
-          <span className="block sm:inline text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">
-            Built-In Multi-Region Tax Compliance
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">
+            Built-In Multi-Region <br className="sm:hidden" /> Tax Compliance
           </span>
         </h1>
 

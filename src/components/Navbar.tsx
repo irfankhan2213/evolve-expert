@@ -64,10 +64,10 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+              className="p-2 rounded-lg text-zinc-200 border border-zinc-800 bg-zinc-900/60 hover:text-white hover:bg-zinc-800 hover:border-zinc-700 transition-colors"
               aria-label="Toggle Navigation Menu"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 text-emerald-400" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
