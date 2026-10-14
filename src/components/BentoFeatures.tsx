@@ -97,29 +97,29 @@ func main() {
             </div>
 
             {/* Interactive Anatomy of GSTIN */}
-            <div className="p-4 rounded-xl border border-zinc-800/80 bg-zinc-950/70 space-y-3 font-mono">
+            <div className="p-4 rounded-xl border border-zinc-800/80 bg-zinc-950/70 space-y-3 font-mono overflow-x-auto max-w-full">
               <div className="text-[11px] text-zinc-500 uppercase tracking-wider">
                 15-Character GSTIN Architectural Decomposition
               </div>
-              <div className="grid grid-cols-5 gap-1.5 sm:gap-2 text-center text-xs">
+              <div className="grid grid-cols-5 gap-1 sm:gap-2 text-center text-xs min-w-[280px]">
                 <div className="p-2 rounded bg-zinc-900 border border-zinc-800">
-                  <div className="text-emerald-400 font-bold text-sm">27</div>
+                  <div className="text-emerald-400 font-bold text-xs sm:text-sm">27</div>
                   <div className="text-[9px] sm:text-[10px] text-zinc-400 mt-1">State (MH)</div>
                 </div>
                 <div className="p-2 rounded bg-zinc-900 border border-zinc-800">
-                  <div className="text-cyan-400 font-bold text-sm">AAPFU0939F</div>
+                  <div className="text-cyan-400 font-bold text-[10px] sm:text-sm truncate sm:overflow-visible">AAPFU0939F</div>
                   <div className="text-[9px] sm:text-[10px] text-zinc-400 mt-1">PAN Code</div>
                 </div>
                 <div className="p-2 rounded bg-zinc-900 border border-zinc-800">
-                  <div className="text-teal-400 font-bold text-sm">1</div>
+                  <div className="text-teal-400 font-bold text-xs sm:text-sm">1</div>
                   <div className="text-[9px] sm:text-[10px] text-zinc-400 mt-1">Entity #</div>
                 </div>
                 <div className="p-2 rounded bg-zinc-900 border border-zinc-800">
-                  <div className="text-zinc-400 font-bold text-sm">Z</div>
+                  <div className="text-zinc-400 font-bold text-xs sm:text-sm">Z</div>
                   <div className="text-[9px] sm:text-[10px] text-zinc-500 mt-1">Default</div>
                 </div>
                 <div className="p-2 rounded bg-emerald-950/60 border border-emerald-500/40">
-                  <div className="text-emerald-300 font-bold text-sm">V</div>
+                  <div className="text-emerald-300 font-bold text-xs sm:text-sm">V</div>
                   <div className="text-[9px] sm:text-[10px] text-emerald-400 mt-1">Mod-36</div>
                 </div>
               </div>

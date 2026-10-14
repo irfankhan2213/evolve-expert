@@ -193,10 +193,10 @@ export default function LivePlayground() {
           </div>
 
           {/* Tab Selector */}
-          <div className="flex items-center gap-1 p-1 rounded-lg bg-zinc-900 border border-zinc-800">
+          <div className="flex items-center gap-1 p-1 rounded-lg bg-zinc-900 border border-zinc-800 overflow-x-auto max-w-full scrollbar-none">
             <button
               onClick={() => setActiveTab("visual")}
-              className={`px-3 py-1 rounded text-xs font-medium transition-all flex items-center gap-1.5 ${
+              className={`px-3 py-1 rounded text-xs font-medium transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
                 activeTab === "visual"
                   ? "bg-zinc-800 text-white font-semibold"
                   : "text-zinc-400 hover:text-zinc-200"
@@ -207,7 +207,7 @@ export default function LivePlayground() {
             </button>
             <button
               onClick={() => setActiveTab("table")}
-              className={`px-3 py-1 rounded text-xs font-medium transition-all flex items-center gap-1.5 ${
+              className={`px-3 py-1 rounded text-xs font-medium transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
                 activeTab === "table"
                   ? "bg-zinc-800 text-white font-semibold"
                   : "text-zinc-400 hover:text-zinc-200"
@@ -218,7 +218,7 @@ export default function LivePlayground() {
             </button>
             <button
               onClick={() => setActiveTab("tax-math")}
-              className={`px-3 py-1 rounded text-xs font-medium transition-all flex items-center gap-1.5 ${
+              className={`px-3 py-1 rounded text-xs font-medium transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
                 activeTab === "tax-math"
                   ? "bg-zinc-800 text-white font-semibold"
                   : "text-zinc-400 hover:text-zinc-200"
@@ -229,7 +229,7 @@ export default function LivePlayground() {
             </button>
             <button
               onClick={() => setActiveTab("json")}
-              className={`px-3 py-1 rounded text-xs font-medium transition-all flex items-center gap-1.5 ${
+              className={`px-3 py-1 rounded text-xs font-medium transition-all flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
                 activeTab === "json"
                   ? "bg-zinc-800 text-white font-semibold"
                   : "text-zinc-400 hover:text-zinc-200"
@@ -272,7 +272,7 @@ export default function LivePlayground() {
                             : "border-zinc-800/80 bg-zinc-900/30 hover:border-zinc-700"
                         }`}
                       >
-                        <div className="flex justify-between items-start">
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
                           <div>
                             <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-wider block">
                               VENDOR_ENTITY // CONFIDENCE: 0.998
@@ -280,7 +280,7 @@ export default function LivePlayground() {
                             <div className="text-base font-bold text-white mt-0.5">{result.vendor.name}</div>
                             <div className="text-xs text-zinc-400">{result.vendor.address || "Verified Corporate Address"}</div>
                           </div>
-                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300">
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 self-start sm:self-auto shrink-0">
                             bbox: [32, 45, 340, 52]
                           </span>
                         </div>
@@ -295,18 +295,18 @@ export default function LivePlayground() {
                             : "border-zinc-800/80 bg-zinc-900/30 hover:border-zinc-700"
                         }`}
                       >
-                        <div className="flex justify-between items-center">
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                           <div>
                             <span className="text-[10px] font-mono text-cyan-400 uppercase tracking-wider block">
                               STATUTORY_TAX_ID // LUHN MOD-36
                             </span>
                             <div className="text-sm font-mono font-bold text-white mt-0.5">{result.vendor.taxId}</div>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/30">
+                          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/30 shrink-0">
                               {result.vendor.taxCompliance.taxType}: {result.vendor.taxCompliance.isValid ? "VALID" : "INVALID"}
                             </span>
-                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300">
+                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 shrink-0">
                               bbox: [32, 105, 210, 28]
                             </span>
                           </div>
@@ -322,19 +322,19 @@ export default function LivePlayground() {
                             : "border-zinc-800/80 bg-zinc-900/30 hover:border-zinc-700"
                         }`}
                       >
-                        <div className="flex justify-between items-center mb-2">
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2 gap-1">
                           <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-wider">
                             LINE_ITEMS_TABLE // {result.lineItems.length} DETECTED
                           </span>
-                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300">
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 self-start sm:self-auto shrink-0">
                             bbox: [32, 142, 540, 110]
                           </span>
                         </div>
                         <div className="space-y-1.5 font-mono text-xs">
                           {result.lineItems.map((item, idx) => (
-                            <div key={idx} className="flex justify-between text-zinc-300 border-b border-zinc-800/60 pb-1">
-                              <span className="font-sans text-xs">{item.description}</span>
-                              <span className="font-bold text-white">
+                            <div key={idx} className="flex justify-between items-center text-zinc-300 border-b border-zinc-800/60 pb-1 gap-2">
+                              <span className="font-sans text-xs truncate">{item.description}</span>
+                              <span className="font-bold text-white shrink-0">
                                 {result.totals.currency} {item.total.toLocaleString()}
                               </span>
                             </div>
@@ -351,7 +351,7 @@ export default function LivePlayground() {
                             : "border-zinc-800/80 bg-zinc-900/30 hover:border-zinc-700"
                         }`}
                       >
-                        <div className="flex justify-between items-center">
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                           <div>
                             <span className="text-[10px] font-mono text-teal-400 uppercase tracking-wider block">
                               TOTALS_CROSS_RECONCILIATION // Δ {result.reconciliation.delta}
@@ -360,7 +360,7 @@ export default function LivePlayground() {
                               {result.totals.currency} {result.totals.grandTotal.toLocaleString()}
                             </div>
                           </div>
-                          <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                          <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 self-start sm:self-auto shrink-0">
                             MATH: {result.reconciliation.status}
                           </span>
                         </div>

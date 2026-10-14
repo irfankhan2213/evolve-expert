@@ -70,9 +70,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen bg-[#09090b] text-zinc-100 antialiased flex flex-col justify-between selection:bg-emerald-500/30 selection:text-emerald-300">
+      <body className="min-h-screen bg-[#09090b] text-zinc-100 antialiased flex flex-col justify-between selection:bg-emerald-500/30 selection:text-emerald-300 overflow-x-hidden">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 overflow-x-hidden w-full">{children}</main>
         <Footer />
       </body>
     </html>

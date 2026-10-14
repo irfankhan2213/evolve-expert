@@ -44,8 +44,8 @@ export default function Hero() {
             </div>
 
             {/* Asymmetric Editorial Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold tracking-tight text-white leading-[1.12]">
-              Deterministic Invoice Extraction. <br />
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold tracking-tight text-white leading-[1.15] break-words">
+              Deterministic Invoice Extraction. <br className="hidden sm:inline" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">
                 Built-In Statutory Compliance.
               </span>
@@ -99,15 +99,15 @@ export default function Hero() {
                   : "bg-red-950/30 border-red-500/30 text-red-300"
               }`}>
                 {taxResult.isValid ? (
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                      <span className="font-bold text-white">[PASS]</span>
-                      <span>State: <strong className="text-white">{taxResult.stateName} ({taxResult.stateCode})</strong></span>
-                      <span>•</span>
-                      <span>PAN: <strong className="text-white">{taxResult.pan}</strong></span>
-                      <span>•</span>
-                      <span>Luhn Mod-36: <strong className="text-emerald-400">Match ({taxResult.calculatedCheckChar})</strong></span>
+                  <div className="flex items-start sm:items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5 sm:mt-0" />
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px] sm:text-xs">
+                      <span className="font-bold text-white shrink-0">[PASS]</span>
+                      <span className="break-words">State: <strong className="text-white">{taxResult.stateName} ({taxResult.stateCode})</strong></span>
+                      <span className="hidden sm:inline">•</span>
+                      <span className="break-words">PAN: <strong className="text-white">{taxResult.pan}</strong></span>
+                      <span className="hidden sm:inline">•</span>
+                      <span className="break-words">Luhn Mod-36: <strong className="text-emerald-400">Match ({taxResult.calculatedCheckChar})</strong></span>
                     </div>
                   </div>
                 ) : (
@@ -247,13 +247,13 @@ export default function Hero() {
                     PARSED_TABLE // 2 ITEMS
                   </div>
                   <div className="space-y-1.5 font-mono text-[11px]">
-                    <div className="flex justify-between text-zinc-300 border-b border-zinc-800/60 pb-1">
-                      <span>Enterprise Cloud Architecture</span>
-                      <span className="font-bold text-white">₹40,000.00</span>
+                    <div className="flex justify-between items-center text-zinc-300 border-b border-zinc-800/60 pb-1 gap-2">
+                      <span className="truncate">Enterprise Cloud Architecture</span>
+                      <span className="font-bold text-white shrink-0">₹40,000.00</span>
                     </div>
-                    <div className="flex justify-between text-zinc-300">
-                      <span>Serverless Database Optimisation</span>
-                      <span className="font-bold text-white">₹10,000.00</span>
+                    <div className="flex justify-between items-center text-zinc-300 gap-2">
+                      <span className="truncate">Serverless Database Optimisation</span>
+                      <span className="font-bold text-white shrink-0">₹10,000.00</span>
                     </div>
                   </div>
                 </div>
