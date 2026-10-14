@@ -8,10 +8,12 @@ export default function PricingCards() {
   const [currencyMode, setCurrencyMode] = useState<"INR" | "USD">("INR");
   const [checkoutLoading, setCheckoutLoading] = useState<string | null>(null);
   const [checkoutSuccess, setCheckoutSuccess] = useState<string | null>(null);
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
 
   const handleCheckout = async (planId: string, planName: string) => {
     setCheckoutLoading(planId);
     setCheckoutSuccess(null);
+    setCheckoutError(null);
 
     try {
       const res = await fetch("/api/razorpay/create-order", {
@@ -30,9 +32,12 @@ export default function PricingCards() {
           colors: ["#10b981", "#34d399", "#059669"],
         });
         setCheckoutSuccess(`Order initiated: ${planName}. Simulated payment verified and demo credits provisioned.`);
+      } else {
+        setCheckoutError(data.error || "Unable to initiate order. Please try again.");
       }
     } catch (e) {
       console.error(e);
+      setCheckoutError("Network error contacting payment gateway. Please check your connection.");
     } finally {
       setCheckoutLoading(null);
     }
@@ -84,6 +89,13 @@ export default function PricingCards() {
         <div className="max-w-2xl mx-auto p-4 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-sm font-mono text-center flex items-center justify-center gap-2">
           <ShieldCheck className="w-5 h-5 shrink-0" />
           <span>{checkoutSuccess}</span>
+        </div>
+      )}
+
+      {/* Error Notification */}
+      {checkoutError && (
+        <div className="max-w-2xl mx-auto p-4 rounded-xl border border-red-500/30 bg-red-500/10 text-red-400 text-sm font-mono text-center flex items-center justify-center gap-2">
+          <span>{checkoutError}</span>
         </div>
       )}
 

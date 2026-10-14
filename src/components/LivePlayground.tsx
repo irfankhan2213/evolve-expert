@@ -47,11 +47,51 @@ interface ExtractionData {
   };
 }
 
+const INITIAL_DATA: ExtractionData = {
+  invoiceNumber: "INV-2026-IN-9812",
+  date: "2026-10-12",
+  dueDate: "2026-11-11",
+  vendor: {
+    name: "Tata Consultancy Services Ltd",
+    taxId: "27AAPFU0939F1ZV",
+    address: "TCS House, Raveline Street, Fort, Mumbai, MH 400001",
+    taxCompliance: {
+      taxType: "GSTIN",
+      jurisdiction: "India",
+      isValid: true,
+      stateName: "Maharashtra",
+      stateCode: "27",
+      pan: "AAPFU0939F",
+      checksumValid: true,
+      calculatedCheckChar: "V",
+    },
+  },
+  lineItems: [
+    { description: "Enterprise Cloud Architecture Consulting", quantity: 1, unitPrice: 40000, total: 40000, hsnOrSac: "998313" },
+    { description: "Serverless Database Optimisation Sprint", quantity: 1, unitPrice: 10000, total: 10000, hsnOrSac: "998314" },
+  ],
+  totals: {
+    subtotal: 50000,
+    taxAmount: 9000,
+    discount: 0,
+    grandTotal: 59000,
+    currency: "INR",
+  },
+  reconciliation: {
+    isReconciled: true,
+    calculatedSum: 59000,
+    extractedGrandTotal: 59000,
+    delta: 0,
+    status: "MATCH",
+    warnings: [],
+  },
+};
+
 export default function LivePlayground() {
   const [selectedProfile, setSelectedProfile] = useState<"india-gst" | "us-cloud" | "eu-saas">("india-gst");
   const [activeTab, setActiveTab] = useState<"table" | "tax-math" | "json">("table");
   const [isLoading, setIsLoading] = useState(false);
-  const [result, setResult] = useState<ExtractionData | null>(null);
+  const [result, setResult] = useState<ExtractionData | null>(INITIAL_DATA);
   const [latency, setLatency] = useState<number | null>(782);
 
   // Initial load trigger or profile switch
