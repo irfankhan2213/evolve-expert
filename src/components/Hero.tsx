@@ -35,12 +35,13 @@ export default function Hero() {
           <div className="lg:col-span-7 space-y-6 text-left">
             
             {/* Live Operational Status Telemetry */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-mono tracking-wide">
-              <span className="relative flex h-2 w-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-mono tracking-wide max-w-full">
+              <span className="relative flex h-2 w-2 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span>SYS_STATUS: 38/38 JURISDICTIONS OPERATIONAL // p50: 782ms</span>
+              <span className="hidden sm:inline">SYS_STATUS: 38/38 JURISDICTIONS OPERATIONAL // p50: 782ms</span>
+              <span className="sm:hidden text-[11px]">SYS_STATUS: 38/38 ONLINE // 782ms</span>
             </div>
 
             {/* Asymmetric Editorial Headline */}

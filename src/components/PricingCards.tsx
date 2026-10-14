@@ -58,11 +58,11 @@ export default function PricingCards() {
         </p>
 
         {/* Currency Switcher */}
-        <div className="pt-4 flex items-center justify-center">
-          <div className="inline-flex p-1 rounded-xl bg-zinc-900 border border-zinc-800">
+        <div className="pt-4 flex items-center justify-center max-w-full px-2">
+          <div className="flex flex-col sm:flex-row p-1 rounded-xl bg-zinc-900 border border-zinc-800 max-w-full gap-1 sm:gap-0">
             <button
               onClick={() => setCurrencyMode("INR")}
-              className={`px-4 py-2 rounded-lg text-xs font-semibold font-mono transition-all ${
+              className={`px-3 sm:px-4 py-2 rounded-lg text-xs font-semibold font-mono transition-all text-center ${
                 currencyMode === "INR"
                   ? "bg-emerald-500 text-zinc-950 shadow-md"
                   : "text-zinc-400 hover:text-white"
@@ -72,7 +72,7 @@ export default function PricingCards() {
             </button>
             <button
               onClick={() => setCurrencyMode("USD")}
-              className={`px-4 py-2 rounded-lg text-xs font-semibold font-mono transition-all ${
+              className={`px-3 sm:px-4 py-2 rounded-lg text-xs font-semibold font-mono transition-all text-center ${
                 currencyMode === "USD"
                   ? "bg-emerald-500 text-zinc-950 shadow-md"
                   : "text-zinc-400 hover:text-white"
