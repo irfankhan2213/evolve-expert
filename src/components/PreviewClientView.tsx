@@ -386,14 +386,14 @@ export function PreviewClientView({ data }: { data: PreviewData }) {
             <motion.a
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              href={`https://wa.me/18005550199?text=Hi%20EvolveExpert,%20I'm%20reviewing%20the%20preview%20for%20${encodeURIComponent(
+              href={`https://wa.me/917696936377?text=Hi%20EvolveExpert,%20I'm%20reviewing%20the%20preview%20for%20${encodeURIComponent(
                 data.companyName
               )}`}
               target="_blank"
               rel="noreferrer"
               className="px-8 py-4 rounded-full bg-emerald-600 text-white font-bold text-sm hover:bg-emerald-700 transition shadow-sm block"
             >
-              Discuss on WhatsApp
+              Discuss on WhatsApp (+91 76969 36377)
             </motion.a>
           </div>
         </motion.div>

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { StitchNavbar } from "@/components/StitchNavbar";
 import { StitchFooter } from "@/components/StitchFooter";
-import { MessageSquare, Mail, Check, Clock, Loader2 } from "lucide-react";
+import { MessageSquare, Mail, Check, Clock, Loader2, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function ContactClientView() {
@@ -13,7 +13,7 @@ export function ContactClientView() {
     email: "",
     website: "",
     phone: "",
-    budget: "$950 – $1,250 USD",
+    budget: "$950 / ₹65,000",
     notes: "",
   });
   const [loading, setLoading] = useState(false);
@@ -90,18 +90,27 @@ export function ContactClientView() {
               </div>
               <h2 className="text-xl font-bold text-[#111111]">Direct WhatsApp Hotline</h2>
               <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                Need an immediate answer or want to send your current Figma link or live site? Ping our engineering team on WhatsApp.
+                Need an immediate answer or want to send your current Figma link or live site? Ping our engineering team on WhatsApp (+91 76969 36377).
               </p>
-              <motion.a
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                href="https://wa.me/18005550199?text=Hi%20EvolveExpert,%20I'd%20like%20to%20discuss%20a%207-day%20sprint"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 bg-[#25D366] text-white text-xs font-bold px-5 py-3 rounded-full hover:bg-emerald-600 transition shadow-xs"
-              >
-                <span>Chat on WhatsApp</span>
-              </motion.a>
+              <div className="flex flex-wrap items-center gap-3">
+                <motion.a
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  href="https://wa.me/917696936377?text=Hi%20EvolveExpert,%20I'd%20like%20to%20discuss%20a%207-day%20sprint"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#25D366] text-white text-xs font-bold px-5 py-3 rounded-full hover:bg-emerald-600 transition shadow-xs"
+                >
+                  <span>Chat on Business WhatsApp</span>
+                </motion.a>
+                <a
+                  href="tel:+917973727820"
+                  className="inline-flex items-center gap-1.5 bg-neutral-100 text-[#111111] text-xs font-semibold px-4 py-3 rounded-full hover:bg-neutral-200 transition"
+                >
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>+91 79737 27820</span>
+                </a>
+              </div>
             </motion.div>
 
             {/* Email & Guarantee Card */}
@@ -117,7 +126,7 @@ export function ContactClientView() {
               </div>
               <h2 className="text-xl font-bold text-[#111111]">Studio Concierge Email</h2>
               <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                concierge@evolveexpert.com
+                concierge@evolveexpert.com · Business WhatsApp: +91 76969 36377
               </p>
               <div className="pt-2 text-xs text-neutral-500 flex items-center gap-2 font-mono">
                 <Clock className="w-4 h-4 text-emerald-600" />
@@ -138,7 +147,7 @@ export function ContactClientView() {
               </div>
               <p className="text-lg font-bold">2 Slots Available This Week</p>
               <p className="text-xs text-neutral-400">
-                Next sprint starts Monday 09:00 AM UTC.
+                Next sprint starts Monday 09:00 AM IST.
               </p>
             </motion.div>
           </div>
@@ -173,7 +182,7 @@ export function ContactClientView() {
                       <input
                         type="text"
                         required
-                        placeholder="Jane Doe"
+                        placeholder="Alex Sharma"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-200 text-sm focus:outline-none focus:border-black transition"
@@ -185,7 +194,7 @@ export function ContactClientView() {
                       <input
                         type="email"
                         required
-                        placeholder="jane@company.com"
+                        placeholder="alex@company.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-200 text-sm focus:outline-none focus:border-black transition"
@@ -209,7 +218,7 @@ export function ContactClientView() {
                       <label className="text-xs font-bold text-neutral-700">WhatsApp / Phone</label>
                       <input
                         type="text"
-                        placeholder="+1 (555) 000-0000"
+                        placeholder="+91 98765 43210"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-200 text-sm focus:outline-none focus:border-black transition"
@@ -226,6 +235,7 @@ export function ContactClientView() {
                     >
                       <option value="$950 / ₹65,000">7-Day Founder Web Sprint ($950 USD / ₹65,000 INR)</option>
                       <option value="$1,250 / ₹90,000">Web Sprint + 24/7 AI &amp; WhatsApp ($1,250 USD / ₹90,000 INR)</option>
+                      <option value="$200/mo / ₹10,000/mo">Post-Launch AI &amp; Webhook Retainer ($200/mo / ₹10,000/mo)</option>
                       <option value="Enterprise Custom">Multi-Product / Custom SaaS Platform</option>
                     </select>
                   </div>
@@ -273,12 +283,23 @@ export function ContactClientView() {
                     Intake Received!
                   </h3>
                   <p className="text-sm text-neutral-600 max-w-md mx-auto">
-                    Our lead engineering team is reviewing your project details. We will send your Notion sprint invitation within 4 hours.
+                    Our lead engineering team is reviewing your project details. Want an instant reply? Tap below to send your intake straight to our Business WhatsApp.
                   </p>
-                  <div className="pt-4">
+                  <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
+                    <a
+                      href={`https://wa.me/917696936377?text=${encodeURIComponent(
+                        `Hi EvolveExpert, I just submitted a sprint application for ${formData.website || formData.name} (${formData.budget}).`
+                      )}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 bg-[#25D366] text-white text-xs font-bold px-6 py-3 rounded-full hover:bg-emerald-600 transition shadow-sm"
+                    >
+                      <MessageSquare className="w-4 h-4" />
+                      <span>Open Instant WhatsApp Thread</span>
+                    </a>
                     <Link
                       href="/"
-                      className="inline-flex items-center gap-2 text-xs font-mono text-emerald-600 font-bold hover:underline"
+                      className="inline-flex items-center gap-2 text-xs font-mono text-neutral-600 font-bold hover:underline px-4 py-3"
                     >
                       <span>← Return to Home</span>
                     </Link>

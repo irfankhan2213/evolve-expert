@@ -4,17 +4,18 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { StitchNavbar } from "@/components/StitchNavbar";
 import { StitchFooter } from "@/components/StitchFooter";
-import { Check, ShieldCheck, ChevronDown } from "lucide-react";
+import { Check, ShieldCheck, ChevronDown, Bot } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function PricingClientView() {
-  const [currency, setCurrency] = useState<"USD" | "INR">("USD");
+  const [currency, setCurrency] = useState<"USD" | "INR">("INR");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const pricing = {
     USD: {
       tier1: "$950",
       tier2: "$1,250",
+      retainer: "$200/mo",
       deposit1: "$475",
       mid1: "$380",
       final1: "$95",
@@ -26,6 +27,7 @@ export function PricingClientView() {
     INR: {
       tier1: "₹65,000",
       tier2: "₹90,000",
+      retainer: "₹10,000/mo",
       deposit1: "₹32,500",
       mid1: "₹26,000",
       final1: "₹6,500",
@@ -56,8 +58,8 @@ export function PricingClientView() {
       a: "Yes! In Tier 2, we configure the official Meta WhatsApp Business Cloud API directly on your business phone number or brand handle, enabling automated customer triage and lead capture 24/7.",
     },
     {
-      q: "What technologies do you use?",
-      a: "We engineer exclusively on Next.js 16 (App Router), TypeScript, Tailwind CSS, Vercel Edge hosting, Supabase/PostgreSQL, and official OpenAI/Anthropic APIs for AI logic. This ensures zero plugin vulnerability and sub-500ms global response times.",
+      q: "What is covered in the ₹10,000/mo ($200/mo) Post-Launch Retainer?",
+      a: "After your included 30-day warranty window, you can opt into our monthly engineering retainer covering LLM prompt tuning, up to 5 new Meta WhatsApp template approvals per month, Shopify/Tally webhook monitoring, and a 48-hour emergency SLA.",
     },
   ];
 
@@ -90,22 +92,6 @@ export function PricingClientView() {
             <div className="inline-flex bg-white p-1 rounded-full border border-neutral-300 shadow-2xs relative">
               <button
                 type="button"
-                onClick={() => setCurrency("USD")}
-                className={`relative px-5 py-2 rounded-full text-xs font-semibold transition-colors duration-200 z-10 ${
-                  currency === "USD" ? "text-white" : "text-neutral-600 hover:text-black"
-                }`}
-              >
-                {currency === "USD" && (
-                  <motion.div
-                    layoutId="pricingPageCurrencyPill"
-                    className="absolute inset-0 bg-[#111111] rounded-full z-[-1] shadow-xs"
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                  />
-                )}
-                Global (USD $)
-              </button>
-              <button
-                type="button"
                 onClick={() => setCurrency("INR")}
                 className={`relative px-5 py-2 rounded-full text-xs font-semibold transition-colors duration-200 z-10 ${
                   currency === "INR" ? "text-white" : "text-neutral-600 hover:text-black"
@@ -119,6 +105,22 @@ export function PricingClientView() {
                   />
                 )}
                 India (INR ₹)
+              </button>
+              <button
+                type="button"
+                onClick={() => setCurrency("USD")}
+                className={`relative px-5 py-2 rounded-full text-xs font-semibold transition-colors duration-200 z-10 ${
+                  currency === "USD" ? "text-white" : "text-neutral-600 hover:text-black"
+                }`}
+              >
+                {currency === "USD" && (
+                  <motion.div
+                    layoutId="pricingPageCurrencyPill"
+                    className="absolute inset-0 bg-[#111111] rounded-full z-[-1] shadow-xs"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+                Global (USD $)
               </button>
             </div>
           </div>
@@ -322,6 +324,38 @@ export function PricingClientView() {
             </div>
           </motion.div>
         </div>
+
+        {/* Post-Launch AI & Webhook Maintenance Retainer Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-8 rounded-[28px] bg-white border border-black/5 p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm"
+        >
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+              <Bot className="w-6 h-6" />
+            </div>
+            <div>
+              <div className="text-xs font-mono uppercase tracking-wider text-emerald-700 font-bold mb-1">
+                Optional Ongoing Partnership
+              </div>
+              <h3 className="text-xl font-bold text-[#111111]">
+                Post-Launch AI &amp; Webhook Maintenance Retainer — {curr.retainer}
+              </h3>
+              <p className="text-xs sm:text-sm text-neutral-600 max-w-2xl mt-1 leading-relaxed">
+                Covers monthly LLM prompt tuning, up to 5 new Meta WhatsApp template approvals, Shopify/CRM API deprecation updates, and a 48-hour emergency uptime SLA.
+              </p>
+            </div>
+          </div>
+          <Link
+            href="/contact"
+            className="px-6 py-3 rounded-full bg-[#111111] text-white text-xs font-bold whitespace-nowrap hover:bg-neutral-800 transition shadow-xs"
+          >
+            Add Retainer →
+          </Link>
+        </motion.div>
       </section>
 
       {/* FAQ Accordion with AnimatePresence */}

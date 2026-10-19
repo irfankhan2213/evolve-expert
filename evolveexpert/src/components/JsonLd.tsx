@@ -18,20 +18,29 @@ export function JsonLd() {
         "description": "High-performance Next.js 16 web engineering & AI systems studio delivering turnkey platforms in 7-day sprints.",
         "founder": {
           "@type": "Person",
-          "name": "EvolveExpert Engineering Team",
-          "jobTitle": "Lead Fullstack & AI Architects"
+          "name": "Irfan Khan",
+          "jobTitle": "Lead Fullstack & AI Architect"
         },
         "sameAs": [
           "https://github.com/evolveexpert",
           "https://twitter.com/evolveexpert",
           "https://linkedin.com/company/evolveexpert"
         ],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "Client Concierge & Direct Engineering",
-          "email": "concierge@evolveexpert.com",
-          "availableLanguage": ["English", "Hindi"]
-        }
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "contactType": "Client Concierge & Direct Engineering (WhatsApp Business)",
+            "email": "concierge@evolveexpert.com",
+            "telephone": "+91-7696936377",
+            "availableLanguage": ["English", "Hindi", "Punjabi"]
+          },
+          {
+            "@type": "ContactPoint",
+            "contactType": "Direct Founder Line",
+            "telephone": "+91-7973727820",
+            "availableLanguage": ["English", "Hindi", "Punjabi"]
+          }
+        ]
       },
       {
         "@type": "WebSite",
@@ -50,12 +59,14 @@ export function JsonLd() {
         "image": "https://evolveexpert.com/images/portfolio/wescale.jpg",
         "priceRange": "$950 - $1,250 USD / ₹65,000 - ₹90,000 INR",
         "currenciesAccepted": "USD, INR",
-        "paymentAccepted": "Credit Card, Stripe, Razorpay, Wire Transfer, Escrow",
+        "paymentAccepted": "Credit Card, Stripe, Razorpay, UPI, Wire Transfer, Escrow",
         "areaServed": "Global",
-        "telephone": "+1-800-EVOLVE-01",
+        "telephone": "+91-7696936377",
         "address": {
           "@type": "PostalAddress",
-          "addressCountry": "Global"
+          "addressLocality": "Ludhiana",
+          "addressRegion": "Punjab",
+          "addressCountry": "IN"
         },
         "aggregateRating": {
           "@type": "AggregateRating",

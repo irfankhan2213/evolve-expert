@@ -175,7 +175,23 @@ export function StitchFooter() {
           </nav>
         </div>
 
-        <div>
+        <div className="flex flex-col sm:flex-row items-center gap-3 text-xs">
+          <a
+            href="https://wa.me/917696936377?text=Hi%20EvolveExpert,%20I'd%20like%20to%20discuss%20a%207-day%20sprint"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-800 font-semibold border border-emerald-200 hover:bg-emerald-100 transition shadow-2xs font-mono"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+            WhatsApp: +91 76969 36377
+          </a>
+          <a
+            href="tel:+917973727820"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-neutral-100 text-neutral-800 font-semibold hover:bg-neutral-200 transition font-mono"
+          >
+            Direct: +91 79737 27820
+          </a>
+          <span className="text-neutral-400 hidden md:inline">|</span>
           <span>
             © {new Date().getFullYear()} EvolveExpert Studio. All rights reserved. Sub-0.5s Web Engineering.
           </span>
