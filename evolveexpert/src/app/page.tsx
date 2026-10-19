@@ -7,6 +7,7 @@ import { DarkManifesto } from "@/components/DarkManifesto";
 import { CreatiwiseGravityPills } from "@/components/CreatiwiseGravityPills";
 import { HowWeWorkTags } from "@/components/HowWeWorkTags";
 import { StitchPortfolio } from "@/components/StitchPortfolio";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { StitchCapabilitiesAndPricing } from "@/components/StitchCapabilitiesAndPricing";
 import { StitchFooter } from "@/components/StitchFooter";
 
@@ -36,6 +37,7 @@ export default function HomePage() {
       <CreatiwiseGravityPills />
       <HowWeWorkTags />
       <StitchPortfolio />
+      <TestimonialsSection />
       <StitchCapabilitiesAndPricing />
       <StitchFooter />
     </main>
