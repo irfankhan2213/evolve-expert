@@ -1,43 +1,84 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { JsonLd } from "@/components/JsonLd";
+import { AiReferralTracker } from "@/components/AiReferralTracker";
+
+export const viewport: Viewport = {
+  themeColor: "#F3F3F1",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
-  title: "EvolveExpert | Universal Invoice OCR & Multi-Region Tax Compliance API",
-  description:
-    "Sub-second AI invoice & receipt parsing with built-in Indian GSTIN (Luhn Mod-36), EU VAT (VIES), and UK VAT validation. Zero $500/mo minimum spend.",
-  keywords: [
-    "invoice parser api",
-    "receipt ocr json",
-    "gstin checksum api",
-    "luhn mod 36 gstin",
-    "vat validation api",
-    "accounts payable automation",
-    "line item extraction api",
-  ],
-  authors: [{ name: "EvolveExpert Technologies" }],
-  creator: "Irfan Khan",
-  publisher: "EvolveExpert Technologies",
   metadataBase: new URL("https://evolveexpert.com"),
-  alternates: {
-    canonical: "/",
+  title: {
+    default: "EvolveExpert — Pure Web ('26) & AI Systems Studio",
+    template: "%s | EvolveExpert Studio",
+  },
+  description:
+    "Turnkey Next.js 16 web engineering & 24/7 AI systems delivered in rigid 7-day asynchronous sprints. 100/100 Core Web Vitals, 0 account managers, 50/40/10 milestone escrow.",
+  keywords: [
+    "Next.js 16 Web Studio",
+    "Turnkey 7-Day Sprint",
+    "AI Systems Engineering",
+    "High Conversion Web Design",
+    "Core Web Vitals 100/100",
+    "Tailwind CSS Web Development",
+    "WhatsApp AI Automation",
+    "DiaDia Health",
+    "WeScale Startups",
+    "Full-Stack Web Engineering",
+  ],
+  authors: [{ name: "EvolveExpert Studio", url: "https://evolveexpert.com" }],
+  creator: "EvolveExpert Studio",
+  publisher: "EvolveExpert Studio",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
   openGraph: {
-    title: "EvolveExpert | Universal Invoice OCR & Tax Compliance API",
-    description:
-      "Extract line-item tables and validate multi-region tax IDs in <800ms. Zero $500/mo enterprise minimum commitments.",
-    url: "https://evolveexpert.com",
-    siteName: "EvolveExpert",
-    locale: "en_US",
     type: "website",
+    locale: "en_US",
+    url: "https://evolveexpert.com",
+    title: "EvolveExpert — Pure Web ('26) & AI Systems Studio",
+    description:
+      "Turnkey Next.js 16 web engineering & 24/7 AI systems delivered in rigid 7-day asynchronous sprints. Sub-0.5s LCP, zero bloat.",
+    siteName: "EvolveExpert",
+    images: [
+      {
+        url: "/images/portfolio/wescale.jpg",
+        width: 1200,
+        height: 630,
+        alt: "EvolveExpert Studio — Pure Web & AI Systems",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "EvolveExpert | Universal Invoice OCR & Tax Compliance API",
-    description: "Extract line-item tables and validate multi-region tax IDs in <800ms.",
+    title: "EvolveExpert — Pure Web ('26) & AI Systems Studio",
+    description:
+      "Turnkey Next.js 16 web engineering & 24/7 AI systems delivered in 7-day sprints. 100/100 Core Web Vitals.",
+    images: ["/images/portfolio/wescale.jpg"],
+    creator: "@evolveexpert",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://evolveexpert.com",
   },
 };
+
+import { ScrollProgress } from "@/components/ScrollProgress";
 
 export default function RootLayout({
   children,
@@ -45,35 +86,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              name: "EvolveExpert Document & Tax Intelligence API",
-              operatingSystem: "Cloud / REST API",
-              applicationCategory: "BusinessApplication",
-              offers: {
-                "@type": "Offer",
-                price: "249",
-                priceCurrency: "INR",
-              },
-              creator: {
-                "@type": "Organization",
-                name: "EvolveExpert Technologies",
-                url: "https://evolveexpert.com",
-              },
-            }),
-          }}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
+          rel="stylesheet"
         />
+        <JsonLd />
       </head>
-      <body className="min-h-screen bg-[#09090b] text-zinc-100 antialiased flex flex-col justify-between selection:bg-emerald-500/30 selection:text-emerald-300 overflow-x-hidden">
-        <Navbar />
-        <main className="flex-1 overflow-x-hidden w-full">{children}</main>
-        <Footer />
+      <body className="min-h-screen bg-[#F3F3F1] text-[#111111] antialiased selection:bg-[#111111] selection:text-white">
+        <ScrollProgress />
+        <AiReferralTracker />
+        {children}
       </body>
     </html>
   );
