@@ -58,7 +58,8 @@ export function StitchPortfolio() {
   ];
 
   return (
-    <section id="proof" className="max-w-[1360px] mx-auto px-5 sm:px-10 py-20">
+    <section id="proof" className="max-w-[1360px] mx-auto px-5 sm:px-10 py-20 scroll-mt-10">
+      <div id="work" className="sr-only" />
       {/* Section Header (WeScale Style) */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-12 border-b border-neutral-200">
         <div className="space-y-3 max-w-2xl">
