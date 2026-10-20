@@ -2,80 +2,58 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  ArrowUpRight,
+  RefreshCw,
+  Cpu,
+  MessageSquare,
+  ShoppingBag,
+  Kanban,
+  CheckCircle2,
+  CheckCircle,
+  Clock,
+  Circle,
+  ShieldCheck,
+  Zap,
+} from "lucide-react";
+import { motion } from "framer-motion";
 
-interface ShowcaseData {
-  titleName: string;
-  subtitle: string;
-  badge: string;
-  dotColor: string;
-  domain: string;
-  categoryMeta: string;
-  clientWordmark: string;
-  context: string;
-  body: string;
-  stats: { value: string; label: string }[];
-  link: string;
-}
+const CARD_CONFIGS = [
+  { id: 0, label: "Next.js Edge" },
+  { id: 1, label: "WhatsApp AI" },
+  { id: 2, label: "Shopify OS" },
+  { id: 3, label: "Notion Hub" },
+];
 
-const HERO_SHOWCASE: Record<string, ShowcaseData> = {
-  diadia: {
-    titleName: "DiaDia Health",
-    subtitle: "· Clinical UX",
-    badge: "0.4s LCP",
-    dotColor: "bg-emerald-400",
-    domain: "diadiahealth.com",
-    categoryMeta: "PAID · HEALTHTECH · 7-DAY SPRINT",
-    clientWordmark: "DIADIA",
-    context: "Clinical UX · Diagnostic Triage from Zero",
-    body: "Replaced slow legacy Webflow architecture with a turnkey Next.js 16 clinical booking engine. Engineered instant patient symptom routing directly to physician schedules.",
-    stats: [
-      { value: "0.4s", label: "LCP Load Speed" },
-      { value: "98/100", label: "Mobile Core Web Vitals" },
-      { value: "+140%", label: "Patient Conversion Lift" },
-    ],
-    link: "https://diadiahealth.com",
-  },
-  wescale: {
-    titleName: "WeScale Startups",
-    subtitle: "· B2B Studio",
-    badge: "0.4s Load",
-    dotColor: "bg-sky-400",
-    domain: "wescalestartups.com",
-    categoryMeta: "PAID · B2B SAAS · 7-DAY SPRINT",
-    clientWordmark: "WSSCALE",
-    context: "AI Growth Studio · Conversion Funnel + SEO",
-    body: "Engineered editorial Next.js 16 platform with automated funnel architecture, 100/100 SEO structured data, and sub-second global edge delivery for venture founders.",
-    stats: [
-      { value: "0.4s", label: "Edge TTFB" },
-      { value: "100/100", label: "Technical SEO Score" },
-      { value: "+85%", label: "Scorecard Completion" },
-    ],
-    link: "https://wescalestartups.com",
-  },
-  daniel: {
-    titleName: "Daniel Johnson",
-    subtitle: "· Advisory Platform",
-    badge: "99/100 Speed",
-    dotColor: "bg-amber-400",
-    domain: "danieljohnson.xyz",
-    categoryMeta: "PAID · ADVISORY & AI · 7-DAY SPRINT",
-    clientWordmark: "DANIEL",
-    context: "Executive Thought-Leadership · High Authority",
-    body: "Minimalist, high-craft personal platform built with Next.js 16 and zero third-party script bloat. 100/100 PageSpeed with automated lead routing.",
-    stats: [
-      { value: "0.3s", label: "Global LCP" },
-      { value: "99/100", label: "Mobile Speed Score" },
-      { value: "0 bloat", label: "Vanilla Next.js 16" },
-    ],
-    link: "https://danieljohnson.xyz",
-  },
-};
+const CARD_TRANSFORMS = [
+  { transform: "translate3d(0, 0, 0px) rotate(0deg)", zIndex: 40, opacity: 1, pointerEvents: "auto" as const },
+  { transform: "translate3d(10px, 14px, -35px) rotate(2.5deg)", zIndex: 30, opacity: 0.94, pointerEvents: "none" as const },
+  { transform: "translate3d(20px, 28px, -70px) rotate(-3deg)", zIndex: 20, opacity: 0.85, pointerEvents: "none" as const },
+  { transform: "translate3d(30px, 42px, -105px) rotate(4deg)", zIndex: 10, opacity: 0.72, pointerEvents: "none" as const },
+];
 
 export function StitchHero() {
-  const [activeTab, setActiveTab] = useState<"diadia" | "wescale" | "daniel">("diadia");
-  const current = HERO_SHOWCASE[activeTab];
+  const [activeDeckIndex, setActiveDeckIndex] = useState(0);
+  const [isTurbo, setIsTurbo] = useState(true);
+  const [botReply, setBotReply] = useState("Founder: How fast is turnkey delivery?");
+  const [isReplying, setIsReplying] = useState(false);
+
+  const shuffleDeckNext = () => {
+    setActiveDeckIndex((prev) => (prev + 1) % 4);
+  };
+
+  const handleStageClick = (e: React.MouseEvent) => {
+    if ((e.target as HTMLElement).closest("button, a")) return;
+    shuffleDeckNext();
+  };
+
+  const triggerPromptChip = (replyText: string) => {
+    setIsReplying(true);
+    setBotReply(`EvolveExpert Bot: ${replyText}`);
+    setTimeout(() => {
+      setIsReplying(false);
+    }, 600);
+  };
 
   return (
     <section className="relative max-w-[1360px] mx-auto px-5 sm:px-10 pt-4 pb-16 overflow-hidden">
@@ -207,140 +185,400 @@ export function StitchHero() {
           </motion.div>
         </div>
 
-        {/* Right Column: Editorial Visual Showcase Card */}
+        {/* Right Column: 3D Tactile Card Shuffle Deck (Created in Stitch MCP) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-5"
         >
-          <div className="relative bg-[#FAF9F5] p-6 sm:p-8 rounded-[36px] border border-black/10 shadow-[0_24px_60px_rgba(0,0,0,0.08)] ring-1 ring-black/5 space-y-5 group">
-            {/* Switcher Tabs Row with Spring Pill */}
-            <div className="flex items-center gap-1.5 p-1 rounded-full bg-neutral-200/60 border border-neutral-300/80 overflow-x-auto relative">
-              {[
-                { id: "diadia", label: "DiaDia Health" },
-                { id: "wescale", label: "WeScale" },
-                { id: "daniel", label: "Daniel J." },
-              ].map((tab) => {
-                const isActive = activeTab === tab.id;
+          <div className="relative bg-[#FAF9F5] p-5 sm:p-7 rounded-[36px] border border-black/10 shadow-[0_24px_60px_rgba(0,0,0,0.08)] ring-1 ring-black/5 select-none">
+            {/* Deck Header & Controller Bar */}
+            <div className="w-full flex items-center justify-between mb-3 px-1">
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-500 font-semibold">
+                  TACTILE SYSTEM DECK
+                </span>
+              </div>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <span className="text-xs font-mono font-bold text-neutral-800 bg-white px-2.5 py-1 rounded-full border border-black/10 shadow-xs">
+                  0{activeDeckIndex + 1} / 04
+                </span>
+                <button
+                  type="button"
+                  onClick={shuffleDeckNext}
+                  className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#111111] text-white text-xs font-semibold rounded-full hover:bg-neutral-800 active:scale-95 transition-all shadow-xs cursor-pointer"
+                >
+                  <RefreshCw className="w-3 h-3" />
+                  <span>Shuffle Deck</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Quick Tab Selector Pills */}
+            <div className="w-full grid grid-cols-4 gap-1 p-1 rounded-2xl bg-white border border-black/5 shadow-xs mb-4 text-[11px] font-mono">
+              {CARD_CONFIGS.map((tab) => {
+                const isActive = activeDeckIndex === tab.id;
                 return (
                   <button
                     key={tab.id}
                     type="button"
-                    onClick={() => setActiveTab(tab.id as "diadia" | "wescale" | "daniel")}
-                    className={`relative flex-1 py-1.5 px-3 rounded-full text-xs font-semibold tracking-tight transition-colors duration-200 z-10 ${
-                      isActive ? "text-white" : "text-neutral-600 hover:text-black"
+                    onClick={() => setActiveDeckIndex(tab.id)}
+                    className={`py-1.5 px-1.5 sm:px-2 rounded-xl transition-all text-center truncate cursor-pointer ${
+                      isActive
+                        ? "font-bold bg-[#111111] text-white shadow-xs"
+                        : "font-medium text-neutral-500 hover:text-black hover:bg-neutral-100"
                     }`}
                   >
-                    {isActive && (
-                      <motion.div
-                        layoutId="activeHeroTabIndicator"
-                        className="absolute inset-0 bg-[#111111] rounded-full z-[-1] shadow-xs"
-                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                      />
-                    )}
                     {tab.label}
                   </button>
                 );
               })}
             </div>
 
-            {/* Header Row: Category & Speed Badge */}
-            <div className="flex items-center justify-between">
-              <div>
-                <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 font-medium block">
-                  Featured Production Build
-                </span>
-                <h3 className="text-xl font-bold tracking-tight text-[#111111] mt-0.5">
-                  {current.titleName}{" "}
-                  <span className="font-normal text-neutral-500">
-                    {current.subtitle}
-                  </span>
-                </h3>
-              </div>
-              <div className="text-right shrink-0">
-                <span className="inline-flex items-center gap-1.5 bg-[#111111] text-white text-xs font-mono px-3.5 py-1.5 rounded-full font-medium shadow-xs">
-                  <span className={`w-2 h-2 rounded-full ${current.dotColor} animate-pulse`}></span>
-                  <span>{current.badge}</span>
-                </span>
-              </div>
-            </div>
+            {/* 3D Perspective Card Container */}
+            <div
+              className="relative w-full min-h-[460px] h-[480px] cursor-pointer"
+              style={{ perspective: "1200px", transformStyle: "preserve-3d" }}
+              onClick={handleStageClick}
+            >
+              {/* Card 0: Next.js 15 Edge SSR Engine */}
+              {(() => {
+                const offset = (0 - activeDeckIndex + 4) % 4;
+                const cfg = CARD_TRANSFORMS[offset];
+                return (
+                  <div
+                    className="absolute inset-0 rounded-[30px] p-6 text-white bg-gradient-to-br from-[#121417] via-[#1A1F26] to-[#0F1216] border border-white/15 shadow-2xl transition-all duration-500 ease-out flex flex-col justify-between overflow-hidden"
+                    style={{
+                      transform: cfg.transform,
+                      zIndex: cfg.zIndex,
+                      opacity: cfg.opacity,
+                      pointerEvents: cfg.pointerEvents,
+                    }}
+                  >
+                    {/* Gloss reflection highlight */}
+                    <div className="absolute -right-20 -top-20 w-56 h-56 bg-sky-500/10 rounded-full blur-2xl pointer-events-none" />
 
-            {/* WeScale-Style Evidence & Proof Canvas (Zero Screenshots) */}
-            <div className="rounded-[24px] overflow-hidden border border-black/10 bg-[#0E0E11] text-white p-6 sm:p-7 flex flex-col justify-between shadow-inner min-h-[380px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTab}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                  className="h-full flex flex-col justify-between space-y-5"
-                >
-                  {/* Topline: Meta tag + Wordmark */}
-                  <div className="flex items-center justify-between border-b border-white/10 pb-3 text-xs font-mono">
-                    <span className="text-neutral-400 font-medium tracking-wider">
-                      {current.categoryMeta}
-                    </span>
-                    <span className="font-bold tracking-widest text-emerald-400">
-                      {current.clientWordmark}
-                    </span>
-                  </div>
-
-                  {/* Context & Description */}
-                  <div className="space-y-1.5">
-                    <h4 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
-                      {current.context}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed pt-1">
-                      {current.body}
-                    </p>
-                  </div>
-
-                  {/* 3-Column Stats Row (Matching WeScale's v9-case-stats) */}
-                  <div className="grid grid-cols-3 gap-2 py-3.5 border-t border-b border-white/10">
-                    {current.stats.map((stat, idx) => (
-                      <div key={idx} className="space-y-0.5">
-                        <strong className="text-xl sm:text-2xl font-extrabold text-white tracking-tight block">
-                          {stat.value}
-                        </strong>
-                        <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block leading-tight">
-                          {stat.label}
+                    <div>
+                      <div className="flex items-center justify-between text-xs font-mono text-neutral-400 mb-4">
+                        <span className="px-2.5 py-1 rounded-full bg-white/10 text-sky-300 font-semibold border border-white/10 flex items-center gap-1.5">
+                          <Cpu className="w-3 h-3 text-sky-400" /> CORE ENGINE 01
+                        </span>
+                        <span className="text-emerald-400 font-bold flex items-center gap-1.5">
+                          <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                          </span>
+                          EDGE DEPLOYED
                         </span>
                       </div>
-                    ))}
-                  </div>
 
-                  {/* Footer Strip: Verified Live Domain & Action Button */}
-                  <div className="flex items-center justify-between pt-1">
-                    <a
-                      href={current.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 text-xs font-mono font-bold text-white hover:text-emerald-300 transition group"
-                    >
-                      <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                      <div className="flex items-baseline justify-between">
+                        <h3 className="text-2xl font-bold tracking-tight text-white">Next.js 15 Edge SSR</h3>
+                        <span className="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-semibold">
+                          42KB Clean Bundle
+                        </span>
+                      </div>
+                      <p className="text-xs text-neutral-400 mt-1">
+                        High-density server components with zero client-side hydration penalty.
+                      </p>
+
+                      {/* Telemetry & Gauges Grid */}
+                      <div className="grid grid-cols-3 gap-2.5 mt-5 font-mono text-xs">
+                        <div className="bg-white/[0.04] border border-white/10 p-3 rounded-2xl">
+                          <span className="text-[10px] text-neutral-400 uppercase">LCP Speed</span>
+                          <p className="text-xl font-bold text-white mt-1">
+                            {isTurbo ? "0.38s" : "0.72s"}
+                          </p>
+                          <span className="text-[10px] text-emerald-400">99.8th percentile</span>
+                        </div>
+                        <div className="bg-white/[0.04] border border-white/10 p-3 rounded-2xl">
+                          <span className="text-[10px] text-neutral-400 uppercase">Global Ping</span>
+                          <p className="text-xl font-bold text-sky-400 mt-1">
+                            {isTurbo ? "18ms" : "48ms"}
+                          </p>
+                          <span className="text-[10px] text-neutral-400">Cloudflare Edge</span>
+                        </div>
+                        <div className="bg-white/[0.04] border border-white/10 p-3 rounded-2xl">
+                          <span className="text-[10px] text-neutral-400 uppercase">PageSpeed</span>
+                          <p className="text-xl font-bold text-emerald-400 mt-1">100</p>
+                          <span className="text-[10px] text-neutral-400">Google Core Web</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Interactive Speed Audit Switch */}
+                    <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                      <div className="flex items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setIsTurbo(!isTurbo);
+                          }}
+                          className={`w-9 h-5 rounded-full p-0.5 transition-colors relative flex items-center cursor-pointer ${
+                            isTurbo ? "bg-emerald-500" : "bg-neutral-600"
+                          }`}
+                          aria-label="Toggle Turbo Edge Mode"
+                        >
+                          <span
+                            className={`w-4 h-4 rounded-full bg-white transition-transform shadow-sm ${
+                              isTurbo ? "translate-x-4" : "translate-x-0"
+                            }`}
+                          />
+                        </button>
+                        <span className="font-mono text-neutral-300">
+                          {isTurbo ? "Turbo Edge Mode Active" : "Standard Cache Mode"}
+                        </span>
+                      </div>
+                      <span className="text-[11px] font-mono text-neutral-400">
+                        Click Card to Flip / Cycle →
                       </span>
-                      <span>Live Domain: {current.domain}</span>
-                    </a>
-
-                    <motion.a
-                      whileHover={{ scale: 1.12, rotate: 45 }}
-                      whileTap={{ scale: 0.95 }}
-                      href={current.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="w-9 h-9 rounded-full bg-white text-[#111111] flex items-center justify-center transition-colors shadow-lg group/btn"
-                      aria-label={`Visit ${current.titleName}`}
-                    >
-                      <ArrowUpRight className="w-4 h-4 transition-transform duration-200" />
-                    </motion.a>
+                    </div>
                   </div>
-                </motion.div>
-              </AnimatePresence>
+                );
+              })()}
+
+              {/* Card 1: 24/7 WhatsApp AI Concierge */}
+              {(() => {
+                const offset = (1 - activeDeckIndex + 4) % 4;
+                const cfg = CARD_TRANSFORMS[offset];
+                return (
+                  <div
+                    className="absolute inset-0 rounded-[30px] p-6 text-white bg-gradient-to-br from-[#0F1A14] via-[#14261D] to-[#0A130E] border border-emerald-500/30 shadow-2xl transition-all duration-500 ease-out flex flex-col justify-between overflow-hidden"
+                    style={{
+                      transform: cfg.transform,
+                      zIndex: cfg.zIndex,
+                      opacity: cfg.opacity,
+                      pointerEvents: cfg.pointerEvents,
+                    }}
+                  >
+                    <div className="absolute -left-16 -top-16 w-56 h-56 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
+                    <div>
+                      <div className="flex items-center justify-between text-xs font-mono text-neutral-400 mb-3">
+                        <span className="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30 flex items-center gap-1.5">
+                          <MessageSquare className="w-3 h-3 text-emerald-400" /> WHATSAPP AI ENGINE 02
+                        </span>
+                        <span className="text-emerald-400 font-mono text-[11px] flex items-center gap-1.5">
+                          <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                          </span>
+                          LIVE BOT READY
+                        </span>
+                      </div>
+
+                      <h3 className="text-2xl font-bold tracking-tight text-white">
+                        24/7 Autonomous Concierge
+                      </h3>
+                      <p className="text-xs text-neutral-400 mt-1">
+                        Pre-trained on your PDFs, price lists, and FAQ docs to book high-intent meetings.
+                      </p>
+
+                      {/* Simulated Realtime Chat Box */}
+                      <div className="mt-4 space-y-2 bg-black/40 border border-emerald-500/20 p-3 rounded-2xl text-xs font-mono">
+                        <div className="bg-emerald-950/60 text-emerald-100 p-2.5 rounded-xl border border-emerald-500/30 max-w-[85%] leading-relaxed">
+                          &ldquo;Hey! We just launched DiaDia Health in 7 days. Want to view their conversion live link or check pricing?&rdquo;
+                        </div>
+                        <div
+                          className={`p-2 rounded-xl max-w-[80%] ml-auto text-right text-[11px] transition-colors duration-300 ${
+                            isReplying
+                              ? "bg-emerald-500/25 text-emerald-200 border border-emerald-500/30"
+                              : "bg-white/10 text-white"
+                          }`}
+                        >
+                          {botReply}
+                        </div>
+                        <div className="flex flex-wrap gap-1.5 pt-1">
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              triggerPromptChip("7-day sprint guaranteed");
+                            }}
+                            className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] hover:bg-emerald-500/40 transition-colors cursor-pointer"
+                          >
+                            ⚡ Turnaround?
+                          </button>
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              triggerPromptChip("$950 or $1,250 fixed scope");
+                            }}
+                            className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] hover:bg-emerald-500/40 transition-colors cursor-pointer"
+                          >
+                            💵 Get Pricing
+                          </button>
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              triggerPromptChip("Booking cal link sent!");
+                            }}
+                            className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] hover:bg-emerald-500/40 transition-colors cursor-pointer"
+                          >
+                            📅 Book Call
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Webhook Telemetry Bar */}
+                    <div className="pt-3 border-t border-emerald-500/20 flex items-center justify-between text-xs font-mono text-neutral-300">
+                      <span className="text-[11px] text-emerald-400 flex items-center gap-1.5">
+                        <CheckCircle className="w-3.5 h-3.5 text-emerald-400" /> POST /api/triage → 200 OK
+                      </span>
+                      <span className="text-neutral-400 text-[10px]">Sync: Supabase + CRM</span>
+                    </div>
+                  </div>
+                );
+              })()}
+
+              {/* Card 2: Shopify Headless OS 2.0 */}
+              {(() => {
+                const offset = (2 - activeDeckIndex + 4) % 4;
+                const cfg = CARD_TRANSFORMS[offset];
+                return (
+                  <div
+                    className="absolute inset-0 rounded-[30px] p-6 text-white bg-gradient-to-br from-[#1C1710] via-[#261E14] to-[#14100A] border border-amber-500/30 shadow-2xl transition-all duration-500 ease-out flex flex-col justify-between overflow-hidden"
+                    style={{
+                      transform: cfg.transform,
+                      zIndex: cfg.zIndex,
+                      opacity: cfg.opacity,
+                      pointerEvents: cfg.pointerEvents,
+                    }}
+                  >
+                    <div className="absolute -right-16 -top-16 w-56 h-56 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
+                    <div>
+                      <div className="flex items-center justify-between text-xs font-mono text-neutral-400 mb-3">
+                        <span className="px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 font-semibold border border-amber-500/30 flex items-center gap-1.5">
+                          <ShoppingBag className="w-3 h-3 text-amber-400" /> E-COMMERCE ACCELERATOR 03
+                        </span>
+                        <span className="text-amber-400 font-mono text-[11px] font-bold">OS 2.0 HEADLESS</span>
+                      </div>
+
+                      <h3 className="text-2xl font-bold tracking-tight text-white">
+                        Shopify Conversion Engine
+                      </h3>
+                      <p className="text-xs text-neutral-400 mt-1">
+                        Instant slide cart, dynamic upsell matrix, and automated WhatsApp abandoned checkout ping.
+                      </p>
+
+                      {/* Interactive Cart Sim Component */}
+                      <div className="mt-4 p-3 rounded-2xl bg-black/40 border border-amber-500/20 font-mono text-xs space-y-2.5">
+                        <div className="flex items-center justify-between pb-2 border-b border-white/10">
+                          <div className="flex items-center gap-2">
+                            <span className="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-300 flex items-center justify-center font-bold">
+                              D2C
+                            </span>
+                            <div>
+                              <p className="text-white font-semibold text-[11px]">Adigz Studio Kit</p>
+                              <p className="text-[10px] text-neutral-400">1x Bundle Edition</p>
+                            </div>
+                          </div>
+                          <span className="font-bold text-amber-300">$240</span>
+                        </div>
+                        <div className="flex items-center justify-between text-[11px]">
+                          <span className="text-neutral-400">Checkout Velocity</span>
+                          <span className="text-emerald-400 font-bold">+2.4x Speed vs Shopify Theme</span>
+                        </div>
+                        <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                          <div className="bg-amber-400 h-full w-[88%]"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Gateway status */}
+                    <div className="pt-3 border-t border-amber-500/20 flex items-center justify-between text-xs font-mono">
+                      <span className="text-amber-300 text-[11px] flex items-center gap-1.5">
+                        <Zap className="w-3.5 h-3.5 text-amber-400" /> Razorpay &amp; Stripe Verified
+                      </span>
+                      <span className="text-neutral-400 text-[10px]">Zero-Flicker Checkout</span>
+                    </div>
+                  </div>
+                );
+              })()}
+
+              {/* Card 3: Notion Client Command Chamber */}
+              {(() => {
+                const offset = (3 - activeDeckIndex + 4) % 4;
+                const cfg = CARD_TRANSFORMS[offset];
+                return (
+                  <div
+                    className="absolute inset-0 rounded-[30px] p-6 text-white bg-gradient-to-br from-[#1A121F] via-[#24172B] to-[#110B17] border border-purple-500/30 shadow-2xl transition-all duration-500 ease-out flex flex-col justify-between overflow-hidden"
+                    style={{
+                      transform: cfg.transform,
+                      zIndex: cfg.zIndex,
+                      opacity: cfg.opacity,
+                      pointerEvents: cfg.pointerEvents,
+                    }}
+                  >
+                    <div className="absolute -left-16 -top-16 w-56 h-56 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
+                    <div>
+                      <div className="flex items-center justify-between text-xs font-mono text-neutral-400 mb-3">
+                        <span className="px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-300 font-semibold border border-purple-500/30 flex items-center gap-1.5">
+                          <Kanban className="w-3 h-3 text-purple-400" /> COMMAND CHAMBER 04
+                        </span>
+                        <span className="text-purple-300 font-mono text-[11px] font-bold">SPRINT PORTAL</span>
+                      </div>
+
+                      <h3 className="text-2xl font-bold tracking-tight text-white">
+                        Notion + 48h Loom Vault
+                      </h3>
+                      <p className="text-xs text-neutral-400 mt-1">
+                        Every founder receives private transparent milestone tracking with 2-minute video dispatches.
+                      </p>
+
+                      {/* 7-Day Sprint Checklist */}
+                      <div className="mt-4 p-3 rounded-2xl bg-black/40 border border-purple-500/20 font-mono text-xs space-y-2">
+                        <div className="flex items-center justify-between text-[11px]">
+                          <span className="flex items-center gap-1.5 text-white">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Day 1: Wireframe Architecture
+                          </span>
+                          <span className="text-emerald-400 font-bold">DONE</span>
+                        </div>
+                        <div className="flex items-center justify-between text-[11px]">
+                          <span className="flex items-center gap-1.5 text-white">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Day 2: Figma High-Fidelity
+                          </span>
+                          <span className="text-emerald-400 font-bold">DONE</span>
+                        </div>
+                        <div className="flex items-center justify-between text-[11px]">
+                          <span className="flex items-center gap-1.5 text-purple-300">
+                            <Clock className="w-3.5 h-3.5 text-purple-400 animate-pulse" /> Days 3-5: Edge Engine &amp; Webhooks
+                          </span>
+                          <span className="text-purple-400 font-bold">LIVE</span>
+                        </div>
+                        <div className="flex items-center justify-between text-[11px] text-neutral-400">
+                          <span className="flex items-center gap-1.5">
+                            <Circle className="w-3.5 h-3.5 text-neutral-500" /> Day 7: Speed Audit &amp; Handover
+                          </span>
+                          <span className="text-neutral-500">QUEUED</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Escrow & Dispatch Status */}
+                    <div className="pt-3 border-t border-purple-500/20 flex items-center justify-between text-xs font-mono">
+                      <span className="text-purple-300 text-[11px] flex items-center gap-1.5">
+                        <ShieldCheck className="w-3.5 h-3.5 text-purple-400" /> 50/40/10 Milestone Escrow
+                      </span>
+                      <span className="text-neutral-400 text-[10px]">48-Hr Loom Video Ready</span>
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
+
+            {/* Subtle helper footnote */}
+            <p className="text-center text-xs font-mono text-neutral-500 mt-4 flex items-center justify-center gap-2">
+              <span>💡 Click any card or hit Shuffle to cycle the tactile stack</span>
+            </p>
           </div>
         </motion.div>
       </div>
