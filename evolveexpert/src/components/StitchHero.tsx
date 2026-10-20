@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -12,12 +11,12 @@ interface ShowcaseData {
   badge: string;
   dotColor: string;
   domain: string;
-  tag: string;
-  tagColor: string;
-  headline: string;
+  categoryMeta: string;
+  clientWordmark: string;
+  context: string;
+  body: string;
+  stats: { value: string; label: string }[];
   link: string;
-  image: string;
-  canvasBg: string;
 }
 
 const HERO_SHOWCASE: Record<string, ShowcaseData> = {
@@ -26,44 +25,56 @@ const HERO_SHOWCASE: Record<string, ShowcaseData> = {
     subtitle: "· Clinical UX",
     badge: "0.4s LCP",
     dotColor: "bg-emerald-400",
-    domain: "https://diadiahealth.com",
-    tag: "Next.js + Figma System + Clinical AI",
-    tagColor: "text-emerald-400",
-    headline: "Designed to convert patient traffic into booked clinical appointments.",
+    domain: "diadiahealth.com",
+    categoryMeta: "PAID · HEALTHTECH · 7-DAY SPRINT",
+    clientWordmark: "DIADIA",
+    context: "Clinical UX · Diagnostic Triage from Zero",
+    body: "Replaced slow legacy Webflow architecture with a turnkey Next.js 16 clinical booking engine. Engineered instant patient symptom routing directly to physician schedules.",
+    stats: [
+      { value: "0.4s", label: "LCP Load Speed" },
+      { value: "98/100", label: "Mobile Core Web Vitals" },
+      { value: "+140%", label: "Patient Conversion Lift" },
+    ],
     link: "https://diadiahealth.com",
-    image: "/images/portfolio/diadia.jpg",
-    canvasBg: "from-[#141416] via-[#1A1E1C] to-[#0B0F0D]",
   },
   wescale: {
     titleName: "WeScale Startups",
     subtitle: "· B2B Studio",
     badge: "0.4s Load",
     dotColor: "bg-sky-400",
-    domain: "https://wescalestartups.com",
-    tag: "Next.js + Conversion Funnel + Technical SEO",
-    tagColor: "text-sky-400",
-    headline: "Executive authority platform engineered for high-growth venture founders.",
+    domain: "wescalestartups.com",
+    categoryMeta: "PAID · B2B SAAS · 7-DAY SPRINT",
+    clientWordmark: "WSSCALE",
+    context: "AI Growth Studio · Conversion Funnel + SEO",
+    body: "Engineered editorial Next.js 16 platform with automated funnel architecture, 100/100 SEO structured data, and sub-second global edge delivery for venture founders.",
+    stats: [
+      { value: "0.4s", label: "Edge TTFB" },
+      { value: "100/100", label: "Technical SEO Score" },
+      { value: "+85%", label: "Scorecard Completion" },
+    ],
     link: "https://wescalestartups.com",
-    image: "/images/portfolio/wescale.jpg",
-    canvasBg: "from-[#141416] via-[#161B26] to-[#0A0D14]",
   },
-  elena: {
-    titleName: "Elena Ikonomovska",
-    subtitle: "· AI Brand",
-    badge: "100 SEO",
+  daniel: {
+    titleName: "Daniel Johnson",
+    subtitle: "· Advisory Platform",
+    badge: "99/100 Speed",
     dotColor: "bg-amber-400",
-    domain: "https://elenaikonomovska.com",
-    tag: "Editorial UI + Global Edge CDN + Fast Routing",
-    tagColor: "text-amber-400",
-    headline: "Minimalist global thought-leadership & executive advisory hub.",
-    link: "https://elenaikonomovska.com",
-    image: "/images/portfolio/elena.jpg",
-    canvasBg: "from-[#141416] via-[#201A15] to-[#0F0C0A]",
+    domain: "danieljohnson.xyz",
+    categoryMeta: "PAID · ADVISORY & AI · 7-DAY SPRINT",
+    clientWordmark: "DANIEL",
+    context: "Executive Thought-Leadership · High Authority",
+    body: "Minimalist, high-craft personal platform built with Next.js 16 and zero third-party script bloat. 100/100 PageSpeed with automated lead routing.",
+    stats: [
+      { value: "0.3s", label: "Global LCP" },
+      { value: "99/100", label: "Mobile Speed Score" },
+      { value: "0 bloat", label: "Vanilla Next.js 16" },
+    ],
+    link: "https://danieljohnson.xyz",
   },
 };
 
 export function StitchHero() {
-  const [activeTab, setActiveTab] = useState<"diadia" | "wescale" | "elena">("diadia");
+  const [activeTab, setActiveTab] = useState<"diadia" | "wescale" | "daniel">("diadia");
   const current = HERO_SHOWCASE[activeTab];
 
   return (
@@ -209,14 +220,14 @@ export function StitchHero() {
               {[
                 { id: "diadia", label: "DiaDia Health" },
                 { id: "wescale", label: "WeScale" },
-                { id: "elena", label: "Elena I." },
+                { id: "daniel", label: "Daniel J." },
               ].map((tab) => {
                 const isActive = activeTab === tab.id;
                 return (
                   <button
                     key={tab.id}
                     type="button"
-                    onClick={() => setActiveTab(tab.id as "diadia" | "wescale" | "elena")}
+                    onClick={() => setActiveTab(tab.id as "diadia" | "wescale" | "daniel")}
                     className={`relative flex-1 py-1.5 px-3 rounded-full text-xs font-semibold tracking-tight transition-colors duration-200 z-10 ${
                       isActive ? "text-white" : "text-neutral-600 hover:text-black"
                     }`}
@@ -255,71 +266,77 @@ export function StitchHero() {
               </div>
             </div>
 
-            {/* Editorial Display Canvas showing the REAL site with AnimatePresence */}
-            <div className="relative aspect-[4/3] rounded-[24px] overflow-hidden shadow-inner border border-black/10 group/showcase bg-[#141416]">
+            {/* WeScale-Style Evidence & Proof Canvas (Zero Screenshots) */}
+            <div className="rounded-[24px] overflow-hidden border border-black/10 bg-[#0E0E11] text-white p-6 sm:p-7 flex flex-col justify-between shadow-inner min-h-[380px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeTab}
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.01 }}
-                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute inset-0"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                  className="h-full flex flex-col justify-between space-y-5"
                 >
-                  {/* Actual Website Screenshot */}
-                  <Image
-                    src={current.image}
-                    alt={`${current.titleName} live production website`}
-                    fill
-                    className="object-cover object-top group-hover/showcase:scale-105 transition-transform duration-700 ease-out"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/30"></div>
+                  {/* Topline: Meta tag + Wordmark */}
+                  <div className="flex items-center justify-between border-b border-white/10 pb-3 text-xs font-mono">
+                    <span className="text-neutral-400 font-medium tracking-wider">
+                      {current.categoryMeta}
+                    </span>
+                    <span className="font-bold tracking-widest text-emerald-400">
+                      {current.clientWordmark}
+                    </span>
+                  </div>
 
-                  {/* Content overlay */}
-                  <div className="relative z-10 h-full p-6 sm:p-7 flex flex-col justify-between text-white">
-                    {/* Top URL & Live Badge */}
-                    <div className="flex items-center justify-between text-xs font-mono">
-                      <div className="inline-flex items-center gap-2 bg-black/65 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20">
-                        <span className="relative flex h-2 w-2">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  {/* Context & Description */}
+                  <div className="space-y-1.5">
+                    <h4 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
+                      {current.context}
+                    </h4>
+                    <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed pt-1">
+                      {current.body}
+                    </p>
+                  </div>
+
+                  {/* 3-Column Stats Row (Matching WeScale's v9-case-stats) */}
+                  <div className="grid grid-cols-3 gap-2 py-3.5 border-t border-b border-white/10">
+                    {current.stats.map((stat, idx) => (
+                      <div key={idx} className="space-y-0.5">
+                        <strong className="text-xl sm:text-2xl font-extrabold text-white tracking-tight block">
+                          {stat.value}
+                        </strong>
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block leading-tight">
+                          {stat.label}
                         </span>
-                        <span className="text-white font-medium">{current.domain}</span>
                       </div>
-                      <span className="px-2.5 py-1 rounded-full bg-emerald-500/25 text-emerald-300 border border-emerald-500/40 text-[11px] font-mono uppercase tracking-wider font-bold">
-                        Live
-                      </span>
-                    </div>
+                    ))}
+                  </div>
 
-                    {/* Core Headline & Tag */}
-                    <div className="my-auto space-y-2 py-2">
-                      <p className={`text-xs uppercase tracking-widest font-mono font-bold ${current.tagColor} drop-shadow-sm`}>
-                        {current.tag}
-                      </p>
-                      <h4 className="text-xl sm:text-2xl font-bold tracking-tight leading-snug text-white drop-shadow-md">
-                        {current.headline}
-                      </h4>
-                    </div>
-
-                    {/* Footer Strip & Link */}
-                    <div className="flex items-center justify-between pt-3 border-t border-white/20">
-                      <span className="text-xs text-white/90 font-medium">
-                        Delivered in 1-week sprint
+                  {/* Footer Strip: Verified Live Domain & Action Button */}
+                  <div className="flex items-center justify-between pt-1">
+                    <a
+                      href={current.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 text-xs font-mono font-bold text-white hover:text-emerald-300 transition group"
+                    >
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                       </span>
-                      <motion.a
-                        whileHover={{ scale: 1.12, rotate: 45 }}
-                        whileTap={{ scale: 0.95 }}
-                        href={current.link}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="w-10 h-10 rounded-full bg-white text-[#111111] flex items-center justify-center transition-colors shadow-xl group/btn"
-                        aria-label={`Visit ${current.titleName}`}
-                      >
-                        <ArrowUpRight className="w-4 h-4 transition-transform duration-200" />
-                      </motion.a>
-                    </div>
+                      <span>Live Domain: {current.domain}</span>
+                    </a>
+
+                    <motion.a
+                      whileHover={{ scale: 1.12, rotate: 45 }}
+                      whileTap={{ scale: 0.95 }}
+                      href={current.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="w-9 h-9 rounded-full bg-white text-[#111111] flex items-center justify-center transition-colors shadow-lg group/btn"
+                      aria-label={`Visit ${current.titleName}`}
+                    >
+                      <ArrowUpRight className="w-4 h-4 transition-transform duration-200" />
+                    </motion.a>
                   </div>
                 </motion.div>
               </AnimatePresence>
