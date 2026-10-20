@@ -38,6 +38,24 @@ export async function POST(request: Request) {
     const reachProfileUuid = process.env.HOSTINGER_REACH_PROFILE_UUID || "a8f74fcc-ed27-4f6e-9438-76013da4692d";
     const emailMatch = contactStr.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
     if (hostingerToken && emailMatch) {
+      let cleanPhone: string | undefined = undefined;
+      const phoneCandidate = phone || (contactStr.match(/\+?[0-9]{8,15}/)?.[0] ?? "");
+      if (phoneCandidate) {
+        const digits = phoneCandidate.replace(/[^0-9]/g, "");
+        if (digits.length >= 7 && digits.length <= 15) {
+          cleanPhone = `+${digits}`;
+        }
+      }
+
+      const reachBody: Record<string, any> = {
+        email: emailMatch[0],
+        name: name || "Sprint Founder",
+        note: `Score: ${score} | Site: ${website || "N/A"} | ${budget || ""}`.slice(0, 75),
+      };
+      if (cleanPhone) {
+        reachBody.phone = cleanPhone;
+      }
+
       await fetch(`https://developers.hostinger.com/api/reach/v1/profiles/${reachProfileUuid}/contacts`, {
         method: "POST",
         headers: {
@@ -45,11 +63,7 @@ export async function POST(request: Request) {
           Authorization: `Bearer ${hostingerToken}`,
           "User-Agent": "Mozilla/5.0 (EvolveExpert-Reach/1.0)",
         },
-        body: JSON.stringify({
-          email: emailMatch[0],
-          name: name || "Sprint Founder",
-          note: `Score: ${score} | Site: ${website || 'N/A'} | Budget: ${budget || 'N/A'}`,
-        }),
+        body: JSON.stringify(reachBody),
       }).catch((err) => console.error("[Hostinger Reach Dispatch Error]:", err));
     }
 
