@@ -33,15 +33,35 @@ export async function POST(request: Request) {
 
     console.info(`[EvolveExpert Lead Engine] Lead Received:`, leadPayload);
 
-    // 1. Optional Hostinger Agentic Mail REST API dispatch (if HOSTINGER_MAIL_API_TOKEN is configured in Vercel)
-    const hostingerToken = process.env.HOSTINGER_MAIL_API_TOKEN;
-    const recipientEmail = process.env.LEAD_ALERT_EMAIL || "concierge@evolveexpert.com";
-    if (hostingerToken) {
-      await fetch("https://api.mail.hostinger.com/v1/messages/send", {
+    // 1. Direct Hostinger Reach API Contact Ingestion (Email Marketing & Lead Nurturing)
+    const hostingerToken = process.env.HOSTINGER_API_TOKEN || process.env.HOSTINGER_MAIL_API_TOKEN;
+    const reachProfileUuid = process.env.HOSTINGER_REACH_PROFILE_UUID || "a8f74fcc-ed27-4f6e-9438-76013da4692d";
+    const emailMatch = contactStr.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
+    if (hostingerToken && emailMatch) {
+      await fetch(`https://developers.hostinger.com/api/reach/v1/profiles/${reachProfileUuid}/contacts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${hostingerToken}`,
+          "User-Agent": "Mozilla/5.0 (EvolveExpert-Reach/1.0)",
+        },
+        body: JSON.stringify({
+          email: emailMatch[0],
+          name: name || "Sprint Founder",
+          note: `Score: ${score} | Site: ${website || 'N/A'} | Budget: ${budget || 'N/A'}`,
+        }),
+      }).catch((err) => console.error("[Hostinger Reach Dispatch Error]:", err));
+    }
+
+    // 2. Optional Hostinger Agentic Mail REST API dispatch
+    const mailToken = process.env.HOSTINGER_MAIL_API_TOKEN || hostingerToken;
+    const recipientEmail = process.env.LEAD_ALERT_EMAIL || "concierge@evolveexpert.com";
+    if (mailToken) {
+      await fetch("https://api.mail.hostinger.com/v1/messages/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${mailToken}`,
         },
         body: JSON.stringify({
           to: [recipientEmail],
