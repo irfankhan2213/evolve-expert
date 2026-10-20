@@ -8,40 +8,28 @@ import { motion, AnimatePresence } from "framer-motion";
 interface ConstraintItem {
   id: string;
   label: string;
-  category: string;
-  severity: "high" | "critical";
 }
 
 const CONSTRAINTS: ConstraintItem[] = [
   {
     id: "speed",
-    label: "Mobile load time takes > 2.5s (leaking 40%+ of paid ad traffic)",
-    category: "Performance",
-    severity: "critical",
+    label: "Mobile load > 2.5s (leaks 40%+ ad traffic)",
   },
   {
     id: "whatsapp",
-    label: "Zero instant WhatsApp or AI triage for after-hours leads",
-    category: "Conversion",
-    severity: "high",
+    label: "Zero 24/7 WhatsApp or AI lead triage",
   },
   {
     id: "retainer",
-    label: "Paying high monthly agency retainers without 100% code ownership",
-    category: "Governance",
-    severity: "critical",
+    label: "High retainers without code ownership",
   },
   {
     id: "cwv",
-    label: "Failing Google Core Web Vitals (red/yellow Mobile PageSpeed score)",
-    category: "Technical SEO",
-    severity: "high",
+    label: "Failing Core Web Vitals (red PageSpeed)",
   },
   {
     id: "timeline",
-    label: "Stuck in a 2-month agency delay instead of a rigid 7-day sprint",
-    category: "Delivery Velocity",
-    severity: "critical",
+    label: "2-month agency delays vs. 7-day sprints",
   },
 ];
 
@@ -156,38 +144,39 @@ export function StitchHero() {
           </motion.div>
         </div>
 
-        {/* Right Column: Compact Sprint Bottleneck Checklist */}
+        {/* Right Column: Ultra-Compact Sprint Bottleneck Widget */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-5 w-full flex justify-center lg:justify-end"
         >
-          <div className="bg-white rounded-[24px] p-5 sm:p-6 border border-black/10 shadow-sm relative overflow-hidden w-full max-w-[460px]">
-            {/* Top Card Badge */}
-            <div className="flex items-center justify-between border-b border-neutral-100 pb-3 mb-3.5">
+          <div className="bg-white rounded-[20px] p-4 sm:p-5 border border-black/10 shadow-sm relative overflow-hidden w-full max-w-[370px]">
+            {/* Top Bar: Window Dots & Status */}
+            <div className="flex items-center justify-between pb-2.5 mb-2.5 border-b border-neutral-100">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <div className="flex items-center gap-1" aria-hidden="true">
+                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-300"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-300"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-300"></span>
+                </div>
                 <span className="text-[11px] font-mono uppercase tracking-wider font-bold text-neutral-800">
-                  Sprint Bottleneck Checklist
+                  Bottleneck Check
                 </span>
               </div>
-              <span className="text-[10px] font-mono text-neutral-500 bg-neutral-100 px-2 py-0.5 rounded-full">
-                30-Sec Diagnosis
-              </span>
+              <div className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/60 font-semibold">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Live 30s</span>
+              </div>
             </div>
 
-            <div className="space-y-1 mb-3.5">
-              <h2 className="text-base sm:text-lg font-bold tracking-tight text-[#111111]">
-                Tap everything that is true for your platform.
-              </h2>
-              <p className="text-xs text-neutral-500">
-                Honest answers. See how much friction holds back conversions.
-              </p>
-            </div>
+            {/* Micro Prompt */}
+            <p className="text-[11px] text-neutral-500 font-mono mb-2">
+              Tap issues true for your platform:
+            </p>
 
-            {/* Checklist Items - Compact */}
-            <div className="space-y-2">
+            {/* Checklist Items: Ultra-Compact Single Row */}
+            <div className="space-y-1.5">
               {CONSTRAINTS.map((item) => {
                 const isChecked = selectedConstraints.includes(item.id);
                 return (
@@ -195,69 +184,67 @@ export function StitchHero() {
                     key={item.id}
                     type="button"
                     onClick={() => toggleConstraint(item.id)}
-                    className={`w-full text-left p-2.5 sm:p-3 rounded-xl border transition-all duration-200 flex items-start gap-2.5 cursor-pointer ${
+                    className={`w-full text-left py-2 px-2.5 rounded-lg border transition-all duration-150 flex items-center gap-2 cursor-pointer ${
                       isChecked
-                        ? "bg-neutral-900 text-white border-neutral-900 shadow-xs"
-                        : "bg-neutral-50/80 text-neutral-800 border-neutral-200/80 hover:bg-neutral-100/80"
+                        ? "bg-neutral-900 text-white border-neutral-900 shadow-2xs"
+                        : "bg-neutral-50/90 hover:bg-neutral-100/90 text-neutral-800 border-neutral-200/70"
                     }`}
                   >
                     <div
-                      className={`w-4 h-4 rounded-[5px] flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
+                      className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 transition-colors ${
                         isChecked
                           ? "bg-emerald-500 text-white"
                           : "border border-neutral-300 bg-white"
                       }`}
                     >
-                      {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
+                      {isChecked && <Check className="w-2.5 h-2.5 stroke-[3]" />}
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <p
-                        className={`text-xs sm:text-[13px] font-medium leading-snug ${
-                          isChecked ? "text-white" : "text-neutral-800"
-                        }`}
-                      >
-                        {item.label}
-                      </p>
-                      <span
-                        className={`text-[9px] font-mono uppercase tracking-wider block mt-0.5 ${
-                          isChecked ? "text-emerald-300" : "text-neutral-400"
-                        }`}
-                      >
-                        {item.category}
-                      </span>
-                    </div>
+                    <span
+                      className={`text-[12px] font-medium leading-tight truncate ${
+                        isChecked ? "text-white" : "text-neutral-800"
+                      }`}
+                    >
+                      {item.label}
+                    </span>
                   </button>
                 );
               })}
             </div>
 
-            {/* Diagnostic Result Box - Compact */}
-            <div className="mt-4 pt-3.5 border-t border-neutral-100">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-mono font-bold text-[#111111]">
-                      {count} {count === 1 ? "Constraint" : "Constraints"} Identified
-                    </span>
-                    {count > 0 && (
-                      <span className="px-1.5 py-0.5 rounded-full text-[9px] font-mono bg-rose-50 text-rose-700 font-bold border border-rose-200">
-                        High Leakage
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-[11px] text-neutral-500 mt-0.5">
-                    {count === 0
-                      ? "Select constraints above to diagnose your bottleneck."
-                      : "Resolvable in 1 turnkey 7-day engineering sprint."}
-                  </p>
-                </div>
+            {/* Bottom Diagnostic Scorecard & Bar */}
+            <div className="mt-3 pt-2.5 border-t border-neutral-100">
+              <div className="flex items-center justify-between text-[11px] font-mono">
+                <span className="text-neutral-500">Constraints Found</span>
+                <span className="font-bold text-[#111111]">{count} / 5</span>
+              </div>
+
+              {/* 5-Segment Progress Bar */}
+              <div className="flex gap-1 h-1.5 my-2" aria-hidden="true">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <div
+                    key={i}
+                    className={`flex-1 rounded-full transition-colors duration-200 ${
+                      i < count ? "bg-emerald-500" : "bg-neutral-200"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <div className="flex items-center justify-between gap-2 pt-1">
+                <p className="text-[11px] text-neutral-600 leading-tight">
+                  {count === 0
+                    ? "Tap items above to diagnose."
+                    : count >= 3
+                    ? "High conversion leakage."
+                    : "Resolvable in 7-day sprint."}
+                </p>
 
                 <Link
                   href="/pricing#plans"
-                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition shadow-xs shrink-0"
+                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-[11px] transition shrink-0 shadow-2xs"
                 >
                   <Sparkles className="w-3 h-3" />
-                  <span>Fix in 7-Day Sprint →</span>
+                  <span>Fix in 7 Days →</span>
                 </Link>
               </div>
             </div>
