@@ -4,32 +4,20 @@ import React, { useState } from "react";
 import Link from "next/link";
 import {
   ArrowUpRight,
-  RefreshCw,
   Cpu,
-  MessageSquare,
+  Bot,
   ShoppingBag,
-  Kanban,
-  CheckCircle2,
+  Layers,
   CheckCircle,
-  Clock,
-  Circle,
-  ShieldCheck,
-  Zap,
+  Check,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
-const CARD_CONFIGS = [
-  { id: 0, label: "Next.js Edge" },
-  { id: 1, label: "WhatsApp AI" },
-  { id: 2, label: "Shopify OS" },
-  { id: 3, label: "Notion Hub" },
-];
-
 const CARD_TRANSFORMS = [
   { transform: "translate3d(0, 0, 0px) rotate(0deg)", zIndex: 40, opacity: 1, pointerEvents: "auto" as const },
-  { transform: "translate3d(10px, 14px, -35px) rotate(2.5deg)", zIndex: 30, opacity: 0.94, pointerEvents: "none" as const },
-  { transform: "translate3d(20px, 28px, -70px) rotate(-3deg)", zIndex: 20, opacity: 0.85, pointerEvents: "none" as const },
-  { transform: "translate3d(30px, 42px, -105px) rotate(4deg)", zIndex: 10, opacity: 0.72, pointerEvents: "none" as const },
+  { transform: "translate3d(8px, 12px, -30px) rotate(2deg)", zIndex: 30, opacity: 0.94, pointerEvents: "none" as const },
+  { transform: "translate3d(14px, 22px, -60px) rotate(3deg)", zIndex: 20, opacity: 0.85, pointerEvents: "none" as const },
+  { transform: "translate3d(20px, 32px, -90px) rotate(-2.5deg)", zIndex: 10, opacity: 0.72, pointerEvents: "none" as const },
 ];
 
 export function StitchHero() {
@@ -58,7 +46,7 @@ export function StitchHero() {
   return (
     <section className="relative max-w-[1360px] mx-auto px-5 sm:px-10 pt-4 pb-16 overflow-hidden">
       {/* Main Hero Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         {/* Left Column: Monumental Title & Pitch */}
         <div className="lg:col-span-7 space-y-7">
           <motion.div
@@ -185,64 +173,27 @@ export function StitchHero() {
           </motion.div>
         </div>
 
-        {/* Right Column: 3D Tactile Card Shuffle Deck (Created in Stitch MCP) */}
+        {/* Right Column: Floating 3D Card Shuffle Deck (Exact Stitch Design) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-5"
+          className="lg:col-span-5 flex flex-col items-center justify-center"
         >
-          <div className="relative bg-[#FAF9F5] p-5 sm:p-7 rounded-[36px] border border-black/10 shadow-[0_24px_60px_rgba(0,0,0,0.08)] ring-1 ring-black/5 select-none">
-            {/* Deck Header & Controller Bar */}
-            <div className="w-full flex items-center justify-between mb-3 px-1">
-              <div className="flex items-center gap-2">
+          <div className="relative flex flex-col items-center w-full max-w-md mx-auto select-none">
+            {/* Beacon pulse dot indicator */}
+            <div className="w-full flex items-center justify-between mb-2.5 px-1">
+              <div className="flex items-center gap-1.5">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-500 font-semibold">
-                  TACTILE SYSTEM DECK
-                </span>
               </div>
-              <div className="flex items-center gap-2 sm:gap-3">
-                <span className="text-xs font-mono font-bold text-neutral-800 bg-white px-2.5 py-1 rounded-full border border-black/10 shadow-xs">
-                  0{activeDeckIndex + 1} / 04
-                </span>
-                <button
-                  type="button"
-                  onClick={shuffleDeckNext}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#111111] text-white text-xs font-semibold rounded-full hover:bg-neutral-800 active:scale-95 transition-all shadow-xs cursor-pointer"
-                >
-                  <RefreshCw className="w-3 h-3" />
-                  <span>Shuffle Deck</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Quick Tab Selector Pills */}
-            <div className="w-full grid grid-cols-4 gap-1 p-1 rounded-2xl bg-white border border-black/5 shadow-xs mb-4 text-[11px] font-mono">
-              {CARD_CONFIGS.map((tab) => {
-                const isActive = activeDeckIndex === tab.id;
-                return (
-                  <button
-                    key={tab.id}
-                    type="button"
-                    onClick={() => setActiveDeckIndex(tab.id)}
-                    className={`py-1.5 px-1.5 sm:px-2 rounded-xl transition-all text-center truncate cursor-pointer ${
-                      isActive
-                        ? "font-bold bg-[#111111] text-white shadow-xs"
-                        : "font-medium text-neutral-500 hover:text-black hover:bg-neutral-100"
-                    }`}
-                  >
-                    {tab.label}
-                  </button>
-                );
-              })}
             </div>
 
             {/* 3D Perspective Card Container */}
             <div
-              className="relative w-full min-h-[460px] h-[480px] cursor-pointer"
+              className="relative w-full aspect-[4/3.2] min-h-[340px] cursor-pointer"
               style={{ perspective: "1200px", transformStyle: "preserve-3d" }}
               onClick={handleStageClick}
             >
@@ -252,7 +203,7 @@ export function StitchHero() {
                 const cfg = CARD_TRANSFORMS[offset];
                 return (
                   <div
-                    className="absolute inset-0 rounded-[30px] p-6 text-white bg-gradient-to-br from-[#121417] via-[#1A1F26] to-[#0F1216] border border-white/15 shadow-2xl transition-all duration-500 ease-out flex flex-col justify-between overflow-hidden"
+                    className="absolute inset-0 rounded-[24px] p-5 text-white bg-gradient-to-br from-[#121417] via-[#1A1F26] to-[#0F1216] border border-white/15 shadow-xl transition-all duration-500 ease-out flex flex-col justify-between overflow-hidden"
                     style={{
                       transform: cfg.transform,
                       zIndex: cfg.zIndex,
@@ -260,59 +211,57 @@ export function StitchHero() {
                       pointerEvents: cfg.pointerEvents,
                     }}
                   >
-                    {/* Gloss reflection highlight */}
-                    <div className="absolute -right-20 -top-20 w-56 h-56 bg-sky-500/10 rounded-full blur-2xl pointer-events-none" />
-
+                    <div className="absolute -right-16 -top-16 w-40 h-40 bg-sky-500/10 rounded-full blur-2xl pointer-events-none" />
                     <div>
-                      <div className="flex items-center justify-between text-xs font-mono text-neutral-400 mb-4">
-                        <span className="px-2.5 py-1 rounded-full bg-white/10 text-sky-300 font-semibold border border-white/10 flex items-center gap-1.5">
+                      <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-2.5">
+                        <span className="px-2 py-0.5 rounded-full bg-white/10 text-sky-300 font-semibold border border-white/10 flex items-center gap-1 text-[10px]">
                           <Cpu className="w-3 h-3 text-sky-400" /> CORE ENGINE 01
                         </span>
-                        <span className="text-emerald-400 font-bold flex items-center gap-1.5">
-                          <span className="relative flex h-2 w-2">
+                        <span className="text-emerald-400 font-bold flex items-center gap-1 text-[10px]">
+                          <span className="relative flex h-1.5 w-1.5">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
                           </span>
                           EDGE DEPLOYED
                         </span>
                       </div>
 
                       <div className="flex items-baseline justify-between">
-                        <h3 className="text-2xl font-bold tracking-tight text-white">Next.js 15 Edge SSR</h3>
-                        <span className="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-semibold">
-                          42KB Clean Bundle
+                        <h3 className="text-lg font-bold tracking-tight text-white">Next.js 15 Edge SSR</h3>
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-semibold">
+                          42KB Bundle
                         </span>
                       </div>
-                      <p className="text-xs text-neutral-400 mt-1">
-                        High-density server components with zero client-side hydration penalty.
+                      <p className="text-[11px] text-neutral-400 mt-1 line-clamp-1">
+                        Zero client-side hydration penalty with edge caching.
                       </p>
 
                       {/* Telemetry & Gauges Grid */}
-                      <div className="grid grid-cols-3 gap-2.5 mt-5 font-mono text-xs">
-                        <div className="bg-white/[0.04] border border-white/10 p-3 rounded-2xl">
-                          <span className="text-[10px] text-neutral-400 uppercase">LCP Speed</span>
-                          <p className="text-xl font-bold text-white mt-1">
+                      <div className="grid grid-cols-3 gap-2 mt-3 font-mono text-xs">
+                        <div className="bg-white/[0.04] border border-white/10 p-2.5 rounded-xl">
+                          <span className="text-[9px] text-neutral-400 uppercase block">LCP Speed</span>
+                          <p className="text-base font-bold text-white mt-0.5">
                             {isTurbo ? "0.38s" : "0.72s"}
                           </p>
-                          <span className="text-[10px] text-emerald-400">99.8th percentile</span>
+                          <span className="text-[9px] text-emerald-400">99.8th %</span>
                         </div>
-                        <div className="bg-white/[0.04] border border-white/10 p-3 rounded-2xl">
-                          <span className="text-[10px] text-neutral-400 uppercase">Global Ping</span>
-                          <p className="text-xl font-bold text-sky-400 mt-1">
+                        <div className="bg-white/[0.04] border border-white/10 p-2.5 rounded-xl">
+                          <span className="text-[9px] text-neutral-400 uppercase block">Global Ping</span>
+                          <p className="text-base font-bold text-sky-400 mt-0.5">
                             {isTurbo ? "18ms" : "48ms"}
                           </p>
-                          <span className="text-[10px] text-neutral-400">Cloudflare Edge</span>
+                          <span className="text-[9px] text-neutral-400">Cloudflare</span>
                         </div>
-                        <div className="bg-white/[0.04] border border-white/10 p-3 rounded-2xl">
-                          <span className="text-[10px] text-neutral-400 uppercase">PageSpeed</span>
-                          <p className="text-xl font-bold text-emerald-400 mt-1">100</p>
-                          <span className="text-[10px] text-neutral-400">Google Core Web</span>
+                        <div className="bg-white/[0.04] border border-white/10 p-2.5 rounded-xl">
+                          <span className="text-[9px] text-neutral-400 uppercase block">PageSpeed</span>
+                          <p className="text-base font-bold text-emerald-400 mt-0.5">100</p>
+                          <span className="text-[9px] text-neutral-400">Core Web</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Interactive Speed Audit Switch */}
-                    <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                    <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs">
                       <div className="flex items-center gap-2">
                         <button
                           type="button"
@@ -320,23 +269,23 @@ export function StitchHero() {
                             e.stopPropagation();
                             setIsTurbo(!isTurbo);
                           }}
-                          className={`w-9 h-5 rounded-full p-0.5 transition-colors relative flex items-center cursor-pointer ${
+                          className={`w-8 h-4.5 rounded-full p-0.5 transition-colors relative flex items-center cursor-pointer ${
                             isTurbo ? "bg-emerald-500" : "bg-neutral-600"
                           }`}
                           aria-label="Toggle Turbo Edge Mode"
                         >
                           <span
-                            className={`w-4 h-4 rounded-full bg-white transition-transform shadow-sm ${
-                              isTurbo ? "translate-x-4" : "translate-x-0"
+                            className={`w-3.5 h-3.5 rounded-full bg-white transition-transform shadow-sm ${
+                              isTurbo ? "translate-x-3.5" : "translate-x-0"
                             }`}
                           />
                         </button>
-                        <span className="font-mono text-neutral-300">
+                        <span className="font-mono text-neutral-300 text-[11px]">
                           {isTurbo ? "Turbo Edge Mode Active" : "Standard Cache Mode"}
                         </span>
                       </div>
-                      <span className="text-[11px] font-mono text-neutral-400">
-                        Click Card to Flip / Cycle →
+                      <span className="text-[10px] font-mono text-neutral-400">
+                        Click to Cycle →
                       </span>
                     </div>
                   </div>
@@ -349,7 +298,7 @@ export function StitchHero() {
                 const cfg = CARD_TRANSFORMS[offset];
                 return (
                   <div
-                    className="absolute inset-0 rounded-[30px] p-6 text-white bg-gradient-to-br from-[#0F1A14] via-[#14261D] to-[#0A130E] border border-emerald-500/30 shadow-2xl transition-all duration-500 ease-out flex flex-col justify-between overflow-hidden"
+                    className="absolute inset-0 rounded-[24px] p-5 text-white bg-gradient-to-br from-[#0F1A14] via-[#14261D] to-[#0A130E] border border-emerald-500/30 shadow-xl transition-all duration-500 ease-out flex flex-col justify-between overflow-hidden"
                     style={{
                       transform: cfg.transform,
                       zIndex: cfg.zIndex,
@@ -357,35 +306,35 @@ export function StitchHero() {
                       pointerEvents: cfg.pointerEvents,
                     }}
                   >
-                    <div className="absolute -left-16 -top-16 w-56 h-56 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
+                    <div className="absolute -left-16 -top-16 w-40 h-40 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
                     <div>
-                      <div className="flex items-center justify-between text-xs font-mono text-neutral-400 mb-3">
-                        <span className="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30 flex items-center gap-1.5">
-                          <MessageSquare className="w-3 h-3 text-emerald-400" /> WHATSAPP AI ENGINE 02
+                      <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-2">
+                        <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30 flex items-center gap-1 text-[10px]">
+                          <Bot className="w-3 h-3 text-emerald-400" /> WHATSAPP AI ENGINE
                         </span>
-                        <span className="text-emerald-400 font-mono text-[11px] flex items-center gap-1.5">
-                          <span className="relative flex h-2 w-2">
+                        <span className="text-emerald-400 font-mono text-[10px] flex items-center gap-1">
+                          <span className="relative flex h-1.5 w-1.5">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
                           </span>
-                          LIVE BOT READY
+                          LIVE READY
                         </span>
                       </div>
 
-                      <h3 className="text-2xl font-bold tracking-tight text-white">
+                      <h3 className="text-lg font-bold tracking-tight text-white">
                         24/7 Autonomous Concierge
                       </h3>
-                      <p className="text-xs text-neutral-400 mt-1">
-                        Pre-trained on your PDFs, price lists, and FAQ docs to book high-intent meetings.
+                      <p className="text-[11px] text-neutral-400 mt-0.5">
+                        Pre-trained on your PDFs to qualify leads and book calls.
                       </p>
 
                       {/* Simulated Realtime Chat Box */}
-                      <div className="mt-4 space-y-2 bg-black/40 border border-emerald-500/20 p-3 rounded-2xl text-xs font-mono">
-                        <div className="bg-emerald-950/60 text-emerald-100 p-2.5 rounded-xl border border-emerald-500/30 max-w-[85%] leading-relaxed">
-                          &ldquo;Hey! We just launched DiaDia Health in 7 days. Want to view their conversion live link or check pricing?&rdquo;
+                      <div className="mt-3 space-y-1.5 bg-black/40 border border-emerald-500/20 p-2.5 rounded-xl text-[11px] font-mono">
+                        <div className="bg-emerald-950/60 text-emerald-100 p-2 rounded-lg border border-emerald-500/30 leading-snug text-[10px]">
+                          &ldquo;Hey! Want to view the live case study link or see 7-day pricing?&rdquo;
                         </div>
                         <div
-                          className={`p-2 rounded-xl max-w-[80%] ml-auto text-right text-[11px] transition-colors duration-300 ${
+                          className={`p-1.5 rounded-lg max-w-[80%] ml-auto text-right text-[10px] transition-colors duration-300 ${
                             isReplying
                               ? "bg-emerald-500/25 text-emerald-200 border border-emerald-500/30"
                               : "bg-white/10 text-white"
@@ -393,14 +342,14 @@ export function StitchHero() {
                         >
                           {botReply}
                         </div>
-                        <div className="flex flex-wrap gap-1.5 pt-1">
+                        <div className="flex flex-wrap gap-1 pt-0.5">
                           <button
                             type="button"
                             onClick={(e) => {
                               e.stopPropagation();
                               triggerPromptChip("7-day sprint guaranteed");
                             }}
-                            className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] hover:bg-emerald-500/40 transition-colors cursor-pointer"
+                            className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[9px] hover:bg-emerald-500/40 transition-colors cursor-pointer"
                           >
                             ⚡ Turnaround?
                           </button>
@@ -410,17 +359,17 @@ export function StitchHero() {
                               e.stopPropagation();
                               triggerPromptChip("$950 or $1,250 fixed scope");
                             }}
-                            className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] hover:bg-emerald-500/40 transition-colors cursor-pointer"
+                            className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[9px] hover:bg-emerald-500/40 transition-colors cursor-pointer"
                           >
-                            💵 Get Pricing
+                            💵 Pricing
                           </button>
                           <button
                             type="button"
                             onClick={(e) => {
                               e.stopPropagation();
-                              triggerPromptChip("Booking cal link sent!");
+                              triggerPromptChip("Booking link sent!");
                             }}
-                            className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] hover:bg-emerald-500/40 transition-colors cursor-pointer"
+                            className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[9px] hover:bg-emerald-500/40 transition-colors cursor-pointer"
                           >
                             📅 Book Call
                           </button>
@@ -429,11 +378,11 @@ export function StitchHero() {
                     </div>
 
                     {/* Webhook Telemetry Bar */}
-                    <div className="pt-3 border-t border-emerald-500/20 flex items-center justify-between text-xs font-mono text-neutral-300">
-                      <span className="text-[11px] text-emerald-400 flex items-center gap-1.5">
-                        <CheckCircle className="w-3.5 h-3.5 text-emerald-400" /> POST /api/triage → 200 OK
+                    <div className="pt-2.5 border-t border-emerald-500/20 flex items-center justify-between text-[11px] font-mono text-neutral-300">
+                      <span className="text-[10px] text-emerald-400 flex items-center gap-1">
+                        <CheckCircle className="w-3 h-3 text-emerald-400" /> POST /api/triage → 200 OK
                       </span>
-                      <span className="text-neutral-400 text-[10px]">Sync: Supabase + CRM</span>
+                      <span className="text-neutral-400 text-[9px]">Supabase + CRM</span>
                     </div>
                   </div>
                 );
@@ -445,7 +394,7 @@ export function StitchHero() {
                 const cfg = CARD_TRANSFORMS[offset];
                 return (
                   <div
-                    className="absolute inset-0 rounded-[30px] p-6 text-white bg-gradient-to-br from-[#1C1710] via-[#261E14] to-[#14100A] border border-amber-500/30 shadow-2xl transition-all duration-500 ease-out flex flex-col justify-between overflow-hidden"
+                    className="absolute inset-0 rounded-[24px] p-5 text-white bg-gradient-to-br from-[#1C1710] via-[#261E14] to-[#14100A] border border-amber-500/30 shadow-xl transition-all duration-500 ease-out flex flex-col justify-between overflow-hidden"
                     style={{
                       transform: cfg.transform,
                       zIndex: cfg.zIndex,
@@ -453,39 +402,39 @@ export function StitchHero() {
                       pointerEvents: cfg.pointerEvents,
                     }}
                   >
-                    <div className="absolute -right-16 -top-16 w-56 h-56 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
+                    <div className="absolute -right-16 -top-16 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
                     <div>
-                      <div className="flex items-center justify-between text-xs font-mono text-neutral-400 mb-3">
-                        <span className="px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 font-semibold border border-amber-500/30 flex items-center gap-1.5">
-                          <ShoppingBag className="w-3 h-3 text-amber-400" /> E-COMMERCE ACCELERATOR 03
+                      <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-2">
+                        <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-semibold border border-amber-500/30 flex items-center gap-1 text-[10px]">
+                          <ShoppingBag className="w-3 h-3 text-amber-400" /> E-COMMERCE ACCELERATOR
                         </span>
-                        <span className="text-amber-400 font-mono text-[11px] font-bold">OS 2.0 HEADLESS</span>
+                        <span className="text-amber-400 font-mono text-[10px] font-bold">OS 2.0 HEADLESS</span>
                       </div>
 
-                      <h3 className="text-2xl font-bold tracking-tight text-white">
+                      <h3 className="text-lg font-bold tracking-tight text-white">
                         Shopify Conversion Engine
                       </h3>
-                      <p className="text-xs text-neutral-400 mt-1">
-                        Instant slide cart, dynamic upsell matrix, and automated WhatsApp abandoned checkout ping.
+                      <p className="text-[11px] text-neutral-400 mt-0.5">
+                        Instant slide cart &amp; automated WhatsApp checkout ping.
                       </p>
 
                       {/* Interactive Cart Sim Component */}
-                      <div className="mt-4 p-3 rounded-2xl bg-black/40 border border-amber-500/20 font-mono text-xs space-y-2.5">
-                        <div className="flex items-center justify-between pb-2 border-b border-white/10">
+                      <div className="mt-3 p-2.5 rounded-xl bg-black/40 border border-amber-500/20 font-mono text-[11px] space-y-2">
+                        <div className="flex items-center justify-between pb-1.5 border-b border-white/10">
                           <div className="flex items-center gap-2">
-                            <span className="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-300 flex items-center justify-center font-bold">
+                            <span className="w-6 h-6 rounded-md bg-amber-500/20 text-amber-300 flex items-center justify-center font-bold text-[10px]">
                               D2C
                             </span>
                             <div>
-                              <p className="text-white font-semibold text-[11px]">Adigz Studio Kit</p>
-                              <p className="text-[10px] text-neutral-400">1x Bundle Edition</p>
+                              <p className="text-white font-semibold text-[10px]">Adigz Studio Kit</p>
+                              <p className="text-[9px] text-neutral-400">1x Bundle Edition</p>
                             </div>
                           </div>
-                          <span className="font-bold text-amber-300">$240</span>
+                          <span className="font-bold text-amber-300 text-xs">$240</span>
                         </div>
-                        <div className="flex items-center justify-between text-[11px]">
-                          <span className="text-neutral-400">Checkout Velocity</span>
-                          <span className="text-emerald-400 font-bold">+2.4x Speed vs Shopify Theme</span>
+                        <div className="flex items-center justify-between text-[10px]">
+                          <span className="text-neutral-400">Checkout Speed</span>
+                          <span className="text-emerald-400 font-bold">+2.4x vs Theme</span>
                         </div>
                         <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
                           <div className="bg-amber-400 h-full w-[88%]"></div>
@@ -494,11 +443,11 @@ export function StitchHero() {
                     </div>
 
                     {/* Gateway status */}
-                    <div className="pt-3 border-t border-amber-500/20 flex items-center justify-between text-xs font-mono">
-                      <span className="text-amber-300 text-[11px] flex items-center gap-1.5">
-                        <Zap className="w-3.5 h-3.5 text-amber-400" /> Razorpay &amp; Stripe Verified
+                    <div className="pt-2.5 border-t border-amber-500/20 flex items-center justify-between text-[10px] font-mono">
+                      <span className="text-amber-300 flex items-center gap-1">
+                        <Check className="w-3 h-3 text-amber-400" /> Stripe &amp; Razorpay Verified
                       </span>
-                      <span className="text-neutral-400 text-[10px]">Zero-Flicker Checkout</span>
+                      <span className="text-neutral-400">Zero-Flicker</span>
                     </div>
                   </div>
                 );
@@ -510,7 +459,7 @@ export function StitchHero() {
                 const cfg = CARD_TRANSFORMS[offset];
                 return (
                   <div
-                    className="absolute inset-0 rounded-[30px] p-6 text-white bg-gradient-to-br from-[#1A121F] via-[#24172B] to-[#110B17] border border-purple-500/30 shadow-2xl transition-all duration-500 ease-out flex flex-col justify-between overflow-hidden"
+                    className="absolute inset-0 rounded-[24px] p-5 text-white bg-gradient-to-br from-[#1A121F] via-[#24172B] to-[#110B17] border border-purple-500/30 shadow-xl transition-all duration-500 ease-out flex flex-col justify-between overflow-hidden"
                     style={{
                       transform: cfg.transform,
                       zIndex: cfg.zIndex,
@@ -518,67 +467,60 @@ export function StitchHero() {
                       pointerEvents: cfg.pointerEvents,
                     }}
                   >
-                    <div className="absolute -left-16 -top-16 w-56 h-56 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
+                    <div className="absolute -left-16 -top-16 w-40 h-40 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
                     <div>
-                      <div className="flex items-center justify-between text-xs font-mono text-neutral-400 mb-3">
-                        <span className="px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-300 font-semibold border border-purple-500/30 flex items-center gap-1.5">
-                          <Kanban className="w-3 h-3 text-purple-400" /> COMMAND CHAMBER 04
+                      <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-2">
+                        <span className="px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 font-semibold border border-purple-500/30 flex items-center gap-1 text-[10px]">
+                          <Layers className="w-3 h-3 text-purple-400" /> COMMAND CHAMBER
                         </span>
-                        <span className="text-purple-300 font-mono text-[11px] font-bold">SPRINT PORTAL</span>
+                        <span className="text-purple-300 font-mono text-[10px] font-bold">SPRINT PORTAL</span>
                       </div>
 
-                      <h3 className="text-2xl font-bold tracking-tight text-white">
+                      <h3 className="text-lg font-bold tracking-tight text-white">
                         Notion + 48h Loom Vault
                       </h3>
-                      <p className="text-xs text-neutral-400 mt-1">
-                        Every founder receives private transparent milestone tracking with 2-minute video dispatches.
+                      <p className="text-[11px] text-neutral-400 mt-0.5">
+                        Private transparent tracking with 2-minute video dispatches.
                       </p>
 
                       {/* 7-Day Sprint Checklist */}
-                      <div className="mt-4 p-3 rounded-2xl bg-black/40 border border-purple-500/20 font-mono text-xs space-y-2">
-                        <div className="flex items-center justify-between text-[11px]">
-                          <span className="flex items-center gap-1.5 text-white">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Day 1: Wireframe Architecture
+                      <div className="mt-3 p-2.5 rounded-xl bg-black/40 border border-purple-500/20 font-mono text-[10px] space-y-1.5">
+                        <div className="flex items-center justify-between">
+                          <span className="flex items-center gap-1 text-white truncate">
+                            <CheckCircle className="w-3 h-3 text-emerald-400 shrink-0" /> Day 1: Wireframe Architecture
                           </span>
-                          <span className="text-emerald-400 font-bold">DONE</span>
+                          <span className="text-emerald-400 font-bold shrink-0">DONE</span>
                         </div>
-                        <div className="flex items-center justify-between text-[11px]">
-                          <span className="flex items-center gap-1.5 text-white">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Day 2: Figma High-Fidelity
+                        <div className="flex items-center justify-between">
+                          <span className="flex items-center gap-1 text-white truncate">
+                            <CheckCircle className="w-3 h-3 text-emerald-400 shrink-0" /> Day 2: Figma High-Fidelity
                           </span>
-                          <span className="text-emerald-400 font-bold">DONE</span>
+                          <span className="text-emerald-400 font-bold shrink-0">DONE</span>
                         </div>
-                        <div className="flex items-center justify-between text-[11px]">
-                          <span className="flex items-center gap-1.5 text-purple-300">
-                            <Clock className="w-3.5 h-3.5 text-purple-400 animate-pulse" /> Days 3-5: Edge Engine &amp; Webhooks
+                        <div className="flex items-center justify-between">
+                          <span className="flex items-center gap-1 text-purple-300 truncate">
+                            <span className="relative flex h-2 w-2 mr-0.5">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+                            </span>
+                            Days 3-5: Edge Engine &amp; Webhooks
                           </span>
-                          <span className="text-purple-400 font-bold">LIVE</span>
-                        </div>
-                        <div className="flex items-center justify-between text-[11px] text-neutral-400">
-                          <span className="flex items-center gap-1.5">
-                            <Circle className="w-3.5 h-3.5 text-neutral-500" /> Day 7: Speed Audit &amp; Handover
-                          </span>
-                          <span className="text-neutral-500">QUEUED</span>
+                          <span className="text-purple-400 font-bold shrink-0">LIVE</span>
                         </div>
                       </div>
                     </div>
 
-                    {/* Escrow & Dispatch Status */}
-                    <div className="pt-3 border-t border-purple-500/20 flex items-center justify-between text-xs font-mono">
-                      <span className="text-purple-300 text-[11px] flex items-center gap-1.5">
-                        <ShieldCheck className="w-3.5 h-3.5 text-purple-400" /> 50/40/10 Milestone Escrow
+                    {/* Escrow status */}
+                    <div className="pt-2.5 border-t border-purple-500/20 flex items-center justify-between text-[10px] font-mono">
+                      <span className="text-purple-300 flex items-center gap-1">
+                        <CheckCircle className="w-3 h-3 text-purple-400" /> 50/40/10 Escrow
                       </span>
-                      <span className="text-neutral-400 text-[10px]">48-Hr Loom Video Ready</span>
+                      <span className="text-neutral-400">48-Hr Loom Updates</span>
                     </div>
                   </div>
                 );
               })()}
             </div>
-
-            {/* Subtle helper footnote */}
-            <p className="text-center text-xs font-mono text-neutral-500 mt-4 flex items-center justify-center gap-2">
-              <span>💡 Click any card or hit Shuffle to cycle the tactile stack</span>
-            </p>
           </div>
         </motion.div>
       </div>
