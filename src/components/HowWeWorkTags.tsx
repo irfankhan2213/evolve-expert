@@ -85,16 +85,6 @@ export function HowWeWorkTags() {
           </motion.div>
         ))}
       </div>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.6, duration: 0.6 }}
-        className="text-right text-sm font-medium italic text-neutral-500 mt-14 font-editorial"
-      >
-        ✨ Ready to be delivered in 7 days!
-      </motion.p>
     </section>
   );
 }
