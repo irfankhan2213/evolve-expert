@@ -145,56 +145,80 @@ export function StitchFooter() {
       </motion.div>
 
       {/* Footer Bottom Bar */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-12 text-xs text-neutral-500 border-t border-neutral-200/80 mt-12">
-        <div className="flex flex-wrap items-center gap-6">
-          <Link href="/" className="font-extrabold text-[#111111] text-sm tracking-tight group">
-            evolveexpert
-            <span className="text-emerald-500 group-hover:scale-125 inline-block transition-transform duration-200">
-              .
-            </span>
-          </Link>
-          <nav className="flex flex-wrap items-center gap-4 text-neutral-600">
-            <Link href="/services" className="hover:text-black transition">
-              Services
+      <div className="border-t border-neutral-200/80 mt-12 pt-8">
+        {/* Tier 1: Brand, Links & Contact Badges */}
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8">
+            <Link href="/" className="font-extrabold text-[#111111] text-base tracking-tight group shrink-0">
+              evolveexpert
+              <span className="text-emerald-500 group-hover:scale-125 inline-block transition-transform duration-200">
+                .
+              </span>
             </Link>
-            <Link href="/proof" className="hover:text-black transition">
-              Proof (6)
-            </Link>
-            <Link href="/about" className="hover:text-black transition">
-              Studio
-            </Link>
-            <Link href="/pricing" className="hover:text-black transition">
-              Pricing
-            </Link>
-            <Link href="/resources" className="hover:text-black transition">
-              Audit Scorecard
-            </Link>
-            <Link href="/contact" className="hover:text-black transition">
-              Contact
-            </Link>
-          </nav>
+            <nav className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-medium text-neutral-600">
+              <Link href="/services" className="hover:text-black transition">
+                Services
+              </Link>
+              <Link href="/proof" className="hover:text-black transition">
+                Proof (6)
+              </Link>
+              <Link href="/about" className="hover:text-black transition">
+                Studio
+              </Link>
+              <Link href="/pricing" className="hover:text-black transition">
+                Pricing
+              </Link>
+              <Link href="/resources" className="hover:text-black transition">
+                Audit Scorecard
+              </Link>
+              <Link href="/contact" className="hover:text-black transition">
+                Contact
+              </Link>
+            </nav>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+            <a
+              href="https://wa.me/917696936377?text=Hi%20EvolveExpert,%20I'd%20like%20to%20discuss%20a%207-day%20sprint"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-xs font-semibold font-mono border border-emerald-200/90 hover:bg-emerald-100 hover:border-emerald-300 transition shadow-2xs whitespace-nowrap"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span>WhatsApp: +91 76969 36377</span>
+            </a>
+
+            <a
+              href="tel:+917973727820"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-neutral-800 text-xs font-semibold font-mono border border-neutral-300/80 hover:bg-neutral-50 hover:border-neutral-400 transition shadow-2xs whitespace-nowrap"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-400"></span>
+              <span>Direct: +91 79737 27820</span>
+            </a>
+          </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center gap-3 text-xs">
-          <a
-            href="https://wa.me/917696936377?text=Hi%20EvolveExpert,%20I'd%20like%20to%20discuss%20a%207-day%20sprint"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-800 font-semibold border border-emerald-200 hover:bg-emerald-100 transition shadow-2xs font-mono"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
-            WhatsApp: +91 76969 36377
-          </a>
-          <a
-            href="tel:+917973727820"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-neutral-100 text-neutral-800 font-semibold hover:bg-neutral-200 transition font-mono"
-          >
-            Direct: +91 79737 27820
-          </a>
-          <span className="text-neutral-400 hidden md:inline">|</span>
-          <span>
-            © {new Date().getFullYear()} EvolveExpert Studio. All rights reserved. Sub-0.5s Web Engineering.
-          </span>
+        {/* Tier 2: Copyright & Verification Specs */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-[11px] font-mono text-neutral-500 border-t border-neutral-200/60 mt-6">
+          <div className="flex items-center gap-2.5">
+            <span>© {new Date().getFullYear()} EvolveExpert Studio</span>
+            <span className="text-neutral-300">·</span>
+            <span>All rights reserved</span>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3 text-neutral-500">
+            <span className="text-emerald-700 font-semibold flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              Sub-0.5s Web Engineering
+            </span>
+            <span className="text-neutral-300 hidden sm:inline">·</span>
+            <span className="hidden sm:inline">Rigid 7-Day Sprints</span>
+            <span className="text-neutral-300 hidden md:inline">·</span>
+            <span className="hidden md:inline">50/40/10 Escrow</span>
+          </div>
         </div>
       </div>
     </footer>
