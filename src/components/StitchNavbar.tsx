@@ -22,12 +22,7 @@ export function StitchNavbar() {
   ];
 
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="relative max-w-[1360px] mx-auto px-5 sm:px-10 pt-6 pb-4 z-40"
-    >
+    <header className="relative max-w-[1360px] mx-auto px-5 sm:px-10 pt-6 pb-4 z-40">
       <div className="flex flex-wrap items-center justify-between gap-4">
         {/* Brand Logo */}
         <div className="flex items-center gap-6">
@@ -169,6 +164,6 @@ export function StitchNavbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 }

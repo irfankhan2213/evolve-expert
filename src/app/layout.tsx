@@ -78,7 +78,30 @@ export const metadata: Metadata = {
   },
 };
 
+import { Plus_Jakarta_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { ScrollProgress } from "@/components/ScrollProgress";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+  weight: ["400"],
+  style: ["normal", "italic"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+  weight: ["400", "500", "600"],
+});
 
 export default function RootLayout({
   children,
@@ -86,17 +109,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html
+      lang="en"
+      className={`scroll-smooth ${plusJakartaSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}
+    >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
-          rel="stylesheet"
-        />
         <JsonLd />
       </head>
-      <body className="min-h-screen bg-[#F3F3F1] text-[#111111] antialiased selection:bg-[#111111] selection:text-white">
+      <body className="min-h-screen bg-[#F3F3F1] text-[#111111] antialiased selection:bg-[#111111] selection:text-white font-sans">
         <ScrollProgress />
         <AiReferralTracker />
         {children}

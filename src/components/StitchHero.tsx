@@ -47,54 +47,34 @@ export function StitchHero() {
     <section className="relative max-w-[1360px] mx-auto px-5 sm:px-10 pt-4 pb-16 overflow-hidden">
       {/* Main Hero Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        {/* Left Column: Monumental Title & Pitch */}
+        {/* Left Column: Monumental Title & Pitch (Rendered without opacity delay for instant FCP/LCP) */}
         <div className="lg:col-span-7 space-y-7">
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neutral-300 bg-white/80 text-xs font-semibold text-neutral-800 backdrop-blur-sm shadow-2xs"
-          >
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neutral-300 bg-white/80 text-xs font-semibold text-neutral-800 backdrop-blur-sm shadow-2xs">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
             Lead-to-Booking System (&apos;26) · Sub-60s Speed to Lead
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="relative"
-          >
+          <div className="relative">
             <h1 className="text-[44px] sm:text-[68px] lg:text-[80px] font-extrabold tracking-[-0.04em] leading-[0.94] uppercase text-[#111111]">
               NEVER LOSE A LEAD
               <br />
               <span className="text-neutral-400 font-bold">TO A MISSED CALL.</span>
             </h1>
-          </motion.div>
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-base sm:text-lg text-neutral-600 max-w-xl leading-relaxed"
-          >
+          <p className="text-base sm:text-lg text-neutral-600 max-w-xl leading-relaxed">
             Every inbound phone call, WhatsApp inquiry, and web form lead answered in under{" "}
             <span className="text-[#111111] font-bold underline decoration-emerald-400 underline-offset-4">
               60 seconds
             </span>
             , qualified by AI, and booked into your calendar 24/7. Turnkey deployment in 14 days with 50/50 escrow.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-wrap items-center gap-4 pt-2"
-          >
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+          <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="hover:scale-[1.02] active:scale-[0.98] transition-transform">
               <Link
                 href="/pricing#plans"
                 className="inline-flex items-center gap-3 bg-[#111111] text-white pl-6 pr-2.5 py-2.5 rounded-full text-sm font-semibold hover:bg-neutral-800 transition group shadow-sm"
@@ -104,51 +84,37 @@ export function StitchHero() {
                   <ArrowUpRight className="w-4 h-4" />
                 </span>
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <div className="hover:scale-[1.02] active:scale-[0.98] transition-transform">
               <Link
                 href="#proof"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-neutral-300 bg-white text-sm font-semibold text-neutral-800 hover:bg-neutral-50 transition shadow-2xs"
               >
                 View 6 Live Builds
               </Link>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          {/* Bottom-Left Azentos Mini Proof Bento with subtle hover motion */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4 max-w-lg"
-          >
-            <motion.div
-              whileHover={{ y: -3, transition: { duration: 0.2 } }}
-              className="bg-[#141416] text-white p-5 rounded-2xl flex flex-col justify-between shadow-sm cursor-default"
-            >
+          {/* Bottom-Left Mini Proof Bento */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4 max-w-lg">
+            <div className="bg-[#141416] text-white p-5 rounded-2xl flex flex-col justify-between shadow-sm cursor-default hover:-translate-y-1 transition-transform duration-200">
               <span className="text-3xl font-extrabold tracking-tight">&lt; 60s</span>
               <span className="text-[11px] text-neutral-400 mt-3 font-medium leading-snug">
                 Sub-60s Speed-to-Lead Guarantee
               </span>
-            </motion.div>
+            </div>
 
-            <motion.div
-              whileHover={{ y: -3, transition: { duration: 0.2 } }}
-              className="bg-white p-5 rounded-2xl border border-black/5 flex flex-col justify-between shadow-2xs cursor-default"
-            >
+            <div className="bg-white p-5 rounded-2xl border border-black/5 flex flex-col justify-between shadow-2xs cursor-default hover:-translate-y-1 transition-transform duration-200">
               <span className="text-3xl font-extrabold tracking-tight text-[#111111]">
                 14 Days
               </span>
               <span className="text-[11px] text-neutral-500 mt-3 font-medium leading-snug">
                 From Intake to Live System
               </span>
-            </motion.div>
+            </div>
 
-            <motion.div
-              whileHover={{ y: -3, transition: { duration: 0.2 } }}
-              className="col-span-2 sm:col-span-1 bg-white p-5 rounded-2xl border border-black/5 flex flex-col justify-between shadow-2xs cursor-default"
-            >
+            <div className="col-span-2 sm:col-span-1 bg-white p-5 rounded-2xl border border-black/5 flex flex-col justify-between shadow-2xs cursor-default hover:-translate-y-1 transition-transform duration-200">
               <div className="flex -space-x-2">
                 <span className="w-7 h-7 rounded-full bg-emerald-500 text-white text-[10px] flex items-center justify-center font-bold ring-2 ring-white">
                   D
@@ -166,8 +132,8 @@ export function StitchHero() {
               <span className="text-[11px] font-semibold text-neutral-700 mt-3 leading-snug">
                 6+ Global Founders Served
               </span>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
 
         {/* Right Column: Floating 3D Card Shuffle Deck (Exact Stitch Design) */}
