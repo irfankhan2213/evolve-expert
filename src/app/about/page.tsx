@@ -27,7 +27,7 @@ export default function AboutPage() {
             <span className="font-editorial text-neutral-500 italic">broken</span>.
           </h1>
           <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
-            Most agencies sell you senior expertise, pass the work to interns, drag the project across 10 weeks of meetings, and deliver bloated 40-score websites. We do the exact opposite.
+            Most agencies charge bloated retainers for slow human call answering, drag onboarding across weeks of useless meetings, and lose 30% of your inbound leads to busy lines and after-hours delays. We engineer autonomous 24/7 Lead-to-Booking Systems that answer every call and form in under 60 seconds.
           </p>
         </div>
       </section>

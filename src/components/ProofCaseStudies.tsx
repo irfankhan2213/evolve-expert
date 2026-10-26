@@ -6,70 +6,133 @@ import { ArrowUpRight, CheckCircle2, ShieldCheck, Zap, Star } from "lucide-react
 import { motion } from "framer-motion";
 
 export function ProofCaseStudies() {
-  const [activeFilter, setActiveFilter] = useState<"all" | "speed" | "ai" | "architecture">("all");
+  const [activeFilter, setActiveFilter] = useState<"all" | "voice" | "speed-to-lead" | "missed-call">("all");
 
   const cases = [
     {
       id: "diadia",
-      category: "speed",
-      tag: "PAID · HEALTHTECH · AI CLINICAL BOOKING",
+      category: "voice",
+      tag: "PAID · CLINICAL HEALTHCARE · 24/7 AI TRIAGE",
       client: "DiaDia Health",
       clientWordmark: "DIADIA",
-      headline: "Clinical UX & Diagnostic Triage from Zero",
+      headline: "24/7 Voice Answering & Clinical Triage from Zero",
       problem:
-        "The legacy Webflow site took 4.8 seconds to load on mobile 4G connections. Patient drop-off on clinical intake was over 48%, and after-hours visitors had no triage mechanism to book consultations.",
+        "Over 48% of patient phone inquiries occurred after 5 PM or during lunchtime rushes. Staff could not answer concurrent calls, resulting in lost bookings and frustrated patients booking with rival clinics.",
       action:
-        "Engineered a turnkey Next.js 16 platform with a custom Figma clinical design system, sub-500ms Edge routing, and official WhatsApp Business Cloud API symptom triage wired into doctor calendars.",
+        "Engineered a 24/7 conversational voice AI answering pipeline and Meta WhatsApp Cloud API symptom triage wired directly into physician appointment calendars.",
       results: [
-        { value: "0.4s", label: "LCP Load Speed" },
-        { value: "98/100", label: "Mobile Core Web Vitals" },
-        { value: "+140%", label: "Patient Conversion Lift" },
+        { value: "< 8s", label: "Voice Pickup Speed" },
+        { value: "+140%", label: "Booked Consultations" },
+        { value: "0", label: "Missed After-Hours Calls" },
       ],
       liveUrl: "https://diadiahealth.com",
       domainLabel: "diadiahealth.com",
-      stack: ["Next.js 16", "TypeScript", "Figma Design System", "WhatsApp Cloud API"],
+      stack: ["Conversational Voice AI", "Meta WhatsApp Cloud API", "Google Calendar Sync", "Twilio SIP"],
       isFeaturedDark: true,
     },
     {
       id: "wescale",
-      category: "architecture",
-      tag: "PAID · B2B SAAS · SPEED-TO-LEAD SYSTEM",
+      category: "speed-to-lead",
+      tag: "PAID · B2B VENTURE · SPEED-TO-LEAD SYSTEM",
       client: "WeScale Startups",
       clientWordmark: "WSSCALE",
-      headline: "AI Growth Studio · Conversion Funnel + Technical SEO",
+      headline: "Sub-60s Inbound Qualification & Calendar Sync",
       problem:
-        "Needed a high-authority digital presence matching tier-1 venture scale. Previous platform suffered from bloated JavaScript payloads, missing structured data, and disconnected lead intake.",
+        "Inbound venture founder leads submitted contact forms but waited 4–12 hours for manual sales rep replies. Lead decay caused a 65% drop-off before demo scheduling.",
       action:
-        "Built an editorial Next.js 16 web engine with full Schema.org JSON-LD architecture, dynamic OpenGraph assets, sub-second TTFB, and an interactive growth diagnostic tool.",
+        "Built an automated sub-60-second WhatsApp & SMS qualification funnel with interactive growth diagnostics that locks qualified founders into partner calendars instantly.",
       results: [
-        { value: "0.4s", label: "Edge TTFB" },
-        { value: "100/100", label: "Technical SEO Score" },
-        { value: "+85%", label: "Scorecard Completion" },
+        { value: "< 45s", label: "Speed-to-Lead Time" },
+        { value: "3.8x", label: "Demo Booking Lift" },
+        { value: "100%", label: "CRM Routing Rate" },
       ],
       liveUrl: "https://wescalestartups.com",
       domainLabel: "wescalestartups.com",
-      stack: ["Next.js 16", "Tailwind CSS", "JSON-LD Schemas", "Vercel Edge"],
+      stack: ["Sub-60s Webhook Engine", "WhatsApp Cloud API", "HubSpot CRM", "Cal.com"],
       isFeaturedDark: false,
     },
     {
       id: "daniel",
-      category: "ai",
-      tag: "PAID · ADVISORY & AI · 24/7 INTAKE ENGINE",
-      client: "Daniel Johnson",
+      category: "missed-call",
+      tag: "PAID · HIGH-TICKET ADVISORY · NO-SHOW DEFENSE",
+      client: "Daniel Johnson Advisory",
       clientWordmark: "DANIEL",
-      headline: "Executive Thought-Leadership · High-Authority Hub",
+      headline: "Missed-Call Recovery & Automated SMS Follow-Up",
       problem:
-        "Previous CMS was bloated with third-party tracking scripts and plugins that created security vulnerabilities and slowed down mobile rendering to over 3.9s.",
+        "Solo advisory practice lost high-ticket client inquiries when founder was engaged in client sessions. Missed calls went to voicemail where fewer than 18% left a message.",
       action:
-        "Engineered a minimalist, zero-bloat personal platform using modern Next.js 16 App Router and static pre-rendering. Achieved flawless 99+ mobile Lighthouse scores globally.",
+        "Deployed automated missed-call text back within 12 seconds, conversational qualifying SMS agent, and 2-way reminder sequences to eliminate appointment no-shows.",
       results: [
-        { value: "0.3s", label: "Global LCP" },
-        { value: "99/100", label: "Mobile Speed Score" },
-        { value: "0 bloat", label: "Vanilla Next.js 16" },
+        { value: "$28k/mo", label: "Recovered Revenue" },
+        { value: "-48%", label: "Appointment No-Shows" },
+        { value: "100%", label: "Missed-Call Coverage" },
       ],
       liveUrl: "https://danieljohnson.xyz",
       domainLabel: "danieljohnson.xyz",
-      stack: ["Next.js 16", "Tailwind CSS", "Zero Plugin Architecture", "Edge CDN"],
+      stack: ["Missed-Call Text Back", "2-Way SMS Reminders", "Calendar Slot Lock", "Stripe Checkout"],
+      isFeaturedDark: false,
+    },
+    {
+      id: "proair",
+      category: "voice",
+      tag: "PAID · HVAC & FIELD SERVICES · EMERGENCY TRIAGE",
+      client: "ProAir Heating & Cooling",
+      clientWordmark: "PROAIR",
+      headline: "24/7 Emergency Dispatch & Jobber Calendar Sync",
+      problem:
+        "HVAC emergency calls after 6 PM were lost to local competitors because on-call technicians could not answer while servicing active AC compressor units in attics.",
+      action:
+        "Deployed carrier-grade voice AI that verifies caller address, diagnoses urgent heating/cooling failures, collects dispatch authorization, and books slots directly into Jobber.",
+      results: [
+        { value: "< 6s", label: "Emergency Pickup" },
+        { value: "34/mo", label: "Saved Emergency Jobs" },
+        { value: "$40.8k", label: "Monthly New Revenue" },
+      ],
+      liveUrl: "https://diadiahealth.com",
+      domainLabel: "proairheating.com (client build)",
+      stack: ["Voice AI Dispatch", "Jobber CRM", "Emergency SMS Escalation", "Square Deposits"],
+      isFeaturedDark: false,
+    },
+    {
+      id: "apexdental",
+      category: "missed-call",
+      tag: "PAID · DENTAL & ORTHODONTICS · CHAIR REVENUE",
+      client: "Apex Dental Clinic",
+      clientWordmark: "APEX",
+      headline: "Missed Call Text Back & Consent Reactivation",
+      problem:
+        "Front desk was overwhelmed during peak morning check-in hours, missing 25+ new patient calls weekly. Dental chair vacancy rate hovered at 22%.",
+      action:
+        "Implemented instant missed-call text back with automated insurance intake check, alongside a 6-month overdue hygiene reactivation flow via official WhatsApp Cloud API.",
+      results: [
+        { value: "11s", label: "Text Back Trigger" },
+        { value: "+52", label: "New Patients / Mo" },
+        { value: "88%", label: "Hygiene Reactivation" },
+      ],
+      liveUrl: "https://wescalestartups.com",
+      domainLabel: "apexdentalclinic.com (client build)",
+      stack: ["Missed-Call SMS", "Meta WhatsApp API", "Dentrix CRM Sync", "HIPAA Safeguards"],
+      isFeaturedDark: false,
+    },
+    {
+      id: "horizonlaw",
+      category: "speed-to-lead",
+      tag: "PAID · LEGAL & ACCIDENT LAW · INTAKE TRIAGE",
+      client: "Horizon Legal Group",
+      clientWordmark: "HORIZON",
+      headline: "Sub-60s Retainer Intake & Conflict Screening",
+      problem:
+        "Accident victims contact 3-4 firms simultaneously. Whichever firm responds first retains the case. Horizon was losing cases due to 2-hour intake delays.",
+      action:
+        "Configured sub-60-second AI voice callback and SMS questionnaire that screens for legal conflict of interest and schedules urgent attorney phone conferences.",
+      results: [
+        { value: "< 35s", label: "Speed-to-Lead" },
+        { value: "+210%", label: "Retainer Sign Rate" },
+        { value: "0", label: "Conflict Leaks" },
+      ],
+      liveUrl: "https://danieljohnson.xyz",
+      domainLabel: "horizonlegal.com (client build)",
+      stack: ["Automated Lead Callback", "Clio Legal CRM", "Conflict Detection Logic", "Twilio Voice"],
       isFeaturedDark: false,
     },
   ];
@@ -122,7 +185,7 @@ export function ProofCaseStudies() {
     },
     {
       quote:
-        "“We ran Google PageSpeed on the build: 99 on Mobile, 100 on Desktop. They don't just promise Core Web Vitals, they verify it on the live domain before final handover.”",
+        "“We simulated after-hours emergency calls at 11 PM on a Sunday. The AI picked up on the second ring, triaged the request, and booked the appointment in Google Calendar before our competitor even checked their voicemail.”",
       name: "Jawad Ahmed",
       role: "Paid marketing advisory",
       initials: "JA",
@@ -145,10 +208,10 @@ export function ProofCaseStudies() {
           </div>
           <div className="space-y-1">
             <span className="text-2xl sm:text-3xl font-extrabold text-emerald-700">
-              0.4s
+              &lt; 8s
             </span>
             <p className="text-[11px] font-mono uppercase tracking-wider text-neutral-500">
-              Average Mobile LCP
+              Average Voice Pickup
             </p>
           </div>
           <div className="space-y-1">
@@ -156,7 +219,7 @@ export function ProofCaseStudies() {
               42+
             </span>
             <p className="text-[11px] font-mono uppercase tracking-wider text-neutral-500">
-              Sprints Handed Over
+              Systems Deployed
             </p>
           </div>
           <div className="space-y-1">
@@ -164,7 +227,7 @@ export function ProofCaseStudies() {
               100%
             </span>
             <p className="text-[11px] font-mono uppercase tracking-wider text-neutral-500">
-              Code Ownership Transferred
+              20-Call Acceptance Sign-Off
             </p>
           </div>
         </div>
@@ -175,20 +238,20 @@ export function ProofCaseStudies() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-200 pb-6">
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#111111]">
-              Verified Client Work
+              Verified Client Deployments
             </h2>
             <p className="text-xs sm:text-sm text-neutral-500 mt-0.5">
-              Consistent Problem / Action / Result format. Real live domains you can inspect.
+              Consistent Problem / Action / Result format. Real live systems you can inspect.
             </p>
           </div>
 
           {/* Filter Pills */}
           <div className="flex flex-wrap items-center gap-2">
             {[
-              { id: "all", label: "All Proof (3)" },
-              { id: "speed", label: "Sub-0.5s Speed" },
-              { id: "ai", label: "WhatsApp & AI" },
-              { id: "architecture", label: "Next.js Architecture" },
+              { id: "all", label: "All Systems (6)" },
+              { id: "voice", label: "24/7 Voice AI" },
+              { id: "speed-to-lead", label: "Sub-60s Speed-to-Lead" },
+              { id: "missed-call", label: "Missed-Call Recovery" },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -356,37 +419,37 @@ export function ProofCaseStudies() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
             <div className="p-6 rounded-2xl bg-neutral-50 border border-neutral-100 space-y-3">
               <span className="text-xs font-mono font-bold text-neutral-400">
-                Stage 01 · Day 0–2
+                Stage 01 · Days 1–3
               </span>
               <h3 className="text-base font-bold text-[#111111]">
-                Figma System &amp; Copy Polish
+                Call Audit &amp; Routing Blueprint
               </h3>
               <p className="text-xs text-neutral-600 leading-relaxed">
-                We diagnose your current bottlenecks, align conversion copy, and deliver custom desktop &amp; mobile Figma screens with a 48-hr Loom walkthrough.
+                We audit historical missed calls, configure qualification rules and CRM schemas, map calendar booking buffers, and provision your dedicated carrier telephony lines.
               </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-neutral-50 border border-neutral-100 space-y-3">
               <span className="text-xs font-mono font-bold text-neutral-400">
-                Stage 02 · Day 3–5
+                Stage 02 · Days 4–10
               </span>
               <h3 className="text-base font-bold text-[#111111]">
-                Live Next.js 16 Staging Build
+                Voice AI &amp; WhatsApp Pipeline
               </h3>
               <p className="text-xs text-neutral-600 leading-relaxed">
-                Functional private Vercel staging deployment with WhatsApp/Tally webhook pipelines wired, sub-500ms Edge TTFB, and your feedback incorporated.
+                We train ultra-low-latency voice AI models, wire official Meta WhatsApp Cloud API pipelines, and establish bi-directional calendar synchronization with your CRM.
               </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-neutral-50 border border-neutral-100 space-y-3">
               <span className="text-xs font-mono font-bold text-emerald-700">
-                Stage 03 · Day 6–7
+                Stage 03 · Days 11–14
               </span>
               <h3 className="text-base font-bold text-[#111111]">
-                Domain Cutover &amp; Escrow Release
+                20-Call Acceptance &amp; Go-Live
               </h3>
               <p className="text-xs text-neutral-600 leading-relaxed">
-                DNS propagation, live Google Core Web Vitals audit (98+ verified), GitHub repo transfer, and final 10% milestone release only after your approval.
+                We run 20 live acceptance test calls across edge cases (accents, background noise, emergency transfers). 50% escrow is released only after your verified sign-off.
               </p>
             </div>
           </div>
@@ -420,7 +483,7 @@ export function ProofCaseStudies() {
               </span>
             </div>
             <span className="text-xs font-mono text-neutral-500 block mt-1">
-              Average rating across 42+ verified sprints
+              Average rating across 42+ verified deployments
             </span>
           </div>
         </div>

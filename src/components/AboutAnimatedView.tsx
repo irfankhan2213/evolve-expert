@@ -9,7 +9,7 @@ export function AboutAnimatedView() {
   const principles = [
     {
       title: "0 Account Managers",
-      desc: "You speak directly to senior engineers who build your website and program your AI agents. Zero telephone games, zero miscommunication.",
+      desc: "You speak directly to senior engineers who configure your telephony trunks, program your conversational AI voice agents, and wire your CRM pipelines. Zero telephone games, zero miscommunication.",
       icon: Terminal,
     },
     {
@@ -18,13 +18,13 @@ export function AboutAnimatedView() {
       icon: Zap,
     },
     {
-      title: "Clean CS Architecture",
-      desc: "No WordPress page builders with 45 third-party plugins. We write typed, modular Next.js 16 code with Tailwind CSS and sub-second cold starts.",
+      title: "Carrier-Grade Telephony & Direct APIs",
+      desc: "No unreliable offshore call centers or fragile no-code zap chains. We build on direct carrier telephony, low-latency conversational voice AI (<800ms time-to-first-token), and official Meta WhatsApp Cloud API pipelines.",
       icon: ShieldCheck,
     },
     {
       title: "100% Client Ownership",
-      desc: "No licensing traps or proprietary vendor lock-in. We transfer the GitHub repository, Vercel team deployment, and API credentials directly to you.",
+      desc: "No proprietary vendor lock-in or hostage databases. You own your phone numbers, Twilio/telephony accounts, Meta WhatsApp Business assets, and CRM integrations outright.",
       icon: HeartHandshake,
     },
   ];

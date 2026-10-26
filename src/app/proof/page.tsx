@@ -5,9 +5,9 @@ import { StitchFooter } from "@/components/StitchFooter";
 import { ProofCaseStudies } from "@/components/ProofCaseStudies";
 
 export const metadata: Metadata = {
-  title: "Client Proof & Verified Case Studies (6 Live Builds)",
+  title: "Client Proof & Verified Case Studies | 24/7 AI Lead-to-Booking Systems",
   description:
-    "Explore 6 live, verifiable enterprise web builds delivered by EvolveExpert. Real clients, sub-0.5s mobile speed, and measurable conversion growth.",
+    "Explore 6 live, verifiable AI Lead-to-Booking deployments by EvolveExpert. Real businesses, sub-10s voice pickup, sub-60s WhatsApp qualification, and calendar slot booking.",
 };
 
 export default function ProofPage() {
@@ -23,11 +23,11 @@ export default function ProofPage() {
             Zero Concept Placeholders
           </div>
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-[-0.04em] leading-[1.05] text-[#111111]">
-            6 Real Production Platforms.{" "}
+            6 Real Production Systems.{" "}
             <span className="font-editorial text-emerald-700 italic">Live and verifiable.</span>
           </h1>
           <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
-            Every build below is active on the global web, handles actual user traffic, and was delivered with verified sub-60s speed to lead and measurable conversion growth.
+            Every system below handles live customer inquiries, answers calls in under 10 seconds or responds to web leads in under 60 seconds, and locks booked appointments directly into calendars.
           </p>
         </div>
       </section>

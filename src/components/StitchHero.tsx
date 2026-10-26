@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import Link from "next/link";
 import {
   ArrowUpRight,
-  Cpu,
+  PhoneCall,
   Bot,
-  ShoppingBag,
+  Zap,
   Layers,
   CheckCircle,
   Check,
@@ -127,9 +127,9 @@ export function StitchHero() {
               whileHover={{ y: -3, transition: { duration: 0.2 } }}
               className="bg-[#141416] text-white p-5 rounded-2xl flex flex-col justify-between shadow-sm cursor-default"
             >
-              <span className="text-3xl font-extrabold tracking-tight">98+</span>
+              <span className="text-3xl font-extrabold tracking-tight">&lt; 60s</span>
               <span className="text-[11px] text-neutral-400 mt-3 font-medium leading-snug">
-                Google PageSpeed Guarantee
+                Sub-60s Speed-to-Lead Guarantee
               </span>
             </motion.div>
 
@@ -138,10 +138,10 @@ export function StitchHero() {
               className="bg-white p-5 rounded-2xl border border-black/5 flex flex-col justify-between shadow-2xs cursor-default"
             >
               <span className="text-3xl font-extrabold tracking-tight text-[#111111]">
-                7 Days
+                14 Days
               </span>
               <span className="text-[11px] text-neutral-500 mt-3 font-medium leading-snug">
-                From Kickoff to Live Domain
+                From Intake to Live System
               </span>
             </motion.div>
 
@@ -194,13 +194,13 @@ export function StitchHero() {
               style={{ perspective: "1200px", transformStyle: "preserve-3d" }}
               onClick={handleStageClick}
             >
-              {/* Card 0: Next.js 15 Edge SSR Engine */}
+              {/* Card 0: 24/7 AI Voice Answering Telephony Engine */}
               {(() => {
                 const offset = (0 - activeDeckIndex + 4) % 4;
                 const cfg = CARD_TRANSFORMS[offset];
                 return (
                   <div
-                    className="absolute inset-0 rounded-[24px] p-5 text-white bg-gradient-to-br from-[#121417] via-[#1A1F26] to-[#0F1216] border border-white/15 shadow-xl transition-all duration-500 ease-out flex flex-col justify-between overflow-hidden"
+                    className="absolute inset-0 rounded-[24px] p-5 text-white bg-gradient-to-br from-[#10141D] via-[#161D2B] to-[#0D1117] border border-sky-500/25 shadow-xl transition-all duration-500 ease-out flex flex-col justify-between overflow-hidden"
                     style={{
                       transform: cfg.transform,
                       zIndex: cfg.zIndex,
@@ -212,52 +212,52 @@ export function StitchHero() {
                     <div>
                       <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-2.5">
                         <span className="px-2 py-0.5 rounded-full bg-white/10 text-sky-300 font-semibold border border-white/10 flex items-center gap-1 text-[10px]">
-                          <Cpu className="w-3 h-3 text-sky-400" /> CORE ENGINE 01
+                          <PhoneCall className="w-3 h-3 text-sky-400" /> TELEPHONY ENGINE 01
                         </span>
                         <span className="text-emerald-400 font-bold flex items-center gap-1 text-[10px]">
                           <span className="relative flex h-1.5 w-1.5">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
                           </span>
-                          EDGE DEPLOYED
+                          CARRIER LIVE
                         </span>
                       </div>
 
                       <div className="flex items-baseline justify-between">
-                        <h3 className="text-lg font-bold tracking-tight text-white">Next.js 15 Edge SSR</h3>
+                        <h3 className="text-lg font-bold tracking-tight text-white">24/7 AI Voice Answering</h3>
                         <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-semibold">
-                          42KB Bundle
+                          Sub-10s Pickup
                         </span>
                       </div>
                       <p className="text-[11px] text-neutral-400 mt-1 line-clamp-1">
-                        Zero client-side hydration penalty with edge caching.
+                        Conversational voice pickup with instant Google &amp; CRM slot booking.
                       </p>
 
-                      {/* Telemetry & Gauges Grid */}
+                      {/* Telephony Gauges Grid */}
                       <div className="grid grid-cols-3 gap-2 mt-3 font-mono text-xs">
                         <div className="bg-white/[0.04] border border-white/10 p-2.5 rounded-xl">
-                          <span className="text-[9px] text-neutral-400 uppercase block">LCP Speed</span>
+                          <span className="text-[9px] text-neutral-400 uppercase block">Pickup Speed</span>
                           <p className="text-base font-bold text-white mt-0.5">
-                            {isTurbo ? "0.38s" : "0.72s"}
+                            {isTurbo ? "< 8s" : "12s"}
                           </p>
-                          <span className="text-[9px] text-emerald-400">99.8th %</span>
+                          <span className="text-[9px] text-emerald-400">&lt; 2 Rings</span>
                         </div>
                         <div className="bg-white/[0.04] border border-white/10 p-2.5 rounded-xl">
-                          <span className="text-[9px] text-neutral-400 uppercase block">Global Ping</span>
+                          <span className="text-[9px] text-neutral-400 uppercase block">Inbound Held</span>
                           <p className="text-base font-bold text-sky-400 mt-0.5">
-                            {isTurbo ? "18ms" : "48ms"}
+                            99.4%
                           </p>
-                          <span className="text-[9px] text-neutral-400">Cloudflare</span>
+                          <span className="text-[9px] text-neutral-400">0 Dropped Leads</span>
                         </div>
                         <div className="bg-white/[0.04] border border-white/10 p-2.5 rounded-xl">
-                          <span className="text-[9px] text-neutral-400 uppercase block">PageSpeed</span>
-                          <p className="text-base font-bold text-emerald-400 mt-0.5">100</p>
-                          <span className="text-[9px] text-neutral-400">Core Web</span>
+                          <span className="text-[9px] text-neutral-400 uppercase block">Calendar Sync</span>
+                          <p className="text-base font-bold text-emerald-400 mt-0.5">100%</p>
+                          <span className="text-[9px] text-neutral-400">Live Lock</span>
                         </div>
                       </div>
                     </div>
 
-                    {/* Interactive Speed Audit Switch */}
+                    {/* Interactive Telephony Audit Switch */}
                     <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs">
                       <div className="flex items-center gap-2">
                         <button
@@ -269,7 +269,7 @@ export function StitchHero() {
                           className={`w-8 h-4.5 rounded-full p-0.5 transition-colors relative flex items-center cursor-pointer ${
                             isTurbo ? "bg-emerald-500" : "bg-neutral-600"
                           }`}
-                          aria-label="Toggle Turbo Edge Mode"
+                          aria-label="Toggle Telephony Mode"
                         >
                           <span
                             className={`w-3.5 h-3.5 rounded-full bg-white transition-transform shadow-sm ${
@@ -278,7 +278,7 @@ export function StitchHero() {
                           />
                         </button>
                         <span className="font-mono text-neutral-300 text-[11px]">
-                          {isTurbo ? "Turbo Edge Mode Active" : "Standard Cache Mode"}
+                          {isTurbo ? "24/7 Inbound Telephony Active" : "Carrier Trunk Standby"}
                         </span>
                       </div>
                       <span className="text-[10px] font-mono text-neutral-400">
@@ -385,7 +385,7 @@ export function StitchHero() {
                 );
               })()}
 
-              {/* Card 2: Shopify Headless OS 2.0 */}
+              {/* Card 2: Instant Lead Recovery & Missed-Call Text Back */}
               {(() => {
                 const offset = (2 - activeDeckIndex + 4) % 4;
                 const cfg = CARD_TRANSFORMS[offset];
@@ -403,48 +403,48 @@ export function StitchHero() {
                     <div>
                       <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-2">
                         <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-semibold border border-amber-500/30 flex items-center gap-1 text-[10px]">
-                          <ShoppingBag className="w-3 h-3 text-amber-400" /> E-COMMERCE ACCELERATOR
+                          <Zap className="w-3 h-3 text-amber-400" /> SPEED-TO-LEAD 02
                         </span>
-                        <span className="text-amber-400 font-mono text-[10px] font-bold">OS 2.0 HEADLESS</span>
+                        <span className="text-amber-400 font-mono text-[10px] font-bold">SUB-60S TEXT BACK</span>
                       </div>
 
                       <h3 className="text-lg font-bold tracking-tight text-white">
-                        Shopify Conversion Engine
+                        Missed-Call Lead Recovery
                       </h3>
                       <p className="text-[11px] text-neutral-400 mt-0.5">
-                        Instant slide cart &amp; automated WhatsApp checkout ping.
+                        Instant SMS &amp; WhatsApp qualification when your team is on another job.
                       </p>
 
-                      {/* Interactive Cart Sim Component */}
+                      {/* Interactive Recovery Simulation */}
                       <div className="mt-3 p-2.5 rounded-xl bg-black/40 border border-amber-500/20 font-mono text-[11px] space-y-2">
                         <div className="flex items-center justify-between pb-1.5 border-b border-white/10">
                           <div className="flex items-center gap-2">
                             <span className="w-6 h-6 rounded-md bg-amber-500/20 text-amber-300 flex items-center justify-center font-bold text-[10px]">
-                              D2C
+                              SMS
                             </span>
                             <div>
-                              <p className="text-white font-semibold text-[10px]">Adigz Studio Kit</p>
-                              <p className="text-[9px] text-neutral-400">1x Bundle Edition</p>
+                              <p className="text-white font-semibold text-[10px]">Inbound Missed Call</p>
+                              <p className="text-[9px] text-neutral-400">Triggered in 11s · Auto-Reply</p>
                             </div>
                           </div>
-                          <span className="font-bold text-amber-300 text-xs">$240</span>
+                          <span className="font-bold text-emerald-400 text-xs">Saved Lead</span>
                         </div>
                         <div className="flex items-center justify-between text-[10px]">
-                          <span className="text-neutral-400">Checkout Speed</span>
-                          <span className="text-emerald-400 font-bold">+2.4x vs Theme</span>
+                          <span className="text-neutral-300 truncate max-w-[190px]">&ldquo;Hey! Saw we just missed you...&rdquo;</span>
+                          <span className="text-amber-300 font-bold shrink-0">Booked $600 Job</span>
                         </div>
                         <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                          <div className="bg-amber-400 h-full w-[88%]"></div>
+                          <div className="bg-amber-400 h-full w-[94%]"></div>
                         </div>
                       </div>
                     </div>
 
-                    {/* Gateway status */}
+                    {/* Conversion status */}
                     <div className="pt-2.5 border-t border-amber-500/20 flex items-center justify-between text-[10px] font-mono">
                       <span className="text-amber-300 flex items-center gap-1">
-                        <Check className="w-3 h-3 text-amber-400" /> Stripe &amp; Razorpay Verified
+                        <Check className="w-3 h-3 text-amber-400" /> 391% Conversion Lift
                       </span>
-                      <span className="text-neutral-400">Zero-Flicker</span>
+                      <span className="text-neutral-400">Zero Lost Calls</span>
                     </div>
                   </div>
                 );

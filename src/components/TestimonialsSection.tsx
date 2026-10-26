@@ -54,7 +54,7 @@ export function TestimonialsSection() {
     {
       id: "t6",
       quote:
-        "“We ran Google PageSpeed on the build: 99 on Mobile, 100 on Desktop. They don't just promise Core Web Vitals, they verify it on the live domain before final handover.”",
+        "“We simulated after-hours emergency calls at 11 PM on a Sunday. The AI picked up on the second ring, triaged the request, and booked the appointment in Google Calendar before our competitor even checked their voicemail.”",
       name: "Jawad Ahmed",
       role: "Paid marketing advisory",
       initials: "JA",
@@ -91,7 +91,7 @@ export function TestimonialsSection() {
             </span>
           </div>
           <span className="text-xs font-mono text-neutral-500 block mt-1">
-            Average rating across 42+ verified sprints
+            Average rating across 42+ verified deployments
           </span>
         </div>
       </div>
