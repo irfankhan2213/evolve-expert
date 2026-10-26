@@ -8,6 +8,16 @@ export const metadata: Metadata = {
   title: "Client Proof & Verified Case Studies | 24/7 AI Lead-to-Booking Systems",
   description:
     "Explore 6 live, verifiable AI Lead-to-Booking deployments by EvolveExpert. Real businesses, sub-10s voice pickup, sub-60s WhatsApp qualification, and calendar slot booking.",
+  alternates: {
+    canonical: "https://evolveexpert.com/proof",
+  },
+  openGraph: {
+    title: "Client Proof & Verified Case Studies | EvolveExpert",
+    description:
+      "Explore 6 live, verifiable AI Lead-to-Booking deployments by EvolveExpert. Real businesses, sub-10s voice pickup, and calendar slot booking.",
+    url: "https://evolveexpert.com/proof",
+    type: "website",
+  },
 };
 
 export default function ProofPage() {

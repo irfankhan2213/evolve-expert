@@ -8,6 +8,16 @@ export const metadata: Metadata = {
   title: "Lead-to-Booking System Services | 24/7 AI Call Answering",
   description:
     "Explore EvolveExpert's turnkey 14-day Lead-to-Booking System. Inbound conversational voice AI, sub-60s WhatsApp qualification, calendar booking, and 50/50 milestone escrow.",
+  alternates: {
+    canonical: "https://evolveexpert.com/services",
+  },
+  openGraph: {
+    title: "Lead-to-Booking System Services | EvolveExpert",
+    description:
+      "24/7 conversational voice AI, sub-60s WhatsApp qualification, and calendar booking live in 14 days with 50/50 escrow.",
+    url: "https://evolveexpert.com/services",
+    type: "website",
+  },
 };
 
 export default function ServicesPage() {

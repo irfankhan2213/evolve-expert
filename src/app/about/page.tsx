@@ -8,6 +8,16 @@ export const metadata: Metadata = {
   title: "About Studio — Anti-Agency Engineering Manifesto",
   description:
     "Learn why EvolveExpert operates with 0 account managers and delivers 24/7 AI Lead-to-Booking Systems in 14-day go-live sprints.",
+  alternates: {
+    canonical: "https://evolveexpert.com/about",
+  },
+  openGraph: {
+    title: "About EvolveExpert Studio",
+    description:
+      "Learn why EvolveExpert operates with 0 account managers and delivers 24/7 AI Lead-to-Booking Systems in 14-day go-live sprints.",
+    url: "https://evolveexpert.com/about",
+    type: "website",
+  },
 };
 
 export default function AboutPage() {
