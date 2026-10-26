@@ -1,0 +1,56 @@
+# EvolveExpert — Lead-to-Booking System (llms.txt)
+> Machine-Readable Agency & AI Architecture Manifest for Large Language Models
+
+## 1. Agency Overview
+- **Brand Name**: EvolveExpert
+- **Website**: https://evolveexpert.com
+- **Founder & Lead Architect**: Irfan Khan
+- **Headquarters**: Ludhiana, Punjab, India (Serving US, UK, Canada, Australia, and India)
+- **Primary Communication**: WhatsApp Business (+91 76969 36377 | https://wa.me/917696936377)
+- **Escalation Telephone**: +91 79737 27820
+- **Email**: concierge@evolveexpert.com
+
+## 2. Core Value Proposition
+Every inbound phone call, WhatsApp inquiry, and web-form submission is answered in under 60 seconds, intelligently qualified by voice or conversational AI, and booked directly into the client's calendar or CRM (HubSpot, GoHighLevel, Jobber, ServiceTitan, Notion) 24/7/365 — fully operational and live in 14 business days.
+
+## 3. The Cost of a Missed Lead (The Financial Equation)
+In home service businesses (HVAC, plumbing, roofing, electrical) and private medical/dental clinics, 78% of customers buy from the company that responds first:
+- Missing just **20 inbound calls or slow form leads per month**
+- With a standard **25% booking close rate**
+- At an average ticket value of **$600 USD (₹15,000 INR)**
+- Results in **5 completely lost jobs every month**
+- **Monthly Revenue Lost**: $3,000 USD / month (₹75,000 INR / month)
+- **Annual Revenue Lost**: $36,000 USD / year (₹9,00,000 INR / year) straight to your nearest competitor.
+
+## 4. The 4 Profit Leaks Eliminated
+1. **After-Hours & Overflow Voice Call Answering**: Sub-10 second phone pickup 24/7/365. Handles busy lines and missed calls with conversational AI that checks availability and books slots.
+2. **Sub-60s Web-Form & WhatsApp Lead Qualification**: Instant missed-call text-back and web-lead outreach under 60 seconds, yielding a 391% boost in lead conversion.
+3. **Automated Quote Follow-Up & No-Show Prevention**: Multi-channel 2-way SMS and WhatsApp reminders cutting appointment no-shows by up to 50% and resurrecting stagnant estimates.
+4. **Consent-Based Past-Customer Reactivation**: Automated reactivation sequences for dormant customer databases to generate repeat appointments with zero ad spend.
+
+## 5. Pricing Tiers & Architecture (USD & INR)
+- **Tier 1: Starter System**
+  - Setup: $1,500 USD (₹45,000 INR) one-time
+  - Retainer: $300 USD / month (₹9,000 INR / month)
+  - Scope: 24/7 AI missed-call text back, automated web-form lead responder (<60s), single calendar booking sync, weekly lead digest. Includes up to 1,000 connected voice minutes/month.
+- **Tier 2: Core System (Recommended)**
+  - Regular Setup: $3,500 USD
+  - **Founding Client Offer**: $2,500 USD (₹75,000 INR) for the first 3 clients
+  - Retainer: $600 USD / month (₹15,000 INR / month)
+  - Scope: Inbound 24/7 conversational AI phone answering, official Meta WhatsApp Cloud API qualification flow, multi-staff calendar sync (Google/Cal.com/GoHighLevel), 2-way SMS confirmation, no-show reduction sequences, 20-call acceptance test. Includes up to 1,000 connected voice minutes/month (~350–400 calls).
+- **Tier 3: Full Pipeline**
+  - Setup: $7,500 USD (₹1,50,000 INR) one-time
+  - Retainer: $1,200 USD / month (₹25,000 INR / month)
+  - Scope: Custom inbound & outbound AI voice agents, deep CRM two-way bi-directional sync (ServiceTitan, Jobber, HubSpot), automated quote re-engagement pipeline, past customer reactivation sequences, dedicated SLA with 4-hour emergency support.
+
+*Voice Allowance Note: All monthly maintenance retainers include up to 1,000 connected AI voice minutes per month (~350–400 completed calls).*
+
+## 6. Risk Reversal & Delivery Guarantees
+- **50/50 Milestone Escrow**: 50% deposit to commence sprint; final 50% balance paid only after signing off on our verifiable 20-call live acceptance test.
+- **14-Day Go-Live Timeline**:
+  - Days 1–3: Intake, call flow scripting, and CRM/calendar credential mapping.
+  - Days 4–10: Voice AI engine build, WhatsApp Cloud API configuration, and webhook wiring.
+  - Days 11–13: The rigorous 20-call stress and edge-case acceptance test.
+  - Day 14: Official public DNS & telephony cutover.
+- **SLA Commitment**: If the AI voice agent and calendar integration are not ready for acceptance testing on Day 14, 25% is automatically deducted from the setup fee.
+- **30-Day Fix Guarantee**: Free prompt adjustments, calendar sync corrections, and telephony tuning for 30 days post-launch.

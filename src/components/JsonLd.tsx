@@ -7,60 +7,61 @@ export function JsonLd() {
       {
         "@type": "Organization",
         "@id": "https://evolveexpert.com/#organization",
-        "name": "EvolveExpert Studio",
-        "alternateName": "EvolveExpert",
+        "name": "EvolveExpert",
+        "alternateName": "EvolveExpert Lead-to-Booking Systems",
         "url": "https://evolveexpert.com",
         "logo": {
           "@type": "ImageObject",
           "url": "https://evolveexpert.com/images/portfolio/wescale.jpg",
-          "caption": "EvolveExpert Studio"
+          "caption": "EvolveExpert Lead-to-Booking System"
         },
-        "description": "High-performance Next.js 16 web engineering & AI systems studio delivering turnkey platforms in 7-day sprints.",
+        "description": "Turnkey Lead-to-Booking AI systems for service businesses and clinics. Sub-60s call answering, automated WhatsApp qualification, and calendar booking live in 14 days.",
         "founder": {
           "@type": "Person",
           "name": "Irfan Khan",
-          "jobTitle": "Lead Fullstack & AI Architect"
+          "jobTitle": "Founder & Lead AI Systems Architect"
         },
-        "sameAs": [
-          "https://github.com/evolveexpert",
-          "https://twitter.com/evolveexpert",
-          "https://linkedin.com/company/evolveexpert"
-        ],
         "contactPoint": [
           {
             "@type": "ContactPoint",
-            "contactType": "Client Concierge & Direct Engineering (WhatsApp Business)",
+            "contactType": "WhatsApp Business Lead Concierge",
             "email": "concierge@evolveexpert.com",
             "telephone": "+91-7696936377",
             "availableLanguage": ["English", "Hindi", "Punjabi"]
           },
           {
             "@type": "ContactPoint",
-            "contactType": "Direct Founder Line",
+            "contactType": "Direct Founder Escalation",
             "telephone": "+91-7973727820",
             "availableLanguage": ["English", "Hindi", "Punjabi"]
           }
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://evolveexpert.com/#website",
-        "url": "https://evolveexpert.com",
-        "name": "EvolveExpert — Pure Web ('26) & AI Systems",
-        "publisher": {
-          "@id": "https://evolveexpert.com/#organization"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ludhiana",
+          "addressRegion": "Punjab",
+          "addressCountry": "IN"
         },
-        "inLanguage": "en-US"
+        "areaServed": [
+          { "@type": "Country", "name": "United States" },
+          { "@type": "Country", "name": "United Kingdom" },
+          { "@type": "Country", "name": "Canada" },
+          { "@type": "Country", "name": "Australia" },
+          { "@type": "Country", "name": "India" }
+        ]
       },
       {
         "@type": "ProfessionalService",
         "@id": "https://evolveexpert.com/#service",
-        "name": "EvolveExpert 7-Day Turnkey Web & AI Systems Sprint",
+        "name": "EvolveExpert Lead-to-Booking System",
+        "url": "https://evolveexpert.com",
+        "parentOrganization": {
+          "@id": "https://evolveexpert.com/#organization"
+        },
         "image": "https://evolveexpert.com/images/portfolio/wescale.jpg",
-        "priceRange": "$950 - $1,250 USD / ₹65,000 - ₹90,000 INR",
+        "priceRange": "$1,500 - $7,500 USD / ₹45,000 - ₹1,50,000 INR",
         "currenciesAccepted": "USD, INR",
-        "paymentAccepted": "Credit Card, Stripe, Razorpay, UPI, Wire Transfer, Escrow",
-        "areaServed": "Global",
+        "paymentAccepted": "Credit Card, Stripe, Razorpay, Bank Transfer, Escrow",
         "telephone": "+91-7696936377",
         "address": {
           "@type": "PostalAddress",
@@ -68,12 +69,41 @@ export function JsonLd() {
           "addressRegion": "Punjab",
           "addressCountry": "IN"
         },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.98",
-          "reviewCount": "42",
-          "bestRating": "5",
-          "worstRating": "1"
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Lead-to-Booking System Packages",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Starter System",
+                "description": "24/7 AI missed-call text back, automated sub-60s web lead qualification, single calendar sync, and weekly digest. Includes up to 1,000 AI voice minutes/mo."
+              },
+              "price": "1500",
+              "priceCurrency": "USD"
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Core System (Founding Client Offer)",
+                "description": "24/7 AI voice phone answering, official Meta WhatsApp Cloud API qualification, multi-staff calendar sync, 2-way SMS reminder flow, and 20-call acceptance test. Includes up to 1,000 AI voice minutes/mo."
+              },
+              "price": "2500",
+              "priceCurrency": "USD"
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Full Pipeline",
+                "description": "Inbound & outbound AI voice triage, bi-directional CRM integration (ServiceTitan, Jobber, HubSpot), quote re-engagement pipeline, and past customer reactivation."
+              },
+              "price": "7500",
+              "priceCurrency": "USD"
+            }
+          ]
         }
       },
       {
@@ -82,34 +112,34 @@ export function JsonLd() {
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "How does EvolveExpert deliver a full production website in 7 days?",
+            "name": "How much revenue does a service business lose from missed calls?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "We operate on a rigid 7-day asynchronous sprint protocol with zero account manager telephone games. You get direct daily Loom demos, a live private Notion Command Center, and work directly with senior fullstack engineers building on our modular Next.js 16 + Tailwind CSS architecture."
+              "text": "A service business missing just 20 calls or slow web inquiries per month loses approximately $3,000 every single month ($36,000 annually or ₹9,00,000/year). Assuming a standard 25% booking close rate and an average $600 job ticket, 5 high-intent customers book with a faster competitor instead of your company."
             }
           },
           {
             "@type": "Question",
-            "name": "What is the 50/40/10 milestone escrow payment structure?",
+            "name": "How fast does the EvolveExpert Lead-to-Booking System go live?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "To ensure absolute mutual trust, you pay 50% upfront to reserve the sprint slot, 40% on Day 4 after the core build review, and the final 10% on Day 7 only after live deployment, full GitHub repository transfer, and 100/100 Core Web Vitals verification."
+              "text": "The entire system is live in 14 calendar days. Days 1–3 establish the intake audit and calendar routing. Days 4–10 build the voice engine, WhatsApp Cloud API flows, and CRM webhooks. Days 11–13 execute a live 20-call acceptance test with edge cases. Day 14 marks official public telephony launch."
             }
           },
           {
             "@type": "Question",
-            "name": "Who owns the code and intellectual property?",
+            "name": "How does the 50/50 risk-reversal payment structure work?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "You own 100% of the code, intellectual property, design tokens, and infrastructure accounts from the moment the final milestone is reached. We transfer full ownership of the GitHub repository, Vercel project, and Supabase database."
+              "text": "You pay a 50% deposit to commence the 14-day sprint, and the remaining 50% only after you test and sign off on the 20-call acceptance test. If our AI voice agent and calendar booking are not ready for acceptance testing on Day 14, 25% is automatically credited off the setup fee."
             }
           },
           {
             "@type": "Question",
-            "name": "Do you build custom AI systems and WhatsApp concierge integrations?",
+            "name": "Does the AI call answering system disclose that it is an AI?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Our Growth Sprint tier includes 24/7 custom AI agents, automated WhatsApp client triage, instant lead routing to your CRM/Notion, and multi-currency Stripe/Razorpay payment engines."
+              "text": "Yes. Transparency and compliance are built into every system. The AI greeting states upfront that it is an automated AI booking assistant on a recorded line, ensuring compliance with FCC, TCPA, and international telephony regulations while immediately helping the caller book their appointment."
             }
           }
         ]

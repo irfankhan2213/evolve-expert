@@ -12,16 +12,16 @@ import { StitchCapabilitiesAndPricing } from "@/components/StitchCapabilitiesAnd
 import { StitchFooter } from "@/components/StitchFooter";
 
 export const metadata: Metadata = {
-  title: "EvolveExpert — Pure Web ('26) & AI Systems Studio",
+  title: "EvolveExpert — 24/7 AI Lead-to-Booking System for Service Businesses",
   description:
-    "Turnkey Next.js 16 web engineering & 24/7 AI systems delivered in rigid 7-day asynchronous sprints. 100/100 Core Web Vitals, 0 account managers, 50/40/10 milestone escrow.",
+    "Never lose a customer to a missed call or slow reply. 24/7 AI voice call answering, sub-60s WhatsApp qualification, and calendar booking live in 14 days with 50/50 escrow.",
   alternates: {
     canonical: "https://evolveexpert.com",
   },
   openGraph: {
-    title: "EvolveExpert — Pure Web ('26) & AI Systems Studio",
+    title: "EvolveExpert — 24/7 AI Lead-to-Booking System",
     description:
-      "Turnkey Next.js 16 web engineering & 24/7 AI systems delivered in rigid 7-day asynchronous sprints. Sub-0.5s LCP, zero bloat.",
+      "Every inbound call, WhatsApp message, and web lead answered in under 60 seconds, qualified by AI, and booked into your calendar 24/7. Live in 14 days with 50/50 escrow.",
     url: "https://evolveexpert.com",
     type: "website",
   },

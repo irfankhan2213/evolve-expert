@@ -13,7 +13,7 @@ export function ContactClientView() {
     email: "",
     website: "",
     phone: "",
-    budget: "$950 / ₹65,000",
+    budget: "Core System ($2,500 / ₹75,000)",
     notes: "",
   });
   const [loading, setLoading] = useState(false);
@@ -218,7 +218,7 @@ export function ContactClientView() {
                       <label className="text-xs font-bold text-neutral-700">WhatsApp / Phone</label>
                       <input
                         type="text"
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 76969 36377"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-200 text-sm focus:outline-none focus:border-black transition"
@@ -227,16 +227,16 @@ export function ContactClientView() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-neutral-700">Select Sprint Package</label>
+                    <label className="text-xs font-bold text-neutral-700">Select System Package</label>
                     <select
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-200 text-sm focus:outline-none focus:border-black transition"
                     >
-                      <option value="$950 / ₹65,000">7-Day Founder Web Sprint ($950 USD / ₹65,000 INR)</option>
-                      <option value="$1,250 / ₹90,000">Web Sprint + 24/7 AI &amp; WhatsApp ($1,250 USD / ₹90,000 INR)</option>
-                      <option value="$200/mo / ₹10,000/mo">Post-Launch AI &amp; Webhook Retainer ($200/mo / ₹10,000/mo)</option>
-                      <option value="Enterprise Custom">Multi-Product / Custom SaaS Platform</option>
+                      <option value="Core System ($2,500 / ₹75,000)">Core System — Founding Client ($2,500 USD / ₹75,000 INR + $600/mo)</option>
+                      <option value="Starter System ($1,500 / ₹45,000)">Starter System ($1,500 USD / ₹45,000 INR + $300/mo)</option>
+                      <option value="Full Pipeline ($7,500 / ₹1,50,000)">Full Pipeline ($7,500 USD / ₹1,50,000 INR + $1,200/mo)</option>
+                      <option value="Enterprise Custom">Multi-Location / Enterprise Custom Telephony</option>
                     </select>
                   </div>
 

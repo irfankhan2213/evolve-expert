@@ -179,7 +179,7 @@ export function StitchFooter() {
 
           <div className="flex flex-wrap items-center gap-2.5 shrink-0">
             <a
-              href="https://wa.me/917696936377?text=Hi%20EvolveExpert,%20I'd%20like%20to%20discuss%20a%207-day%20sprint"
+              href="https://wa.me/917696936377?text=Hi%20EvolveExpert,%20I'd%20like%20to%20discuss%20the%2014-day%20Lead-to-Booking%20System"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-xs font-semibold font-mono border border-emerald-200/90 hover:bg-emerald-100 hover:border-emerald-300 transition shadow-2xs whitespace-nowrap"
@@ -204,7 +204,7 @@ export function StitchFooter() {
         {/* Tier 2: Copyright & Verification Specs */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-[11px] font-mono text-neutral-500 border-t border-neutral-200/60 mt-6">
           <div className="flex items-center gap-2.5">
-            <span>© {new Date().getFullYear()} EvolveExpert Studio</span>
+            <span>© {new Date().getFullYear()} EvolveExpert</span>
             <span className="text-neutral-300">·</span>
             <span>All rights reserved</span>
           </div>
@@ -212,12 +212,12 @@ export function StitchFooter() {
           <div className="flex flex-wrap items-center gap-3 text-neutral-500">
             <span className="text-emerald-700 font-semibold flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-              Sub-0.5s Web Engineering
+              Sub-60s Speed to Lead
             </span>
             <span className="text-neutral-300 hidden sm:inline">·</span>
-            <span className="hidden sm:inline">Rigid 7-Day Sprints</span>
+            <span className="hidden sm:inline">14-Day Go-Live</span>
             <span className="text-neutral-300 hidden md:inline">·</span>
-            <span className="hidden md:inline">50/40/10 Escrow</span>
+            <span className="hidden md:inline">50/50 Milestone Escrow</span>
           </div>
         </div>
       </div>

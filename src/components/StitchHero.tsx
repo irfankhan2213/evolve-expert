@@ -59,7 +59,7 @@ export function StitchHero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            Welcome to EvolveExpert Studio
+            Lead-to-Booking System (&apos;26) · Sub-60s Speed to Lead
           </motion.div>
 
           <motion.div
@@ -68,13 +68,10 @@ export function StitchHero() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <h1 className="text-[52px] sm:text-[76px] lg:text-[88px] font-extrabold tracking-[-0.04em] leading-[0.92] uppercase text-[#111111]">
-              PURE WEB
-              <span className="text-sm sm:text-base font-mono align-top ml-3 text-neutral-500 font-normal">
-                (&apos;26)
-              </span>
+            <h1 className="text-[44px] sm:text-[68px] lg:text-[80px] font-extrabold tracking-[-0.04em] leading-[0.94] uppercase text-[#111111]">
+              NEVER LOSE A LEAD
               <br />
-              <span className="text-neutral-400 font-bold">&amp; AI SYSTEMS</span>
+              <span className="text-neutral-400 font-bold">TO A MISSED CALL.</span>
             </h1>
           </motion.div>
 
@@ -84,11 +81,11 @@ export function StitchHero() {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-base sm:text-lg text-neutral-600 max-w-xl leading-relaxed"
           >
-            We engineer high-converting websites, Shopify stores, and 24/7 WhatsApp AI concierges in{" "}
-            <span className="text-[#111111] font-bold underline decoration-neutral-300 underline-offset-4">
-              7 days flat
+            Every inbound phone call, WhatsApp inquiry, and web form lead answered in under{" "}
+            <span className="text-[#111111] font-bold underline decoration-emerald-400 underline-offset-4">
+              60 seconds
             </span>
-            —built so every click drives measurable revenue.
+            , qualified by AI, and booked into your calendar 24/7. Turnkey deployment in 14 days with 50/50 escrow.
           </motion.p>
 
           <motion.div
@@ -357,7 +354,7 @@ export function StitchHero() {
                             type="button"
                             onClick={(e) => {
                               e.stopPropagation();
-                              triggerPromptChip("$950 or $1,250 fixed scope");
+                              triggerPromptChip("$2,500 Founding Client");
                             }}
                             className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[9px] hover:bg-emerald-500/40 transition-colors cursor-pointer"
                           >

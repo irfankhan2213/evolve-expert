@@ -20,11 +20,11 @@ export async function POST(request: Request) {
     if (contactStr.includes("http") || (website && website.includes("."))) score += 15;
 
     const leadPayload = {
-      name: name || "Founder",
+      name: name || "Prospect",
       contact: contactStr,
       phone: phone || "N/A",
       website: website || "N/A",
-      budget: budget || "Unspecified",
+      budget: budget || "Lead-to-Booking Core System ($2,500)",
       notes: notes || "None",
       source: source || "web_intake",
       leadScore: score,
@@ -33,9 +33,16 @@ export async function POST(request: Request) {
 
     console.info(`[EvolveExpert Lead Engine] Lead Received:`, leadPayload);
 
-    // 1. Direct Hostinger Reach API Contact Ingestion (Email Marketing & Lead Nurturing)
-    const hostingerToken = process.env.HOSTINGER_API_TOKEN || process.env.HOSTINGER_MAIL_API_TOKEN;
-    const reachProfileUuid = process.env.HOSTINGER_REACH_PROFILE_UUID || "a8f74fcc-ed27-4f6e-9438-76013da4692d";
+    // 1. Direct Hostinger Reach API Contact Ingestion
+    const hostingerToken =
+      process.env.HOSTINGER_REACH_API_TOKEN ||
+      process.env.HOSTINGER_API_TOKEN ||
+      process.env.HOSTINGER_MAIL_API_TOKEN;
+    const reachProfileId =
+      process.env.HOSTINGER_REACH_PROFILE_ID ||
+      process.env.HOSTINGER_REACH_PROFILE_UUID ||
+      "a8f74fcc-ed27-4f6e-9438-76013da4692d";
+
     const emailMatch = contactStr.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
     if (hostingerToken && emailMatch) {
       let cleanPhone: string | undefined = undefined;
@@ -49,14 +56,14 @@ export async function POST(request: Request) {
 
       const reachBody: Record<string, any> = {
         email: emailMatch[0],
-        name: name || "Sprint Founder",
+        name: name || "Lead-to-Booking Prospect",
         note: `Score: ${score} | Site: ${website || "N/A"} | ${budget || ""}`.slice(0, 75),
       };
       if (cleanPhone) {
         reachBody.phone = cleanPhone;
       }
 
-      await fetch(`https://developers.hostinger.com/api/reach/v1/profiles/${reachProfileUuid}/contacts`, {
+      await fetch(`https://developers.hostinger.com/api/reach/v1/profiles/${reachProfileId}/contacts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -67,40 +74,23 @@ export async function POST(request: Request) {
       }).catch((err) => console.error("[Hostinger Reach Dispatch Error]:", err));
     }
 
-    // 2. Optional Hostinger Agentic Mail REST API dispatch
-    const mailToken = process.env.HOSTINGER_MAIL_API_TOKEN || hostingerToken;
-    const recipientEmail = process.env.LEAD_ALERT_EMAIL || "concierge@evolveexpert.com";
-    if (mailToken) {
-      await fetch("https://api.mail.hostinger.com/v1/messages/send", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${mailToken}`,
-        },
-        body: JSON.stringify({
-          to: [recipientEmail],
-          subject: `[New Sprint Lead · Score ${score}] ${leadPayload.website !== "N/A" ? leadPayload.website : leadPayload.contact}`,
-          text: `New EvolveExpert Sprint Lead:\n\nName: ${leadPayload.name}\nContact: ${leadPayload.contact}\nPhone: ${leadPayload.phone}\nWebsite: ${leadPayload.website}\nPackage: ${leadPayload.budget}\nNotes: ${leadPayload.notes}\nSource: ${leadPayload.source}\nTime: ${leadPayload.timestamp}\n\nReply immediately on WhatsApp: https://wa.me/${(leadPayload.phone !== "N/A" ? leadPayload.phone : leadPayload.contact).replace(/[^0-9]/g, "")}`,
-        }),
-      }).catch((err) => console.error("[Hostinger Mail Dispatch Error]:", err));
-    }
-
-    // 2. Optional Webhook dispatch (Hostinger Reach / n8n / Slack / Discord / Telegram)
-    const webhookUrl = process.env.ALERT_WEBHOOK_URL;
+    // 2. Real-time Webhook Notification (Slack, Discord, Telegram, or n8n)
+    const webhookUrl = process.env.LEAD_ALERT_WEBHOOK_URL || process.env.ALERT_WEBHOOK_URL;
     if (webhookUrl) {
       await fetch(webhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           event: "lead.submitted",
-          text: `🔥 New EvolveExpert Lead (${leadPayload.source}): ${leadPayload.name} | ${leadPayload.contact} | ${leadPayload.website} | ${leadPayload.budget}`,
+          text: `🔥 New Lead-to-Booking Inquiry (${leadPayload.source}): ${leadPayload.name} | ${leadPayload.contact} | ${leadPayload.website} | ${leadPayload.budget}`,
           data: leadPayload,
         }),
       }).catch((err) => console.error("[Webhook Dispatch Error]:", err));
     }
 
+    // 3. Return Instant WhatsApp Redirect to Business Line (+91 76969 36377)
     const whatsappRedirect = `https://wa.me/917696936377?text=${encodeURIComponent(
-      `Hi Irfan, I just requested a 24-hour EvolveExpert sprint prototype for ${leadPayload.website !== "N/A" ? leadPayload.website : leadPayload.contact}.`
+      `Hi Irfan, I just submitted an inquiry for the EvolveExpert Lead-to-Booking System (${leadPayload.website !== "N/A" ? leadPayload.website : leadPayload.contact}). Package: ${leadPayload.budget}.`
     )}`;
 
     return NextResponse.json({
@@ -108,13 +98,13 @@ export async function POST(request: Request) {
       leadScore: score,
       previewSlug: "apex-dental",
       whatsappUrl: whatsappRedirect,
-      message: "Lead received successfully. Custom prototype initiated.",
-      estimatedTurnaround: "24 hours",
+      message: "Lead received successfully. Telephony audit & booking sequence initiated.",
+      turnaround: "Sub-60s automated triage · 14-day go-live",
     });
   } catch (error) {
     console.error("[EvolveExpert Lead Engine] Error processing lead:", error);
     return NextResponse.json(
-      { error: "Internal server error processing request." },
+      { error: "Failed to process lead intake." },
       { status: 500 }
     );
   }
