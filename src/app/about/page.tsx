@@ -7,7 +7,7 @@ import { AboutAnimatedView } from "@/components/AboutAnimatedView";
 export const metadata: Metadata = {
   title: "About Studio — Anti-Agency Engineering Manifesto",
   description:
-    "Learn why EvolveExpert operates with 0 account managers and delivers production Next.js 16 platforms in 7-day sprints.",
+    "Learn why EvolveExpert operates with 0 account managers and delivers 24/7 AI Lead-to-Booking Systems in 14-day go-live sprints.",
 };
 
 export default function AboutPage() {

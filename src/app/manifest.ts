@@ -2,10 +2,10 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "EvolveExpert — Pure Web & AI Systems Studio",
+    name: "EvolveExpert — 24/7 AI Lead-to-Booking System",
     short_name: "EvolveExpert",
     description:
-      "Turnkey Next.js 16 web engineering & 24/7 AI systems delivered in rigid 7-day asynchronous sprints.",
+      "Turnkey 24/7 AI call answering, sub-60s WhatsApp qualification, and calendar booking live in 14 days with 50/50 escrow.",
     start_url: "/",
     display: "standalone",
     background_color: "#F3F3F1",

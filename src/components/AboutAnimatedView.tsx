@@ -57,7 +57,7 @@ export function AboutAnimatedView() {
         </div>
       </section>
 
-      {/* The 7-Day Guarantee Callout */}
+      {/* The 14-Day Guarantee Callout */}
       <section className="max-w-[1200px] mx-auto px-5 sm:px-10 py-16">
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
@@ -81,7 +81,7 @@ export function AboutAnimatedView() {
               Speed is not a shortcut. It is the purest sign of engineering mastery.
             </h2>
             <p className="text-sm text-neutral-400 leading-relaxed">
-              When an engineering team knows exactly how Next.js works, has battle-tested Tailwind component architecture, and possesses clear design systems, building an enterprise website doesn’t take 3 months. It takes 7 days.
+              When an engineering team specializes in ultra-low latency conversational AI, carrier telephony, and CRM calendar synchronization, building an autonomous Lead-to-Booking engine doesn’t take 6 months. It takes 14 days.
             </p>
             <div className="pt-4">
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="inline-block">
@@ -89,7 +89,7 @@ export function AboutAnimatedView() {
                   href="/pricing"
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-[#111111] text-xs font-bold hover:bg-neutral-200 transition shadow-sm group"
                 >
-                  <span>Reserve a 7-Day Sprint Slot</span>
+                  <span>Deploy Your Lead-to-Booking System</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </motion.div>

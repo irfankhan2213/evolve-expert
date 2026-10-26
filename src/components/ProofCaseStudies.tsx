@@ -12,7 +12,7 @@ export function ProofCaseStudies() {
     {
       id: "diadia",
       category: "speed",
-      tag: "PAID · HEALTHTECH · 7-DAY SPRINT",
+      tag: "PAID · HEALTHTECH · AI CLINICAL BOOKING",
       client: "DiaDia Health",
       clientWordmark: "DIADIA",
       headline: "Clinical UX & Diagnostic Triage from Zero",
@@ -33,7 +33,7 @@ export function ProofCaseStudies() {
     {
       id: "wescale",
       category: "architecture",
-      tag: "PAID · B2B SAAS · 7-DAY SPRINT",
+      tag: "PAID · B2B SAAS · SPEED-TO-LEAD SYSTEM",
       client: "WeScale Startups",
       clientWordmark: "WSSCALE",
       headline: "AI Growth Studio · Conversion Funnel + Technical SEO",
@@ -54,7 +54,7 @@ export function ProofCaseStudies() {
     {
       id: "daniel",
       category: "ai",
-      tag: "PAID · ADVISORY & AI · 7-DAY SPRINT",
+      tag: "PAID · ADVISORY & AI · 24/7 INTAKE ENGINE",
       client: "Daniel Johnson",
       clientWordmark: "DANIEL",
       headline: "Executive Thought-Leadership · High-Authority Hub",
@@ -82,15 +82,15 @@ export function ProofCaseStudies() {
   const testimonials = [
     {
       quote:
-        "“EvolveExpert helped us move from a slow 5-second Webflow site to a sub-0.5s Next.js 16 engine. Within 7 days, our mobile conversion doubled and WhatsApp triage handles patient inquiries 24/7 without routing back to the team.”",
+        "“EvolveExpert helped us deploy an autonomous Lead-to-Booking System. Within days, our response time dropped to under 10 seconds and WhatsApp triage handles patient inquiries 24/7 without routing back to the team.”",
       name: "B2B SaaS & HealthTech Founder · CEO",
-      role: "Paid sprint engagement",
+      role: "Paid client engagement",
       initials: "BS",
       isFeaturedDark: true,
     },
     {
       quote:
-        "“EvolveExpert is the 'no fluff', straight-to-the-point engineering studio. In just 7 days, they built a platform that scores 99/100 on mobile PageSpeed and transferred 100% of the code on Day 7 without asking for ongoing retainers.”",
+        "“EvolveExpert is the 'no fluff', straight-to-the-point engineering studio. They built an AI phone answering and booking pipeline that passed our 20-call acceptance test with zero friction.”",
       name: "Greg Weinstein",
       role: "Paid founder advisory",
       initials: "GW",
@@ -98,7 +98,7 @@ export function ProofCaseStudies() {
     },
     {
       quote:
-        "“The 50/40/10 milestone escrow gave us complete peace of mind. We reviewed the live staging build on Day 4, approved the cutover on Day 7, and our load times dropped from 4.2 seconds to 0.4 seconds.”",
+        "“The 50/50 milestone escrow gave us complete peace of mind. We paid 50% upfront, stress-tested 20 inbound calls on Day 12, approved the cutover on Day 14, and our booking rate doubled.”",
       name: "Dru Riley",
       role: "Paid growth advisory",
       initials: "DR",
@@ -282,7 +282,7 @@ export function ProofCaseStudies() {
                         item.isFeaturedDark ? "text-sky-400" : "text-sky-700"
                       }`}
                     >
-                      The 7-Day Sprint Build (Action)
+                      The Lead-to-Booking Build (Action)
                     </span>
                     <p
                       className={
@@ -489,13 +489,13 @@ export function ProofCaseStudies() {
         <div className="p-8 sm:p-12 rounded-[32px] bg-[#0E0E11] text-white flex flex-col sm:flex-row items-center justify-between gap-8 shadow-2xl">
           <div className="space-y-2 max-w-xl">
             <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">
-              Ready to Upgrade Your Digital Infrastructure?
+              Ready to Stop Leaking Bookings?
             </span>
             <h3 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
-              7 Days to Sub-0.5s Mobile Speed &amp; 24/7 AI Triage.
+              14 Days to Sub-60s Speed to Lead &amp; 24/7 AI Booking.
             </h3>
             <p className="text-xs sm:text-sm text-neutral-400">
-              50/40/10 milestone escrow protection. 100% code ownership handed over on Day 7.
+              50/50 milestone escrow protection. 20-call acceptance test guarantee.
             </p>
           </div>
 
@@ -507,7 +507,7 @@ export function ProofCaseStudies() {
               View Pricing &amp; Reserve Slot →
             </Link>
             <a
-              href="https://wa.me/917696936377?text=Hi%20EvolveExpert,%20I'd%20like%20to%20discuss%20a%207-day%20sprint"
+              href="https://wa.me/917696936377?text=Hi%20EvolveExpert,%20I'd%20like%20to%20discuss%20the%2014-day%20Lead-to-Booking%20System"
               target="_blank"
               rel="noreferrer"
               className="px-6 py-4 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm text-center transition shadow-sm"

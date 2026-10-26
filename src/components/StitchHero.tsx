@@ -328,7 +328,7 @@ export function StitchHero() {
                       {/* Simulated Realtime Chat Box */}
                       <div className="mt-3 space-y-1.5 bg-black/40 border border-emerald-500/20 p-2.5 rounded-xl text-[11px] font-mono">
                         <div className="bg-emerald-950/60 text-emerald-100 p-2 rounded-lg border border-emerald-500/30 leading-snug text-[10px]">
-                          &ldquo;Hey! Want to view the live case study link or see 7-day pricing?&rdquo;
+                          &ldquo;Hey! Want to see your missed-call revenue loss or 14-day pricing?&rdquo;
                         </div>
                         <div
                           className={`p-1.5 rounded-lg max-w-[80%] ml-auto text-right text-[10px] transition-colors duration-300 ${
@@ -344,11 +344,11 @@ export function StitchHero() {
                             type="button"
                             onClick={(e) => {
                               e.stopPropagation();
-                              triggerPromptChip("7-day sprint guaranteed");
+                              triggerPromptChip("14-day go-live guaranteed");
                             }}
                             className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[9px] hover:bg-emerald-500/40 transition-colors cursor-pointer"
                           >
-                            ⚡ Turnaround?
+                            ⚡ 14-Day Go-Live
                           </button>
                           <button
                             type="button"
@@ -470,27 +470,27 @@ export function StitchHero() {
                         <span className="px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 font-semibold border border-purple-500/30 flex items-center gap-1 text-[10px]">
                           <Layers className="w-3 h-3 text-purple-400" /> COMMAND CHAMBER
                         </span>
-                        <span className="text-purple-300 font-mono text-[10px] font-bold">SPRINT PORTAL</span>
+                        <span className="text-purple-300 font-mono text-[10px] font-bold">14-DAY ROADMAP</span>
                       </div>
 
                       <h3 className="text-lg font-bold tracking-tight text-white">
-                        Notion + 48h Loom Vault
+                        Notion Command &amp; 20-Call Test
                       </h3>
                       <p className="text-[11px] text-neutral-400 mt-0.5">
-                        Private transparent tracking with 2-minute video dispatches.
+                        Transparent milestone tracking with 20 live acceptance calls.
                       </p>
 
-                      {/* 7-Day Sprint Checklist */}
+                      {/* 14-Day Delivery Checklist */}
                       <div className="mt-3 p-2.5 rounded-xl bg-black/40 border border-purple-500/20 font-mono text-[10px] space-y-1.5">
                         <div className="flex items-center justify-between">
                           <span className="flex items-center gap-1 text-white truncate">
-                            <CheckCircle className="w-3 h-3 text-emerald-400 shrink-0" /> Day 1: Wireframe Architecture
+                            <CheckCircle className="w-3 h-3 text-emerald-400 shrink-0" /> Days 1-3: Intake &amp; Telephony Routing
                           </span>
                           <span className="text-emerald-400 font-bold shrink-0">DONE</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="flex items-center gap-1 text-white truncate">
-                            <CheckCircle className="w-3 h-3 text-emerald-400 shrink-0" /> Day 2: Figma High-Fidelity
+                            <CheckCircle className="w-3 h-3 text-emerald-400 shrink-0" /> Days 4-10: Voice &amp; WhatsApp Engine
                           </span>
                           <span className="text-emerald-400 font-bold shrink-0">DONE</span>
                         </div>
@@ -500,7 +500,7 @@ export function StitchHero() {
                               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
                               <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
                             </span>
-                            Days 3-5: Edge Engine &amp; Webhooks
+                            Days 11-13: 20-Call Acceptance Test
                           </span>
                           <span className="text-purple-400 font-bold shrink-0">LIVE</span>
                         </div>
@@ -510,9 +510,9 @@ export function StitchHero() {
                     {/* Escrow status */}
                     <div className="pt-2.5 border-t border-purple-500/20 flex items-center justify-between text-[10px] font-mono">
                       <span className="text-purple-300 flex items-center gap-1">
-                        <CheckCircle className="w-3 h-3 text-purple-400" /> 50/40/10 Escrow
+                        <CheckCircle className="w-3 h-3 text-purple-400" /> 50/50 Escrow
                       </span>
-                      <span className="text-neutral-400">48-Hr Loom Updates</span>
+                      <span className="text-neutral-400">20-Call Sign-Off</span>
                     </div>
                   </div>
                 );

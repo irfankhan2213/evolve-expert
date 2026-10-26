@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "EvolveExpert — Pure Web & AI Systems Studio";
+export const alt = "EvolveExpert — 24/7 AI Lead-to-Booking System";
 export const size = {
   width: 1200,
   height: 630,
@@ -94,7 +94,7 @@ export default function Image() {
               color: "#059669",
             }}
           >
-            7-Day Engineering Sprint · Sub-0.5s LCP
+            Lead-to-Booking System · Sub-60s Response
           </div>
         </div>
 
@@ -117,7 +117,7 @@ export default function Image() {
               color: "#111111",
             }}
           >
-            High-Performance Web &amp; AI Systems.
+            24/7 AI Lead-to-Booking System.
           </div>
           <div
             style={{
@@ -127,7 +127,7 @@ export default function Image() {
               maxWidth: 880,
             }}
           >
-            Turnkey Next.js 16 platforms and 24/7 AI systems delivered in rigid 7-day asynchronous sprints. 100/100 Core Web Vitals guaranteed.
+            Every inbound call, WhatsApp message, and web lead answered in under 60 seconds, qualified by AI, and booked into your calendar 24/7. Live in 14 days.
           </div>
         </div>
 
@@ -144,10 +144,10 @@ export default function Image() {
         >
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontSize: 13, color: "#737373", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-              Mobile PageSpeed
+              Speed to Lead
             </span>
-            <span style={{ fontSize: 28, fontWeight: 800, color: "#111111" }}>
-              98–100 / 100
+            <span style={{ fontSize: 28, fontWeight: 800, color: "#059669" }}>
+              &lt; 60 Seconds
             </span>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
@@ -155,23 +155,23 @@ export default function Image() {
               Delivery Velocity
             </span>
             <span style={{ fontSize: 28, fontWeight: 800, color: "#111111" }}>
-              7 Days Fixed
+              14 Days Fixed
             </span>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontSize: 13, color: "#737373", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-              Payment Escrow
+              Milestone Escrow
             </span>
             <span style={{ fontSize: 28, fontWeight: 800, color: "#059669" }}>
-              50 / 40 / 10
+              50 / 50 Escrow
             </span>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontSize: 13, color: "#737373", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-              Production Domain
+              Acceptance Test
             </span>
             <span style={{ fontSize: 28, fontWeight: 800, color: "#111111" }}>
-              evolveexpert.com
+              20 Live Calls
             </span>
           </div>
         </div>

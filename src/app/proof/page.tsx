@@ -27,7 +27,7 @@ export default function ProofPage() {
             <span className="font-editorial text-emerald-700 italic">Live and verifiable.</span>
           </h1>
           <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
-            Every build below is active on the global web, handles actual user traffic, and was delivered inside our rigid 7-day engineering sprint.
+            Every build below is active on the global web, handles actual user traffic, and was delivered with verified sub-60s speed to lead and measurable conversion growth.
           </p>
         </div>
       </section>
@@ -39,7 +39,7 @@ export default function ProofPage() {
       <section className="max-w-[1200px] mx-auto px-5 sm:px-10 pb-20">
         <div className="bg-[#0E0E11] text-white rounded-[32px] p-8 sm:p-12 text-center space-y-4 shadow-xl">
           <p className="text-2xl sm:text-3xl font-medium max-w-2xl mx-auto leading-snug">
-            &ldquo;EvolveExpert is the only engineering partner we&apos;ve used that actually shipped a full production build on day 7 with zero excuses.&rdquo;
+            &ldquo;EvolveExpert is the only partner we&apos;ve used that actually delivered a complete 24/7 autonomous Lead-to-Booking System on schedule with zero excuses.&rdquo;
           </p>
           <p className="text-xs font-mono text-emerald-400 uppercase tracking-widest font-semibold">
             — Global HealthTech &amp; Venture Founders

@@ -9,7 +9,7 @@ export function StitchPortfolio() {
   const works = [
     {
       id: "diadia",
-      categoryMeta: "PAID · HEALTHTECH · 7-DAY SPRINT",
+      categoryMeta: "PAID · HEALTHTECH · AI BOOKING",
       clientWordmark: "DIADIA",
       title: "DiaDia Health",
       subtitle: "Clinical UX · Diagnostic Triage from Zero",
@@ -25,7 +25,7 @@ export function StitchPortfolio() {
     },
     {
       id: "wescale",
-      categoryMeta: "PAID · B2B SAAS · 7-DAY SPRINT",
+      categoryMeta: "PAID · B2B SAAS · SPEED-TO-LEAD",
       clientWordmark: "WSSCALE",
       title: "WeScale Startups",
       subtitle: "AI Growth Studio · Conversion Funnel + SEO",
@@ -41,7 +41,7 @@ export function StitchPortfolio() {
     },
     {
       id: "daniel",
-      categoryMeta: "PAID · ADVISORY & AI · 7-DAY SPRINT",
+      categoryMeta: "PAID · ADVISORY & AI · LEAD INTAKE",
       clientWordmark: "DANIEL",
       title: "Daniel Johnson",
       subtitle: "Executive Thought-Leadership · High Authority",

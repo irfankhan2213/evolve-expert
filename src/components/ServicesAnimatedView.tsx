@@ -2,55 +2,55 @@
 
 import React from "react";
 import Link from "next/link";
-import { CheckCircle2, ShieldCheck, ArrowRight } from "lucide-react";
+import { CheckCircle2, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function ServicesAnimatedView() {
   const sprintDays = [
     {
-      day: "Day 0 – 1",
-      title: "Kickoff & High-Conversion Architecture",
-      desc: "Instant onboarding via your private Notion hub. We dissect your target audience, wireframe key conversion funnels, and establish Figma design tokens.",
-      deliverable: "Approved Wireframe & Design System Figma",
+      day: "Days 1 – 3",
+      title: "Telephony Audit & Qualification Logic",
+      desc: "We analyze your historical missed calls, call volume spikes, and objection paths. We configure your CRM schema, calendar buffers, and routing rules.",
+      deliverable: "Approved Voice Scripts & Calendar Mapping",
     },
     {
-      day: "Day 2",
-      title: "Tactile Editorial UI & Copy Polish",
-      desc: "Bespoke Swiss editorial styling, typography hierarchy, high-contrast CTA placement, and persuasion copy crafted to drive user action.",
-      deliverable: "High-Fidelity UI Screens & Copy Deck",
+      day: "Days 4 – 7",
+      title: "Voice AI & WhatsApp Engine Build",
+      desc: "Custom ultra-low-latency voice model engineering. Integration with official Meta WhatsApp Cloud API for sub-60 second speed-to-lead qualification.",
+      deliverable: "Live Conversational Sandbox Preview",
     },
     {
-      day: "Day 3 – 4",
-      title: "Next.js 16 & Modern Web Engineering",
-      desc: "Clean component architecture using Next.js App Router, Tailwind CSS, and TypeScript. Strict asset optimization ensuring sub-500ms LCP.",
-      deliverable: "Live Vercel Staging Preview & Day-4 Milestone Review",
+      day: "Days 8 – 10",
+      title: "CRM & Multi-Calendar Webhook Wiring",
+      desc: "Bi-directional integration with your booking calendar (Google, Cal.com, Outlook) and CRM (HubSpot, GoHighLevel, Jobber). Instant staff SMS alerts.",
+      deliverable: "Fully Synced Telephony & Booking Pipeline",
     },
     {
-      day: "Day 5 – 6",
-      title: "AI Concierge & Webhook Automation",
-      desc: "Embedding your custom 24/7 AI agent trained on your business data, setting up official WhatsApp Business API flows, and linking forms to CRM/Tally ERP.",
-      deliverable: "Tested AI Chatbot & Automated Lead Pipeline",
+      day: "Days 11 – 13",
+      title: "The 20-Call Acceptance Stress Test",
+      desc: "We execute 20 live test calls covering background noise, difficult accents, unexpected cancellations, emergency transfers, and double-booking edge cases.",
+      deliverable: "Verifiable 20-Call Sign-Off Report",
     },
     {
-      day: "Day 7",
-      title: "100/100 CWV Audit, Domain Launch & Handover",
-      desc: "Complete Google PageSpeed audit, SSL/DNS cutover to your custom domain, full GitHub repository transfer, and Loom training vault delivery.",
-      deliverable: "Live Production Domain & 100% IP Handover",
+      day: "Day 14",
+      title: "Public Telephony Cutover & Go-Live",
+      desc: "Seamless carrier forwarding setup (retaining your existing phone number), live staff dashboard activation, and commencement of your 30-day warranty.",
+      deliverable: "Live 24/7 Answering Engine & 50/50 Handover",
     },
   ];
 
   const techStack = [
-    { name: "Next.js 16 (App Router)", role: "SSR & Static Hybrid Architecture", speed: "Instant FCP" },
-    { name: "TypeScript & Tailwind CSS", role: "Type-Safe High-Performance UI", speed: "Zero Runtime CSS" },
-    { name: "Claude 3.5 & GPT-4o", role: "24/7 Client Knowledge Concierge", speed: "Sub-second RAG" },
-    { name: "WhatsApp Cloud API", role: "Automated Conversational Lead Routing", speed: "Instant Ping" },
-    { name: "Tally ERP & Webhooks", role: "Real-time Order & Accounting Sync", speed: "Zero Manual Entry" },
-    { name: "Vercel Edge Network", role: "Global Low-Latency Deployment", speed: "< 50ms TTFB" },
+    { name: "Ultra-Low-Latency Voice Engine", role: "Sub-500ms Human-Like Conversation", speed: "< 450ms Latency" },
+    { name: "Meta WhatsApp Cloud API", role: "Official Verified Instant Lead Qualification", speed: "Instant Ping" },
+    { name: "Multi-Calendar Booking Engine", role: "Google Calendar, Outlook & Cal.com Sync", speed: "Real-time" },
+    { name: "CRM Webhook Pipelines", role: "HubSpot, GoHighLevel, Jobber & Sheets", speed: "Zero Data Loss" },
+    { name: "2-Way SMS Appointment Reminders", role: "No-Show Defense & Confirmation Flows", speed: "Automated" },
+    { name: "Carrier-Grade Telephony Bridge", role: "Twilio / Telnyx Native SIP & Forwarding", speed: "99.99% Uptime" },
   ];
 
   return (
     <>
-      {/* 7-Day Sprint Timeline */}
+      {/* 14-Day Delivery Timeline */}
       <section className="max-w-[1200px] mx-auto px-5 sm:px-10 py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -63,7 +63,7 @@ export function ServicesAnimatedView() {
             Execution Protocol
           </span>
           <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-[#111111] mt-1">
-            The Day 0 to Day 7 Sprint Stepper
+            The 14-Day Go-Live Roadmap
           </h2>
         </motion.div>
 
@@ -79,31 +79,20 @@ export function ServicesAnimatedView() {
               className="bg-white rounded-[24px] p-7 border border-black/5 shadow-2xs flex flex-col justify-between hover:shadow-xl transition-shadow duration-300"
             >
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="px-3 py-1 rounded-full bg-neutral-100 text-[#111111] font-mono text-xs font-bold">
-                    {item.day}
-                  </span>
-                  <span className="text-xs text-neutral-400 font-mono">0{idx + 1}</span>
-                </div>
+                <span className="inline-block px-3 py-1 rounded-full bg-neutral-100 text-[#111111] text-xs font-mono font-bold mb-4">
+                  {item.day}
+                </span>
                 <h3 className="text-lg font-bold text-[#111111] mb-2">{item.title}</h3>
-                <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-6">
-                  {item.desc}
-                </p>
+                <p className="text-xs text-neutral-600 leading-relaxed mb-4">{item.desc}</p>
               </div>
-
-              <div className="pt-4 border-t border-neutral-100">
-                <span className="text-[10px] uppercase font-mono text-neutral-400 block font-semibold mb-1">
-                  Deliverable
-                </span>
-                <span className="text-xs font-semibold text-emerald-700 flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                  {item.deliverable}
-                </span>
+              <div className="pt-4 border-t border-neutral-100 flex items-center gap-2 text-xs font-mono text-emerald-700">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span className="truncate">{item.deliverable}</span>
               </div>
             </motion.div>
           ))}
 
-          {/* Guarantee Card */}
+          {/* Escrow Card in Grid */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -116,9 +105,9 @@ export function ServicesAnimatedView() {
               <div className="w-10 h-10 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
                 <ShieldCheck className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-bold mb-2">50/40/10 Milestone Escrow</h3>
+              <h3 className="text-xl font-bold mb-2">50/50 Milestone Escrow</h3>
               <p className="text-xs text-neutral-400 leading-relaxed">
-                Zero client risk. 50% reservation deposit, 40% on mid-sprint review, and the final 10% released only after your domain is live and Google PageSpeed verified at 98+.
+                Zero client risk. 50% deposit to commence the sprint, and the remaining 50% released only after you test and sign off on our live 20-call acceptance test.
               </p>
             </div>
             <div className="pt-6">
@@ -135,7 +124,7 @@ export function ServicesAnimatedView() {
         </div>
       </section>
 
-      {/* Tech Stack Grid with Smooth Animations */}
+      {/* Tech Stack Grid */}
       <section className="max-w-[1200px] mx-auto px-5 sm:px-10 py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -145,10 +134,10 @@ export function ServicesAnimatedView() {
           className="mb-8"
         >
           <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 font-semibold block">
-            Engineering Backbone
+            Telephony &amp; AI Stack
           </span>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#111111] mt-1">
-            Built with modern, production-grade technologies
+            Engineered with high-reliability telephony infrastructure
           </h2>
         </motion.div>
 

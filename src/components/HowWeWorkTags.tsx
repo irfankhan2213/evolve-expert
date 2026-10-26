@@ -7,27 +7,27 @@ export function HowWeWorkTags() {
   const steps = [
     {
       num: "01",
-      title: "Define (Day 1)",
+      title: "Audit (Days 1–3)",
       tilt: "sm:-rotate-3",
-      desc: "1-click onboarding, Notion portal setup, and wireframing your high-converting page architecture.",
+      desc: "Telephony analysis, inbound call mapping, CRM schema audit, and calendar buffer configuration.",
     },
     {
       num: "02",
-      title: "Design (Day 2)",
+      title: "Voice & WhatsApp Build (Days 4–7)",
       tilt: "sm:rotate-3 lg:translate-y-8",
-      desc: "Clean editorial UI in Figma + conversion copy tailored to your exact buyer persona.",
+      desc: "Conversational voice AI engine training, objection handling, and WhatsApp Cloud API qualification setup.",
     },
     {
       num: "03",
-      title: "Build (Days 3–5)",
+      title: "CRM & Calendar Wiring (Days 8–10)",
       tilt: "sm:-rotate-2",
-      desc: "Rapid Next.js/Shopify coding, type-safe validation, and 24/7 WhatsApp/CRM webhook integration.",
+      desc: "Bi-directional integration with your calendar, CRM (HubSpot/Jobber/GHL), and 2-way SMS reminder flows.",
     },
     {
       num: "04",
-      title: "Launch (Day 7)",
+      title: "20-Call Test & Go-Live (Days 11–14)",
       tilt: "sm:rotate-3 lg:translate-y-8",
-      desc: "95+ Google PageSpeed verification, custom domain switch, and your Loom training library.",
+      desc: "Live 20-call acceptance test with edge cases, carrier telephony cutover, and 50/50 milestone sign-off.",
     },
   ];
 
@@ -44,7 +44,7 @@ export function HowWeWorkTags() {
           How we work
         </span>
         <h2 className="text-3xl sm:text-5xl font-bold tracking-[-0.03em] leading-tight text-[#111111]">
-          Let us show you how we ship your platform in 7 days
+          Let us show you how we deploy your Lead-to-Booking System in 14 days
         </h2>
         <p className="text-sm sm:text-base text-neutral-600">
           Clear milestones, zero endless meetings, and complete transparency from Day 1 to launch.

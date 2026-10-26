@@ -27,7 +27,7 @@ export function DarkManifesto() {
         >
           <span>EST. STUDIO</span>
           <span className="hidden sm:inline flex items-center gap-1.5">
-            SCROLL FOR SPRINT ARCHITECTURE{" "}
+            SCROLL FOR 24/7 AI BOOKING ARCHITECTURE{" "}
             <motion.span
               animate={{ y: [0, 4, 0] }}
               transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
@@ -45,9 +45,9 @@ export function DarkManifesto() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center text-3xl sm:text-5xl lg:text-[56px] font-medium tracking-[-0.03em] leading-[1.14] max-w-4xl mx-auto"
         >
-          We believe the strongest digital brands are built through speed and automation, not bloated 6-week timelines.{" "}
+          We believe high-margin service businesses win by speed to lead, not expensive call centers or lost voicemails.{" "}
           <span className="text-neutral-500">
-            Every platform we ship is engineered to load in under a second, qualify leads 24/7 on WhatsApp, and drive measurable growth.
+            Every system we deploy answers calls in under 10 seconds, qualifies leads 24/7 on WhatsApp, and books appointments directly into your calendar.
           </span>
         </motion.h2>
 
@@ -68,7 +68,7 @@ export function DarkManifesto() {
               Engineered for Founders Who Move Fast
             </h3>
             <p className="text-sm text-neutral-400 leading-relaxed">
-              Zero timezone headaches. Every client gets a dedicated private Notion Sprint Portal with 2-minute Loom video updates every 48 hours.
+              Zero timezone headaches. Every client gets a dedicated private Notion Command Portal with 2-minute Loom video updates and a verified 20-call acceptance test.
             </p>
           </div>
 
@@ -78,14 +78,14 @@ export function DarkManifesto() {
               className="bg-[#F3F3F1] text-[#111111] p-7 rounded-[24px] flex flex-col justify-between min-h-[190px] shadow-sm cursor-default group"
             >
               <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 font-semibold">
-                Speed Benchmark
+                Response Benchmark
               </span>
               <div>
                 <p className="text-4xl sm:text-5xl font-bold tracking-tight group-hover:text-emerald-700 transition-colors">
-                  0.4s
+                  &lt; 10s
                 </p>
                 <p className="text-xs text-neutral-600 mt-2 leading-relaxed">
-                  Average mobile first-contentful paint across our 6 live deployments.
+                  Average voice pickup speed on inbound phone calls, 24 hours a day, 365 days a year.
                 </p>
               </div>
             </motion.div>

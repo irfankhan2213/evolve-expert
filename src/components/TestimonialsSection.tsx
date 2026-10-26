@@ -9,16 +9,16 @@ export function TestimonialsSection() {
     {
       id: "t1",
       quote:
-        "“EvolveExpert helped us move from a slow 5-second Webflow site to a sub-0.5s Next.js 16 engine. Within 7 days, our mobile conversion doubled and WhatsApp triage handles patient inquiries 24/7 without routing back to the team.”",
+        "“EvolveExpert helped us deploy an autonomous Lead-to-Booking System. Within days, our response time dropped to under 10 seconds and WhatsApp triage handles patient inquiries 24/7 without routing back to the team.”",
       name: "B2B SaaS & HealthTech Founder · CEO",
-      role: "Paid sprint engagement",
+      role: "Paid client engagement",
       initials: "BS",
       isFeaturedDark: true,
     },
     {
       id: "t2",
       quote:
-        "“EvolveExpert is the 'no fluff', straight-to-the-point engineering studio. In just 7 days, they built a platform that scores 99/100 on mobile PageSpeed and transferred 100% of the code on Day 7 without asking for ongoing retainers.”",
+        "“EvolveExpert is the 'no fluff', straight-to-the-point engineering studio. In 14 days, they built a phone answering and booking pipeline that passed our 20-call acceptance test with zero friction.”",
       name: "Greg Weinstein",
       role: "Paid founder advisory",
       initials: "GW",
@@ -27,7 +27,7 @@ export function TestimonialsSection() {
     {
       id: "t3",
       quote:
-        "“The 50/40/10 milestone escrow gave us complete peace of mind. We reviewed the live staging build on Day 4, approved the cutover on Day 7, and our load times dropped from 4.2 seconds to 0.4 seconds.”",
+        "“The 50/50 milestone escrow gave us complete peace of mind. We paid 50% upfront, stress-tested 20 inbound calls on Day 12, approved the cutover on Day 14, and our booked appointments doubled.”",
       name: "Dru Riley",
       role: "Paid growth advisory",
       initials: "DR",

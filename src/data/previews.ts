@@ -196,9 +196,9 @@ export const PREVIEW_REGISTRY: Record<string, PreviewData> = {
       },
     },
     sprintRecommendation: {
-      tier: "7-Day Full-Stack Web Sprint + AI Concierge",
+      tier: "14-Day Lead-to-Booking System (Core Tier)",
       duration: "7 Business Days",
-      investment: "$1,250 USD / ₹90,000 INR",
+      investment: "$2,500 USD / ₹75,000 INR (Founding Client Offer)",
       deliverables: [
         "Headless Next.js 15 site with 99+ mobile Lighthouse speed",
         "24/7 AI Triage Concierge hooked into clinic WhatsApp and Notion",
@@ -330,9 +330,9 @@ export const PREVIEW_REGISTRY: Record<string, PreviewData> = {
       },
     },
     sprintRecommendation: {
-      tier: "7-Day Technical Product Sprint + Live Sandbox",
+      tier: "14-Day Lead-to-Booking System (Core Tier)",
       duration: "7 Business Days",
-      investment: "$1,250 USD / ₹90,000 INR",
+      investment: "$2,500 USD / ₹75,000 INR (Founding Client Offer)",
       deliverables: [
         "Interactive Browser Audio Sandbox testing voice latency in real-time",
         "Lighthouse 100/100 documentation hub with searchable API reference",
@@ -464,9 +464,9 @@ export const PREVIEW_REGISTRY: Record<string, PreviewData> = {
       },
     },
     sprintRecommendation: {
-      tier: "7-Day Luxury Clinic Redesign + AI Booking Concierge",
+      tier: "14-Day Clinic Lead-to-Booking System",
       duration: "7 Business Days",
-      investment: "$1,250 USD / ₹90,000 INR",
+      investment: "$2,500 USD / ₹75,000 INR (Founding Client Offer)",
       deliverables: [
         "Bespoke Tactile Alabaster storefront optimized for iPhone retina displays",
         "Interactive 60-Second Skin Assessment quiz routing leads into WhatsApp",
@@ -518,12 +518,12 @@ export function getPreviewBySlug(slug: string): PreviewData {
   const sampleAiQuestions = [
     {
       question: `What distinguishes ${cleanName} from competitors in the market?`,
-      response: `${cleanName} pairs bespoke engineering with guaranteed 7-day turnaround, transparent pricing, and direct technical leadership—completely eliminating agency bloat.`,
+      response: `${cleanName} pairs bespoke engineering with guaranteed 14-day turnaround, transparent pricing, and direct technical leadership—completely eliminating agency bloat.`,
       actionTriggered: `Value Proposition Delivered -> Case Study Reel Opened`,
     },
     {
       question: `What is the estimated timeline and budget for a custom implementation?`,
-      response: `Our productized sprints launch in exactly 7 business days for a fixed investment of $1,250 USD / ₹90,000 INR with zero hidden hourly fees.`,
+      response: `Our turnkey Lead-to-Booking System deploys in 14 days for a fixed investment of $2,500 USD / ₹75,000 INR (Founding Client offer) with zero hidden fees and a 20-call acceptance test guarantee.`,
       actionTriggered: `Pricing Clarified -> Booking Link Triggered`,
     },
     {
@@ -622,9 +622,9 @@ export function getPreviewBySlug(slug: string): PreviewData {
       },
     },
     sprintRecommendation: {
-      tier: "7-Day Complete Platform & AI Concierge Sprint",
+      tier: "14-Day Complete Lead-to-Booking System",
       duration: "7 Business Days",
-      investment: "$1,250 USD / ₹90,000 INR",
+      investment: "$2,500 USD / ₹75,000 INR (Founding Client Offer)",
       deliverables: [
         `Custom Next.js 15 platform with sub-500ms Edge rendering`,
         `24/7 AI Concierge simulator hooked to WhatsApp and Notion`,

@@ -80,7 +80,7 @@ export function PreviewClientView({ data }: { data: PreviewData }) {
             <span className="text-emerald-700 underline decoration-emerald-200 underline-offset-4">
               {data.companyName}
             </span>{" "}
-            for maximum conversion in 7 days.
+            with 24/7 AI lead-to-booking automation.
           </h1>
           <p className="text-base text-neutral-600 leading-relaxed">
             {data.diagnosedLeak} We mapped your current architecture against our 2026 Next.js &amp; AI framework.
@@ -152,7 +152,7 @@ export function PreviewClientView({ data }: { data: PreviewData }) {
               <div>
                 <div className="flex items-center justify-between pb-4 border-b border-white/10">
                   <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-semibold">
-                    EvolveExpert 7-Day Sprint
+                    EvolveExpert 14-Day System
                   </span>
                   <span className="text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">
                     {data.upgradedSpeedScore}/100 PageSpeed
@@ -363,15 +363,15 @@ export function PreviewClientView({ data }: { data: PreviewData }) {
           className="bg-white rounded-[32px] p-8 sm:p-12 border border-black/10 shadow-sm text-center space-y-6"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold font-mono">
-            <span>7-DAY TURNKEY SPRINT PROPOSAL</span>
+            <span>14-DAY TURNKEY DEPLOYMENT PROPOSAL</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] max-w-xl mx-auto">
-            Ready to claim this high-conversion platform for {data.companyName}?
+            Ready to deploy this autonomous booking system for {data.companyName}?
           </h2>
 
           <p className="text-sm text-neutral-600 max-w-lg mx-auto">
-            We deliver the complete Next.js 16 build, AI concierge, and WhatsApp automation in 7 days flat with our 50/40/10 escrow.
+            We deploy the complete 24/7 voice AI answering engine, WhatsApp qualification, and calendar booking in 14 days with our 50/50 escrow.
           </p>
 
           <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
@@ -380,7 +380,7 @@ export function PreviewClientView({ data }: { data: PreviewData }) {
                 href="/contact"
                 className="px-8 py-4 rounded-full bg-[#111111] text-white font-bold text-sm hover:bg-neutral-800 transition shadow-md block"
               >
-                Lock Sprint Slot for {data.companyName} →
+                Deploy Booking System for {data.companyName} →
               </Link>
             </motion.div>
             <motion.a

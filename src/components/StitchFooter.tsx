@@ -67,13 +67,13 @@ export function StitchFooter() {
         <div className="relative z-10 max-w-xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-emerald-400 text-xs font-mono font-medium border border-white/10">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>24-Hour Free Sprint Mockup</span>
+            <span>Sub-60s Inbound Response</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight leading-tight">
-            Let&apos;s build your free 24-hour homepage prototype
+            Let&apos;s build your 24/7 AI lead-to-booking prototype
           </h2>
           <p className="text-sm text-neutral-400 leading-relaxed max-w-md mx-auto">
-            Drop your current website URL and WhatsApp or email below. We&apos;ll send you a custom live preview link before you pay a single dollar.
+            Drop your business website or phone number below. We&apos;ll configure a custom AI booking preview and calculate your exact missed-call revenue recovery before you pay a single dollar.
           </p>
         </div>
 
@@ -93,7 +93,7 @@ export function StitchFooter() {
                   required
                   value={leadInput}
                   onChange={(e) => setLeadInput(e.target.value)}
-                  placeholder="Your website URL + Email / WhatsApp..."
+                  placeholder="Website or phone + Email / WhatsApp..."
                   className="flex-1 px-5 py-3.5 rounded-full bg-white/10 border border-white/15 text-sm text-white placeholder:text-neutral-400 focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 transition-all duration-200"
                 />
                 <motion.button
@@ -109,7 +109,7 @@ export function StitchFooter() {
                       <span>Dispatching...</span>
                     </>
                   ) : (
-                    <span>Send Prototype →</span>
+                    <span>Get Booking Demo →</span>
                   )}
                 </motion.button>
               </motion.form>
@@ -123,14 +123,14 @@ export function StitchFooter() {
               >
                 <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-500/20 text-emerald-300 text-sm border border-emerald-500/30">
                   <Check className="w-4 h-4 text-emerald-400" />
-                  <span>Got it! Your custom EvolveExpert preview link is being prepared.</span>
+                  <span>Got it! Your custom EvolveExpert AI booking preview is being prepared.</span>
                 </div>
                 <div className="pt-2">
                   <Link
                     href="/preview/apex-dental"
                     className="inline-flex items-center gap-2 text-xs font-mono text-emerald-400 hover:text-emerald-300 underline underline-offset-4 group"
                   >
-                    <span>Click here to explore a sample live prototype (Apex Dental)</span>
+                    <span>Click here to explore a sample live AI booking preview (Apex Dental)</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>

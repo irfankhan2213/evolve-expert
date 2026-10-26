@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import { ContactClientView } from "@/components/ContactClientView";
 
 export const metadata: Metadata = {
-  title: "Contact & Book Sprint Slot — Direct Engineering Access",
+  title: "Contact & Book System Deployment — 50/50 Escrow | EvolveExpert",
   description:
-    "Skip the sales pitch. Connect directly with senior fullstack engineers. Reserve your 7-day sprint slot with 50/40/10 milestone escrow protection.",
+    "Connect directly with lead AI architects. Schedule your 14-day Lead-to-Booking System deployment with 50/50 milestone escrow and 20-call acceptance test guarantee.",
   alternates: {
     canonical: "https://evolveexpert.com/contact",
   },
   openGraph: {
-    title: "Book a 7-Day Web Sprint | EvolveExpert Studio",
+    title: "Deploy Your Lead-to-Booking System | EvolveExpert",
     description:
-      "Direct line to senior fullstack engineers. Guaranteed 24-hr initial assessment and sprint reservation.",
+      "Direct line to senior AI architects. Sub-60s call and WhatsApp lead capture with guaranteed 20-call sign-off.",
     url: "https://evolveexpert.com/contact",
     type: "website",
   },

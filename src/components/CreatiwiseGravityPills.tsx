@@ -7,13 +7,13 @@ import { motion } from "framer-motion";
 
 export function CreatiwiseGravityPills() {
   const pills = [
-    { label: "Next.js & TypeScript", rotation: "-rotate-3" },
-    { label: "WhatsApp Business AI", rotation: "rotate-2" },
-    { label: "Shopify Conversion", rotation: "-rotate-2" },
-    { label: "Tally ERP Sync", rotation: "rotate-3" },
-    { label: "AI Product Creatives", rotation: "-rotate-1" },
-    { label: "0.4s Global Edge CDN", rotation: "rotate-2" },
-    { label: "Stripe & Razorpay Escrow", rotation: "-rotate-2" },
+    { label: "24/7 AI Voice Answering", rotation: "-rotate-3" },
+    { label: "Sub-60s WhatsApp Triage", rotation: "rotate-2" },
+    { label: "Missed Call Text Back", rotation: "-rotate-2" },
+    { label: "Calendar & CRM Sync", rotation: "rotate-3" },
+    { label: "20-Call Acceptance Test", rotation: "-rotate-1" },
+    { label: "No-Show Defense SMS", rotation: "rotate-2" },
+    { label: "50/50 Milestone Escrow", rotation: "-rotate-2" },
   ];
 
   return (
@@ -30,10 +30,10 @@ export function CreatiwiseGravityPills() {
             About us
           </span>
           <h2 className="text-3xl sm:text-5xl font-bold tracking-[-0.03em] leading-tight text-[#111111]">
-            Meet EvolveExpert: Your 7-Day Engineering Partner
+            Meet EvolveExpert: Your Autonomous Booking Partner
           </h2>
           <p className="text-neutral-600 text-base leading-relaxed max-w-xl">
-            We combine clean computer science architecture with rapid engineering execution. Instead of charging you for 200 slow agency hours, we ship production-ready web platforms, Shopify stores, and AI automations in one focused week.
+            We combine carrier-grade telephony with conversational AI to eliminate missed leads. Instead of losing high-ticket customers to competitors who answer faster, we deploy a 24/7 AI Lead-to-Booking System in 14 days with guaranteed 20-call sign-off.
           </p>
         </div>
 
@@ -69,7 +69,7 @@ export function CreatiwiseGravityPills() {
                   <span>https://diadiahealth.com</span>
                 </div>
                 <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-mono font-bold uppercase">
-                  Verified 7-Day Sprint
+                  14-Day System Go-Live
                 </span>
               </div>
 
@@ -77,12 +77,12 @@ export function CreatiwiseGravityPills() {
               <div className="my-auto space-y-3 py-3">
                 <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1.5">
                   <div className="flex justify-between text-xs font-mono">
-                    <span className="text-neutral-400">Mobile Speed Index</span>
-                    <span className="text-emerald-400 font-bold">0.4s (98/100 CWV)</span>
+                    <span className="text-neutral-400">Response Speed</span>
+                    <span className="text-emerald-400 font-bold">&lt; 10s Voice Pickup</span>
                   </div>
                   <div className="flex justify-between text-xs font-mono">
-                    <span className="text-neutral-400">Clinical Triage Flow</span>
-                    <span className="text-white font-bold">Next.js 16 Edge API</span>
+                    <span className="text-neutral-400">Clinical Booking Flow</span>
+                    <span className="text-white font-bold">24/7 AI Triage &amp; Calendar</span>
                   </div>
                   <div className="flex justify-between text-xs font-mono">
                     <span className="text-neutral-400">Conversion Impact</span>
@@ -91,14 +91,14 @@ export function CreatiwiseGravityPills() {
                 </div>
 
                 <p className="text-xs text-neutral-300 leading-relaxed">
-                  Engineered with Next.js 16, TypeScript &amp; official WhatsApp Business routing. Zero plugin dependencies.
+                  Engineered with conversational voice AI, Meta WhatsApp Cloud API, and real-time CRM calendar sync.
                 </p>
               </div>
 
               {/* Footer Strip & Link */}
               <div className="flex items-center justify-between pt-3 border-t border-white/10">
                 <span className="text-xs text-neutral-400 font-mono">
-                  Delivered in 7-day sprint · 50/40/10 Escrow
+                  Live in 14 days · 50/50 Milestone Escrow
                 </span>
                 <motion.a
                   whileHover={{ scale: 1.15, rotate: 45 }}

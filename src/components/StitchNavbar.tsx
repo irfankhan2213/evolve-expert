@@ -97,7 +97,7 @@ export function StitchNavbar() {
               href="/pricing#plans"
               className="hidden sm:inline-flex items-center gap-2 bg-[#111111] text-white text-xs font-semibold px-5 py-3 rounded-full hover:bg-neutral-800 active:scale-95 transition shadow-sm group"
             >
-              <span>Book A Sprint</span>
+              <span>Deploy System</span>
               <ArrowUpRight className="w-3.5 h-3.5 group-hover:rotate-45 transition-transform duration-200" />
             </Link>
           </motion.div>
@@ -131,9 +131,9 @@ export function StitchNavbar() {
           >
             <div className="flex items-center justify-between pb-3 border-b border-neutral-100 text-xs">
               <span className="font-bold text-[#111111]">
-                EvolveExpert Studio
+                EvolveExpert
               </span>
-              <span className="font-mono text-neutral-400">Next.js 16 Web & AI</span>
+              <span className="font-mono text-neutral-400">24/7 AI Lead-to-Booking</span>
             </div>
 
             <div className="flex flex-col space-y-1">
@@ -162,7 +162,7 @@ export function StitchNavbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full bg-[#111111] text-white text-sm font-semibold hover:bg-neutral-800 transition shadow-sm"
               >
-                <span>Book A 7-Day Sprint</span>
+                <span>Deploy Lead-to-Booking</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>

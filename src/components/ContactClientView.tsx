@@ -63,11 +63,11 @@ export function ContactClientView() {
             Direct Senior Engineering Access
           </div>
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-[#111111]">
-            Let&apos;s talk about your{" "}
-            <span className="font-editorial text-emerald-700 italic">next 7-day sprint</span>.
+            Let&apos;s deploy your{" "}
+            <span className="font-editorial text-emerald-700 italic">Lead-to-Booking System</span>.
           </h1>
           <p className="text-sm sm:text-base text-neutral-600">
-            Zero account managers. Connect directly with our lead fullstack architects.
+            Zero account managers. Connect directly with our lead AI architects.
           </p>
         </motion.div>
       </section>
@@ -90,13 +90,13 @@ export function ContactClientView() {
               </div>
               <h2 className="text-xl font-bold text-[#111111]">Direct WhatsApp Hotline</h2>
               <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                Need an immediate answer or want to send your current Figma link or live site? Ping our engineering team on WhatsApp (+91 76969 36377).
+                Need an immediate answer or want to discuss your telephony setup? Ping our engineering team on WhatsApp (+91 76969 36377).
               </p>
               <div className="flex flex-wrap items-center gap-3">
                 <motion.a
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  href="https://wa.me/917696936377?text=Hi%20EvolveExpert,%20I'd%20like%20to%20discuss%20a%207-day%20sprint"
+                  href="https://wa.me/917696936377?text=Hi%20EvolveExpert,%20I'd%20like%20to%20discuss%20the%2014-day%20Lead-to-Booking%20System"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 bg-[#25D366] text-white text-xs font-bold px-5 py-3 rounded-full hover:bg-emerald-600 transition shadow-xs"
@@ -143,11 +143,11 @@ export function ContactClientView() {
             >
               <div className="flex items-center gap-2 text-xs font-semibold text-emerald-400">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>Current Sprint Availability</span>
+                <span>Deployment Cohort Availability</span>
               </div>
               <p className="text-lg font-bold">2 Slots Available This Week</p>
               <p className="text-xs text-neutral-400">
-                Next sprint starts Monday 09:00 AM IST.
+                Next 14-day deployment cohort begins Monday 09:00 AM IST.
               </p>
             </motion.div>
           </div>
