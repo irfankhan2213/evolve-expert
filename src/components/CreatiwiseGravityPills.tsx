@@ -1,8 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function CreatiwiseGravityPills() {
@@ -23,98 +21,17 @@ export function CreatiwiseGravityPills() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-12"
+        className="max-w-3xl space-y-4 mb-14"
       >
-        <div className="lg:col-span-7 space-y-4">
-          <span className="inline-block px-4 py-1 rounded-full border border-neutral-300 text-xs font-semibold text-neutral-600 bg-white shadow-2xs">
-            About us
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-[-0.03em] leading-tight text-[#111111]">
-            Meet EvolveExpert: Your Autonomous Booking Partner
-          </h2>
-          <p className="text-neutral-600 text-base leading-relaxed max-w-xl">
-            We combine carrier-grade telephony with conversational AI to eliminate missed leads. Instead of losing high-ticket customers to competitors who answer faster, we deploy a 24/7 AI Lead-to-Booking System in 14 days with guaranteed 20-call sign-off.
-          </p>
-        </div>
-
-        <motion.div
-          whileHover={{ y: -4, transition: { duration: 0.25 } }}
-          className="lg:col-span-5 bg-white p-6 rounded-[28px] border border-black/5 shadow-sm flex items-center justify-between"
-        >
-          <div className="relative bg-[#FAF9F5] p-6 sm:p-7 rounded-[28px] border border-black/10 shadow-[0_20px_40px_rgba(0,0,0,0.06)] ring-1 ring-black/5 space-y-4 group w-full">
-            {/* Header Row: Category & Speed Badge */}
-            <div className="flex items-center justify-between gap-2">
-              <div>
-                <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 font-medium block">
-                  Featured Production Build
-                </span>
-                <h3 className="text-lg font-bold tracking-tight text-[#111111] mt-0.5">
-                  DiaDia Health <span className="font-normal text-neutral-500">· Clinical Intake</span>
-                </h3>
-              </div>
-              <div className="text-right shrink-0">
-                <span className="inline-flex items-center gap-1.5 bg-[#111111] text-white text-xs font-mono px-3 py-1 rounded-full font-medium shadow-xs whitespace-nowrap">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                  &lt; 10s Voice Pickup
-                </span>
-              </div>
-            </div>
-
-            {/* Display Console: Pure Architecture & Performance Metrics (Zero Images) */}
-            <div className="relative rounded-[20px] overflow-hidden border border-black/10 bg-[#0E0E11] text-white p-5 flex flex-col justify-between space-y-4">
-              {/* Top URL & Live Badge */}
-              <div className="flex items-center justify-between gap-2 text-xs font-mono">
-                <div className="inline-flex items-center gap-1.5 bg-white/10 px-3 py-1 rounded-full border border-white/15 text-[11px] truncate">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
-                  <span className="truncate">https://diadiahealth.com</span>
-                </div>
-                <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-mono font-bold uppercase whitespace-nowrap shrink-0">
-                  14-Day Go-Live
-                </span>
-              </div>
-
-              {/* Center Architecture Metrics Breakdown */}
-              <div className="space-y-3 py-1">
-                <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-2">
-                  <div className="flex justify-between items-center text-xs font-mono gap-2">
-                    <span className="text-neutral-400">Response Speed</span>
-                    <span className="text-emerald-400 font-bold whitespace-nowrap">&lt; 10s Voice Pickup</span>
-                  </div>
-                  <div className="flex justify-between items-center text-xs font-mono gap-2">
-                    <span className="text-neutral-400">Booking Engine</span>
-                    <span className="text-white font-bold whitespace-nowrap">24/7 AI Triage &amp; Calendar</span>
-                  </div>
-                  <div className="flex justify-between items-center text-xs font-mono gap-2">
-                    <span className="text-neutral-400">Conversion Impact</span>
-                    <span className="text-emerald-400 font-bold whitespace-nowrap">+140% Intake Lift</span>
-                  </div>
-                </div>
-
-                <p className="text-xs text-neutral-300 leading-relaxed">
-                  Engineered with conversational voice AI, Meta WhatsApp Cloud API, and real-time CRM calendar sync.
-                </p>
-              </div>
-
-              {/* Footer Strip & Link */}
-              <div className="flex items-center justify-between pt-3 border-t border-white/10">
-                <span className="text-xs text-neutral-400 font-mono">
-                  Live in 14 days · 50/50 Milestone Escrow
-                </span>
-                <motion.a
-                  whileHover={{ scale: 1.15, rotate: 45 }}
-                  whileTap={{ scale: 0.95 }}
-                  href="https://diadiahealth.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-8 h-8 rounded-full bg-white text-[#111111] flex items-center justify-center transition-colors shadow-md group/btn"
-                  aria-label="Visit DiaDia Health"
-                >
-                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200" />
-                </motion.a>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        <span className="inline-block px-4 py-1 rounded-full border border-neutral-300 text-xs font-semibold text-neutral-600 bg-white shadow-2xs">
+          About us
+        </span>
+        <h2 className="text-3xl sm:text-5xl font-bold tracking-[-0.03em] leading-tight text-[#111111]">
+          Meet EvolveExpert: Your Autonomous Booking Partner
+        </h2>
+        <p className="text-neutral-600 text-base sm:text-lg leading-relaxed max-w-2xl">
+          We combine carrier-grade telephony with conversational AI to eliminate missed leads. Instead of losing high-ticket customers to competitors who answer faster, we deploy a 24/7 AI Lead-to-Booking System in 14 days with guaranteed 20-call sign-off.
+        </p>
       </motion.div>
 
       {/* Creatiwise Dark Wave Card with Floating Tilted Interactive Gravity Pills */}
