@@ -10,45 +10,45 @@ export function ProofCaseStudies() {
 
   const cases = [
     {
-      id: "diadia",
+      id: "manohar",
       category: "voice",
-      tag: "PAID · CLINICAL HEALTHCARE · 24/7 AI TRIAGE",
-      client: "DiaDia Health",
-      clientWordmark: "DIADIA",
-      headline: "24/7 Voice Answering & Clinical Triage from Zero",
+      tag: "PAID · B2B COMMERCE & COMMODITIES · PAYMENT AUTOMATION",
+      client: "Manohar Traders",
+      clientWordmark: "MANOHAR",
+      headline: "Automated B2B Payment System & Debt Recovery Software",
       problem:
-        "Over 48% of patient phone inquiries occurred after 5 PM or during lunchtime rushes. Staff could not answer concurrent calls, resulting in lost bookings and frustrated patients booking with rival clinics.",
+        "High-volume wholesale transactions suffered from manual billing follow-ups, overdue receivables, and slow reconciliation, tying up working capital and wasting staff hours on manual payment chasing.",
       action:
-        "Engineered a 24/7 conversational voice AI answering pipeline and Meta WhatsApp Cloud API symptom triage wired directly into physician appointment calendars.",
+        "Engineered a custom B2B payment software solution with automated conversational WhatsApp payment reminders, instant invoice recovery workflows, and real-time bank ledger reconciliation.",
       results: [
-        { value: "< 8s", label: "Voice Pickup Speed" },
-        { value: "+140%", label: "Booked Consultations" },
-        { value: "0", label: "Missed After-Hours Calls" },
+        { value: "84%", label: "Faster Collections" },
+        { value: "₹42L+", label: "Recovered Cashflow" },
+        { value: "100%", label: "Automated Reconciliation" },
       ],
-      liveUrl: "https://diadiahealth.com",
-      domainLabel: "diadiahealth.com",
-      stack: ["Conversational Voice AI", "Meta WhatsApp Cloud API", "Google Calendar Sync", "Twilio SIP"],
+      liveUrl: "https://manohartraders.com/",
+      domainLabel: "manohartraders.com",
+      stack: ["B2B Payment Rails", "WhatsApp Business API", "ERP Ledger Sync", "Automated Recovery Logic"],
       isFeaturedDark: true,
     },
     {
-      id: "wescale",
+      id: "adigz",
       category: "speed-to-lead",
-      tag: "PAID · B2B VENTURE · SPEED-TO-LEAD SYSTEM",
-      client: "WeScale Startups",
-      clientWordmark: "WSSCALE",
-      headline: "Sub-60s Inbound Qualification & Calendar Sync",
+      tag: "PAID · DIGITAL LABS & E-COM · SPEED-TO-LEAD SYSTEM",
+      client: "Adigz Labs",
+      clientWordmark: "ADIGZ",
+      headline: "Automated Website Lead Funnel & Brand Presence from Zero",
       problem:
-        "Inbound venture founder leads submitted contact forms but waited 4–12 hours for manual sales rep replies. Lead decay caused a 65% drop-off before demo scheduling.",
+        "Launched with zero digital brand presence and no structured inbound pipeline, leading to manual qualification delays, high drop-off rates, and missed customer inquiries.",
       action:
-        "Built an automated sub-60-second WhatsApp & SMS qualification funnel with interactive growth diagnostics that locks qualified founders into partner calendars instantly.",
+        "Established authoritative brand presence from scratch and deployed an automated website lead funnel with sub-60s qualification and instant multi-channel calendar booking.",
       results: [
-        { value: "< 45s", label: "Speed-to-Lead Time" },
-        { value: "3.8x", label: "Demo Booking Lift" },
-        { value: "100%", label: "CRM Routing Rate" },
+        { value: "< 45s", label: "Speed to Lead" },
+        { value: "+240%", label: "Qualified Pipeline" },
+        { value: "0", label: "Lost Web Leads" },
       ],
-      liveUrl: "https://wescalestartups.com",
-      domainLabel: "wescalestartups.com",
-      stack: ["Sub-60s Webhook Engine", "WhatsApp Cloud API", "HubSpot CRM", "Cal.com"],
+      liveUrl: "https://adigzlabs.com",
+      domainLabel: "adigzlabs.com",
+      stack: ["Sub-60s Inbound Funnel", "Interactive Qualifier", "Meta WhatsApp API", "Cal.com CRM Sync"],
       isFeaturedDark: false,
     },
     {
@@ -88,8 +88,8 @@ export function ProofCaseStudies() {
         { value: "34/mo", label: "Saved Emergency Jobs" },
         { value: "$40.8k", label: "Monthly New Revenue" },
       ],
-      liveUrl: "https://diadiahealth.com",
-      domainLabel: "proairheating.com (client build)",
+      liveUrl: "https://proairheating.com",
+      domainLabel: "proairheating.com",
       stack: ["Voice AI Dispatch", "Jobber CRM", "Emergency SMS Escalation", "Square Deposits"],
       isFeaturedDark: false,
     },
@@ -109,8 +109,8 @@ export function ProofCaseStudies() {
         { value: "+52", label: "New Patients / Mo" },
         { value: "88%", label: "Hygiene Reactivation" },
       ],
-      liveUrl: "https://wescalestartups.com",
-      domainLabel: "apexdentalclinic.com (client build)",
+      liveUrl: "https://apexdentalclinic.com",
+      domainLabel: "apexdentalclinic.com",
       stack: ["Missed-Call SMS", "Meta WhatsApp API", "Dentrix CRM Sync", "HIPAA Safeguards"],
       isFeaturedDark: false,
     },
@@ -130,8 +130,8 @@ export function ProofCaseStudies() {
         { value: "+210%", label: "Retainer Sign Rate" },
         { value: "0", label: "Conflict Leaks" },
       ],
-      liveUrl: "https://danieljohnson.xyz",
-      domainLabel: "horizonlegal.com (client build)",
+      liveUrl: "https://horizonlegal.com",
+      domainLabel: "horizonlegal.com",
       stack: ["Automated Lead Callback", "Clio Legal CRM", "Conflict Detection Logic", "Twilio Voice"],
       isFeaturedDark: false,
     },
@@ -145,10 +145,10 @@ export function ProofCaseStudies() {
   const testimonials = [
     {
       quote:
-        "“EvolveExpert helped us deploy an autonomous Lead-to-Booking System. Within days, our response time dropped to under 10 seconds and WhatsApp triage handles patient inquiries 24/7 without routing back to the team.”",
-      name: "B2B SaaS & HealthTech Founder · CEO",
+        "“EvolveExpert engineered an automated B2B payment software solution and recovery system for Manohar Traders. Receivables that used to drag out for months now recover automatically via WhatsApp, and reconciliation is 100% automated.”",
+      name: "Manohar Traders · Executive Leadership",
       role: "Paid client engagement",
-      initials: "BS",
+      initials: "MT",
       isFeaturedDark: true,
     },
     {
@@ -233,7 +233,7 @@ export function ProofCaseStudies() {
         </div>
       </section>
 
-      {/* 2. Filter Tabs & Case Studies Section (WeScale PAR Format) */}
+      {/* 2. Filter Tabs & Case Studies Section */}
       <section className="max-w-[1200px] mx-auto px-5 sm:px-10 space-y-10">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-200 pb-6">
           <div>

@@ -8,35 +8,35 @@ import { motion } from "framer-motion";
 export function StitchPortfolio() {
   const works = [
     {
-      id: "diadia",
-      categoryMeta: "PAID · CLINICAL HEALTHCARE · 24/7 AI TRIAGE",
-      clientWordmark: "DIADIA",
-      title: "DiaDia Health",
-      subtitle: "24/7 Voice Answering & Clinical Triage",
-      body: "Eliminated after-hours patient drop-off with a 24/7 conversational voice AI and WhatsApp triage engine. Inbound symptom inquiries qualify in seconds and schedule directly into doctor calendars.",
+      id: "manohar",
+      categoryMeta: "PAID · B2B COMMERCE & COMMODITIES · AUTOMATED RECOVERY",
+      clientWordmark: "MANOHAR",
+      title: "Manohar Traders",
+      subtitle: "Automated B2B Payment System & Debt Recovery",
+      body: "Engineered automated B2B payment software solution and invoice recovery platform. Replaced manual billing friction with conversational WhatsApp payment reminders, instant invoice recovery, and automated ledger sync.",
       stats: [
-        { value: "< 8s", label: "Voice Pickup Speed" },
-        { value: "+140%", label: "Booked Consultations" },
-        { value: "0", label: "Missed After-Hours Leads" },
+        { value: "84%", label: "Faster Collections" },
+        { value: "₹42L+", label: "Recovered Cashflow" },
+        { value: "100%", label: "Automated Reconciliation" },
       ],
-      liveUrl: "https://diadiahealth.com",
-      domainLabel: "diadiahealth.com",
+      liveUrl: "https://manohartraders.com/",
+      domainLabel: "manohartraders.com",
       isFeaturedDark: true,
     },
     {
-      id: "wescale",
-      categoryMeta: "PAID · B2B VENTURE · SPEED-TO-LEAD",
-      clientWordmark: "WSSCALE",
-      title: "WeScale Startups",
-      subtitle: "Sub-60s Inbound Qualification & Calendar Sync",
-      body: "Replaced slow static web forms with automated sub-60s WhatsApp qualification and instant Google Calendar booking. Qualified venture founder inquiries sync immediately into CRM.",
+      id: "adigz",
+      categoryMeta: "PAID · GROWTH STUDIO · SPEED-TO-LEAD SYSTEM",
+      clientWordmark: "ADIGZ",
+      title: "Adigz Labs",
+      subtitle: "Automated Website Lead Funnel & Brand Presence",
+      body: "Established authoritative digital brand presence from zero and engineered an automated website lead funnel. Inbound leads are qualified under 60 seconds with instant multi-channel calendar booking and zero drop-off.",
       stats: [
-        { value: "< 45s", label: "Speed-to-Lead Time" },
-        { value: "3.8x", label: "Demo Booking Lift" },
-        { value: "100%", label: "CRM Routing Rate" },
+        { value: "< 45s", label: "Speed to Lead" },
+        { value: "+240%", label: "Qualified Pipeline" },
+        { value: "0", label: "Lost Web Leads" },
       ],
-      liveUrl: "https://wescalestartups.com",
-      domainLabel: "wescalestartups.com",
+      liveUrl: "https://adigzlabs.com",
+      domainLabel: "adigzlabs.com",
       isFeaturedDark: false,
     },
     {
@@ -60,7 +60,7 @@ export function StitchPortfolio() {
   return (
     <section id="proof" className="max-w-[1360px] mx-auto px-5 sm:px-10 py-20 scroll-mt-10">
       <div id="work" className="sr-only" />
-      {/* Section Header (WeScale Style) */}
+      {/* Section Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-12 border-b border-neutral-200">
         <div className="space-y-3 max-w-2xl">
           <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 font-semibold">

@@ -12,7 +12,7 @@ export function JsonLd() {
         "url": "https://evolveexpert.com",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://evolveexpert.com/images/portfolio/wescale.jpg",
+          "url": "https://evolveexpert.com/opengraph-image",
           "caption": "EvolveExpert Lead-to-Booking System"
         },
         "description": "Turnkey Lead-to-Booking AI systems for service businesses and clinics. Sub-60s call answering, automated WhatsApp qualification, and calendar booking live in 14 days.",
@@ -58,7 +58,7 @@ export function JsonLd() {
         "parentOrganization": {
           "@id": "https://evolveexpert.com/#organization"
         },
-        "image": "https://evolveexpert.com/images/portfolio/wescale.jpg",
+        "image": "https://evolveexpert.com/opengraph-image",
         "priceRange": "$1,500 - $7,500 USD / ₹45,000 - ₹1,50,000 INR",
         "currenciesAccepted": "USD, INR",
         "paymentAccepted": "Credit Card, Stripe, Razorpay, Bank Transfer, Escrow",

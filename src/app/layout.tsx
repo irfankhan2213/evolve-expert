@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "EvolveExpert",
     images: [
       {
-        url: "/images/portfolio/wescale.jpg",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "EvolveExpert — 24/7 AI Lead-to-Booking System",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     title: "EvolveExpert — 24/7 AI Lead-to-Booking System",
     description:
       "Every inbound call, WhatsApp message, and web lead answered in under 60 seconds, qualified by AI, and booked into your calendar 24/7. Live in 14 days.",
-    images: ["/images/portfolio/wescale.jpg"],
+    images: ["/opengraph-image"],
     creator: "@evolveexpert",
   },
   robots: {

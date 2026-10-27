@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 
 export function LiveDomainTicker() {
   const domains = [
-    { name: "diadiahealth.com", url: "https://diadiahealth.com" },
-    { name: "wescalestartups.com", url: "https://wescalestartups.com" },
-    { name: "elenaikonomovska.com", url: "https://elenaikonomovska.com" },
+    { name: "manohartraders.com", url: "https://manohartraders.com/" },
+    { name: "adigzlabs.com", url: "https://adigzlabs.com" },
     { name: "marpaminds.com", url: "https://marpaminds.com" },
     { name: "danieljohnson.xyz", url: "https://danieljohnson.xyz" },
-    { name: "adigzlabs.com", url: "https://adigzlabs.com" },
+    { name: "proairheating.com", url: "https://proairheating.com" },
+    { name: "apexdentalclinic.com", url: "https://apexdentalclinic.com" },
   ];
 
   // Repeat for a completely seamless, infinite marquee loop
