@@ -52,30 +52,9 @@ export function ProofCaseStudies() {
       isFeaturedDark: false,
     },
     {
-      id: "daniel",
-      category: "missed-call",
-      tag: "PAID · HIGH-TICKET ADVISORY · NO-SHOW DEFENSE",
-      client: "Daniel Johnson Advisory",
-      clientWordmark: "DANIEL",
-      headline: "Missed-Call Recovery & Automated SMS Follow-Up",
-      problem:
-        "Solo advisory practice lost high-ticket client inquiries when founder was engaged in client sessions. Missed calls went to voicemail where fewer than 18% left a message.",
-      action:
-        "Deployed automated missed-call text back within 12 seconds, conversational qualifying SMS agent, and 2-way reminder sequences to eliminate appointment no-shows.",
-      results: [
-        { value: "$28k/mo", label: "Recovered Revenue" },
-        { value: "-48%", label: "Appointment No-Shows" },
-        { value: "100%", label: "Missed-Call Coverage" },
-      ],
-      liveUrl: "https://danieljohnson.xyz",
-      domainLabel: "danieljohnson.xyz",
-      stack: ["Missed-Call Text Back", "2-Way SMS Reminders", "Calendar Slot Lock", "Stripe Checkout"],
-      isFeaturedDark: false,
-    },
-    {
       id: "proair",
       category: "voice",
-      tag: "PAID · HVAC & FIELD SERVICES · EMERGENCY TRIAGE",
+      tag: "HVAC & FIELD SERVICES · EMERGENCY DISPATCH",
       client: "ProAir Heating & Cooling",
       clientWordmark: "PROAIR",
       headline: "24/7 Emergency Dispatch & Jobber Calendar Sync",
@@ -88,15 +67,13 @@ export function ProofCaseStudies() {
         { value: "34/mo", label: "Saved Emergency Jobs" },
         { value: "$40.8k", label: "Monthly New Revenue" },
       ],
-      liveUrl: "https://proairheating.com",
-      domainLabel: "proairheating.com",
       stack: ["Voice AI Dispatch", "Jobber CRM", "Emergency SMS Escalation", "Square Deposits"],
       isFeaturedDark: false,
     },
     {
       id: "apexdental",
       category: "missed-call",
-      tag: "PAID · DENTAL & ORTHODONTICS · CHAIR REVENUE",
+      tag: "DENTAL & ORTHODONTICS · CHAIR REVENUE",
       client: "Apex Dental Clinic",
       clientWordmark: "APEX",
       headline: "Missed Call Text Back & Consent Reactivation",
@@ -109,15 +86,13 @@ export function ProofCaseStudies() {
         { value: "+52", label: "New Patients / Mo" },
         { value: "88%", label: "Hygiene Reactivation" },
       ],
-      liveUrl: "https://apexdentalclinic.com",
-      domainLabel: "apexdentalclinic.com",
       stack: ["Missed-Call SMS", "Meta WhatsApp API", "Dentrix CRM Sync", "HIPAA Safeguards"],
       isFeaturedDark: false,
     },
     {
       id: "horizonlaw",
       category: "speed-to-lead",
-      tag: "PAID · LEGAL & ACCIDENT LAW · INTAKE TRIAGE",
+      tag: "LEGAL & ACCIDENT LAW · INTAKE TRIAGE",
       client: "Horizon Legal Group",
       clientWordmark: "HORIZON",
       headline: "Sub-60s Retainer Intake & Conflict Screening",
@@ -130,8 +105,6 @@ export function ProofCaseStudies() {
         { value: "+210%", label: "Retainer Sign Rate" },
         { value: "0", label: "Conflict Leaks" },
       ],
-      liveUrl: "https://horizonlegal.com",
-      domainLabel: "horizonlegal.com",
       stack: ["Automated Lead Callback", "Clio Legal CRM", "Conflict Detection Logic", "Twilio Voice"],
       isFeaturedDark: false,
     },
@@ -197,15 +170,7 @@ export function ProofCaseStudies() {
     <div className="space-y-24 pb-24">
       {/* 1. Evidence Overview Metrics Bar */}
       <section className="max-w-[1200px] mx-auto px-5 sm:px-10">
-        <div className="bg-white rounded-[28px] p-6 sm:p-8 border border-black/5 shadow-2xs grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="space-y-1">
-            <span className="text-2xl sm:text-3xl font-extrabold text-[#111111]">
-              $25M+
-            </span>
-            <p className="text-[11px] font-mono uppercase tracking-wider text-neutral-500">
-              Pipeline Influenced
-            </p>
-          </div>
+        <div className="bg-white rounded-[28px] p-6 sm:p-8 border border-black/5 shadow-2xs grid grid-cols-1 sm:grid-cols-3 gap-6">
           <div className="space-y-1">
             <span className="text-2xl sm:text-3xl font-extrabold text-emerald-700">
               &lt; 8s
@@ -248,7 +213,7 @@ export function ProofCaseStudies() {
           {/* Filter Pills */}
           <div className="flex flex-wrap items-center gap-2">
             {[
-              { id: "all", label: "All Systems (6)" },
+              { id: "all", label: "All Systems" },
               { id: "voice", label: "24/7 Voice AI" },
               { id: "speed-to-lead", label: "Sub-60s Speed-to-Lead" },
               { id: "missed-call", label: "Missed-Call Recovery" },
@@ -381,20 +346,22 @@ export function ProofCaseStudies() {
                   ))}
                 </div>
 
-                {/* Live Domain Button */}
-                <a
-                  href={item.liveUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`inline-flex items-center justify-between w-full px-4 py-2.5 rounded-full text-xs font-mono font-bold transition group ${
-                    item.isFeaturedDark
-                      ? "bg-white/10 hover:bg-white/20 text-white border border-white/10"
-                      : "bg-neutral-100 hover:bg-neutral-200 text-[#111111] border border-neutral-200"
-                  }`}
-                >
-                  <span>Verify: {item.domainLabel}</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
+                {/* Live Domain Button (Only for verified live clients) */}
+                {item.liveUrl && (
+                  <a
+                    href={item.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`inline-flex items-center justify-between w-full px-4 py-2.5 rounded-full text-xs font-mono font-bold transition group ${
+                      item.isFeaturedDark
+                        ? "bg-white/10 hover:bg-white/20 text-white border border-white/10"
+                        : "bg-neutral-100 hover:bg-neutral-200 text-[#111111] border border-neutral-200"
+                    }`}
+                  >
+                    <span>Live Domain: {item.domainLabel}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}

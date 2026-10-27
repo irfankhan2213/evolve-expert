@@ -7,14 +7,14 @@ import { ProofCaseStudies } from "@/components/ProofCaseStudies";
 export const metadata: Metadata = {
   title: "Client Proof & Verified Case Studies | 24/7 AI Lead-to-Booking Systems",
   description:
-    "Explore 6 live, verifiable AI Lead-to-Booking deployments by EvolveExpert. Real businesses, sub-10s voice pickup, sub-60s WhatsApp qualification, and calendar slot booking.",
+    "Explore verifiable AI Lead-to-Booking deployments by EvolveExpert. Real businesses, sub-10s voice pickup, sub-60s WhatsApp qualification, and calendar slot booking.",
   alternates: {
     canonical: "https://evolveexpert.com/proof",
   },
   openGraph: {
     title: "Client Proof & Verified Case Studies | EvolveExpert",
     description:
-      "Explore 6 live, verifiable AI Lead-to-Booking deployments by EvolveExpert. Real businesses, sub-10s voice pickup, and calendar slot booking.",
+      "Explore verifiable AI Lead-to-Booking deployments by EvolveExpert. Real businesses, sub-10s voice pickup, and calendar slot booking.",
     url: "https://evolveexpert.com/proof",
     type: "website",
   },
@@ -33,7 +33,7 @@ export default function ProofPage() {
             Zero Concept Placeholders
           </div>
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-[-0.04em] leading-[1.05] text-[#111111]">
-            6 Real Production Systems.{" "}
+            Real Production Systems.{" "}
             <span className="font-editorial text-emerald-700 italic">Live and verifiable.</span>
           </h1>
           <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">

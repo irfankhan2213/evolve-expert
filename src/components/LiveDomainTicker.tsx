@@ -8,9 +8,6 @@ export function LiveDomainTicker() {
     { name: "manohartraders.com", url: "https://manohartraders.com/" },
     { name: "adigzlabs.com", url: "https://adigzlabs.com" },
     { name: "marpaminds.com", url: "https://marpaminds.com" },
-    { name: "danieljohnson.xyz", url: "https://danieljohnson.xyz" },
-    { name: "proairheating.com", url: "https://proairheating.com" },
-    { name: "apexdentalclinic.com", url: "https://apexdentalclinic.com" },
   ];
 
   // Repeat for a completely seamless, infinite marquee loop

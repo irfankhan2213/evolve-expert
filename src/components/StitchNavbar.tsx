@@ -14,7 +14,7 @@ export function StitchNavbar() {
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
-    { label: "Proof & Works (6)", href: "/proof" },
+    { label: "Proof & Works", href: "/proof" },
     { label: "About Studio", href: "/about" },
     { label: "Pricing", href: "/pricing" },
     { label: "Audit Tool", href: "/resources" },

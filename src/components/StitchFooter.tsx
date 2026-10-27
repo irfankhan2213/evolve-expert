@@ -160,7 +160,7 @@ export function StitchFooter() {
                 Services
               </Link>
               <Link href="/proof" className="hover:text-black transition">
-                Proof (6)
+                Proof
               </Link>
               <Link href="/about" className="hover:text-black transition">
                 Studio

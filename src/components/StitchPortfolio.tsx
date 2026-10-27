@@ -39,22 +39,6 @@ export function StitchPortfolio() {
       domainLabel: "adigzlabs.com",
       isFeaturedDark: false,
     },
-    {
-      id: "daniel",
-      categoryMeta: "PAID · HIGH-TICKET ADVISORY · NO-SHOW DEFENSE",
-      clientWordmark: "DANIEL",
-      title: "Daniel Johnson Advisory",
-      subtitle: "Missed-Call Recovery & Automated SMS Follow-Up",
-      body: "Deployed automated missed-call text back and multi-touch quote reminder flows. Recovers lost high-intent prospects and enforces 2-way SMS confirmation to protect billable partner hours.",
-      stats: [
-        { value: "$28k/mo", label: "Recovered Revenue" },
-        { value: "-48%", label: "Appointment No-Shows" },
-        { value: "100%", label: "Missed-Call Coverage" },
-      ],
-      liveUrl: "https://danieljohnson.xyz",
-      domainLabel: "danieljohnson.xyz",
-      isFeaturedDark: false,
-    },
   ];
 
   return (
@@ -83,8 +67,8 @@ export function StitchPortfolio() {
         </Link>
       </div>
 
-      {/* 3 Work Cards Side-by-Side (Matching User's Screenshot 1) */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-10">
+      {/* 2 Work Cards Side-by-Side */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-10">
         {works.map((item, idx) => (
           <motion.div
             key={item.id}
