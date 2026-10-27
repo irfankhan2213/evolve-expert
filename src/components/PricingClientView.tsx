@@ -58,6 +58,18 @@ export function PricingClientView() {
       a: "Yes. Transparency and compliance are built into every system. The AI greeting states upfront that it is an automated AI booking assistant on a recorded line, ensuring compliance with FCC, TCPA, and international telephony regulations while immediately helping the caller book their appointment.",
     },
     {
+      q: "What is an AI Lead-to-Booking System?",
+      a: "An AI Lead-to-Booking System is an autonomous telephony and messaging pipeline that answers inbound phone calls, WhatsApp inquiries, and web forms in under 60 seconds. It qualifies caller intent using conversational AI and books confirmed appointments directly into CRM calendars 24/7/365.",
+    },
+    {
+      q: "How does a missed call text back system work?",
+      a: "When a business misses an inbound phone call, the carrier telephony trunk triggers an automated 2-way SMS or WhatsApp message within 10 to 15 seconds. The conversational AI engages the caller, identifies their requirement, checks calendar availability, and locks in their appointment before they contact a competitor.",
+    },
+    {
+      q: "Which CRMs and calendars does EvolveExpert integrate with?",
+      a: "EvolveExpert integrates natively with Google Calendar, Microsoft Outlook, Cal.com, HubSpot, GoHighLevel, Jobber, ServiceTitan, Dentrix, Clio, and custom PostgreSQL or webhook endpoints with real-time bi-directional sync.",
+    },
+    {
       q: "What is included in the 1,000 voice minutes monthly allowance?",
       a: "Every monthly retainer includes up to 1,000 connected AI voice minutes per month (~350–400 completed calls), covering live telephony carrier fees, LLM inference costs, speech-to-text, and voice synthesis. Additional minutes are billed transparently at wholesale carrier cost without markup.",
     },

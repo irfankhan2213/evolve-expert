@@ -91,7 +91,7 @@ export function StitchHero() {
                 href="#proof"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-neutral-300 bg-white text-sm font-semibold text-neutral-800 hover:bg-neutral-50 transition shadow-2xs"
               >
-                View 6 Live Builds
+                View Verified Deployments
               </Link>
             </div>
           </div>
@@ -117,20 +117,20 @@ export function StitchHero() {
             <div className="col-span-2 sm:col-span-1 bg-white p-5 rounded-2xl border border-black/5 flex flex-col justify-between shadow-2xs cursor-default hover:-translate-y-1 transition-transform duration-200">
               <div className="flex -space-x-2">
                 <span className="w-7 h-7 rounded-full bg-emerald-500 text-white text-[10px] flex items-center justify-center font-bold ring-2 ring-white">
-                  D
+                  M
                 </span>
                 <span className="w-7 h-7 rounded-full bg-sky-500 text-white text-[10px] flex items-center justify-center font-bold ring-2 ring-white">
-                  W
+                  A
                 </span>
                 <span className="w-7 h-7 rounded-full bg-amber-500 text-white text-[10px] flex items-center justify-center font-bold ring-2 ring-white">
-                  E
-                </span>
-                <span className="w-7 h-7 rounded-full bg-purple-500 text-white text-[10px] flex items-center justify-center font-bold ring-2 ring-white">
                   M
+                </span>
+                <span className="w-7 h-7 rounded-full bg-emerald-600 text-white text-[10px] flex items-center justify-center font-bold ring-2 ring-white">
+                  ✓
                 </span>
               </div>
               <span className="text-[11px] font-semibold text-neutral-700 mt-3 leading-snug">
-                6+ Global Founders Served
+                Verified Client Systems
               </span>
             </div>
           </div>

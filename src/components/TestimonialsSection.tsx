@@ -9,10 +9,10 @@ export function TestimonialsSection() {
     {
       id: "t1",
       quote:
-        "“EvolveExpert helped us deploy an autonomous Lead-to-Booking System. Within days, our response time dropped to under 10 seconds and WhatsApp triage handles patient inquiries 24/7 without routing back to the team.”",
-      name: "B2B SaaS & HealthTech Founder · CEO",
+        "“EvolveExpert engineered an automated B2B payment software solution and recovery system for Manohar Traders. Receivables that used to drag out for months now recover automatically via WhatsApp, and ledger reconciliation is 100% automated.”",
+      name: "Manohar Traders · Executive Leadership",
       role: "Paid client engagement",
-      initials: "BS",
+      initials: "MT",
       isFeaturedDark: true,
     },
     {

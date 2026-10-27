@@ -1,8 +1,10 @@
 import React from "react";
 import { Metadata } from "next";
+import Link from "next/link";
 import { StitchNavbar } from "@/components/StitchNavbar";
 import { StitchFooter } from "@/components/StitchFooter";
 import { ServicesAnimatedView } from "@/components/ServicesAnimatedView";
+import { PhoneCall, MessageSquare, CalendarCheck, RefreshCw, ArrowRight, ShieldCheck, Check } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Lead-to-Booking System Services | 24/7 AI Call Answering",
@@ -21,6 +23,37 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
+  const serviceModules = [
+    {
+      title: "Missed Call Text Back System",
+      badge: "< 15s Auto-Recovery",
+      desc: "Triggers an automated, conversational 2-way SMS or WhatsApp within seconds of any missed or busy call. Engages callers while intent is peak and secures their appointment before they dial a competitor.",
+      icon: PhoneCall,
+      tag: "SPEED TO LEAD",
+    },
+    {
+      title: "24/7 AI Voice Phone Receptionist",
+      badge: "< 10s Pickup · Carrier SIP",
+      desc: "Picks up on the second ring 24 hours a day, 365 days a year. Answers caller FAQs, diagnoses emergency service requests, verifies addresses, and books directly into your staff calendar.",
+      icon: MessageSquare,
+      tag: "VOICE TELEPHONY",
+    },
+    {
+      title: "Sub-60s Web & WhatsApp Qualification",
+      badge: "391% Conversion Lift",
+      desc: "Replaces stagnant email contact forms with automated WhatsApp triage. Pre-qualifies project scope, checks live technician availability, and locks in booked meetings in under 60 seconds.",
+      icon: CalendarCheck,
+      tag: "INBOUND TRIAGE",
+    },
+    {
+      title: "Automated Quote Follow-Up & No-Show Defense",
+      badge: "Up to 50% Fewer No-Shows",
+      desc: "Delivers intelligent 2-way confirmation sequences that cut appointment no-shows in half. Re-engages outstanding quotes and reactivates dormant customer lists with zero ad spend.",
+      icon: RefreshCw,
+      tag: "REVENUE RECOVERY",
+    },
+  ];
+
   return (
     <main className="min-h-screen bg-[#F3F3F1] text-[#111111] antialiased">
       <StitchNavbar />
@@ -40,6 +73,45 @@ export default function ServicesPage() {
           <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
             Never let another customer call or form submission slip away. We build, test, and deploy conversational voice AI and WhatsApp lead triage wired directly into your calendar.
           </p>
+        </div>
+      </section>
+
+      {/* Core 4 System Modules Grid (AEO & Keyword Intent) */}
+      <section className="max-w-[1200px] mx-auto px-5 sm:px-10 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {serviceModules.map((mod) => {
+            const Icon = mod.icon;
+            return (
+              <div
+                key={mod.title}
+                className="bg-white rounded-[28px] p-8 border border-black/5 shadow-2xs hover:shadow-md transition-shadow duration-300 flex flex-col justify-between"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between text-xs font-mono">
+                    <span className="text-neutral-400 font-semibold">{mod.tag}</span>
+                    <span className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/80 font-bold">
+                      {mod.badge}
+                    </span>
+                  </div>
+                  <div className="w-12 h-12 rounded-2xl bg-neutral-100 flex items-center justify-center text-[#111111]">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-2xl font-bold tracking-tight text-[#111111]">{mod.title}</h3>
+                  <p className="text-sm text-neutral-600 leading-relaxed">{mod.desc}</p>
+                </div>
+                <div className="pt-6 border-t border-neutral-100 mt-6 flex items-center justify-between">
+                  <span className="text-xs font-mono text-emerald-700 font-semibold">14-Day Go-Live</span>
+                  <Link
+                    href="/pricing#plans"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#111111] hover:text-emerald-700 transition font-mono group"
+                  >
+                    <span>View Plan</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 

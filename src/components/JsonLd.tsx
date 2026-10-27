@@ -141,6 +141,30 @@ export function JsonLd() {
               "@type": "Answer",
               "text": "Yes. Transparency and compliance are built into every system. The AI greeting states upfront that it is an automated AI booking assistant on a recorded line, ensuring compliance with FCC, TCPA, and international telephony regulations while immediately helping the caller book their appointment."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "What is an AI Lead-to-Booking System?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An AI Lead-to-Booking System is an autonomous telephony and messaging pipeline that answers inbound phone calls, WhatsApp inquiries, and web forms in under 60 seconds. It qualifies caller intent using conversational AI and books confirmed appointments directly into CRM calendars 24/7/365."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does a missed call text back system work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When a business misses an inbound phone call, the carrier telephony trunk triggers an automated 2-way SMS or WhatsApp message within 10 to 15 seconds. The conversational AI engages the caller, identifies their requirement, checks calendar availability, and locks in their appointment before they contact a competitor."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which CRMs and booking calendars does EvolveExpert integrate with?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "EvolveExpert integrates natively with Google Calendar, Microsoft Outlook, Cal.com, HubSpot, GoHighLevel, Jobber, ServiceTitan, Dentrix, Clio, and custom PostgreSQL or webhook endpoints with real-time bi-directional sync."
+            }
           }
         ]
       }
