@@ -181,7 +181,7 @@ export function StitchFooter() {
             <a
               href="https://wa.me/917696936377?text=Hi%20EvolveExpert,%20I'd%20like%20to%20discuss%20the%2014-day%20Lead-to-Booking%20System"
               target="_blank"
-              rel="noreferrer"
+              rel="nofollow noopener noreferrer"
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-xs font-semibold font-mono border border-emerald-200/90 hover:bg-emerald-100 hover:border-emerald-300 transition shadow-2xs whitespace-nowrap"
             >
               <span className="relative flex h-2 w-2">

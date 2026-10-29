@@ -12,14 +12,14 @@ import { StitchCapabilitiesAndPricing } from "@/components/StitchCapabilitiesAnd
 import { StitchFooter } from "@/components/StitchFooter";
 
 export const metadata: Metadata = {
-  title: "EvolveExpert — 24/7 AI Lead-to-Booking System for Service Businesses",
+  title: "24/7 AI Lead-to-Booking System",
   description:
     "Never lose a customer to a missed call or slow reply. 24/7 AI voice call answering, sub-60s WhatsApp qualification, and calendar booking live in 14 days with 50/50 escrow.",
   alternates: {
     canonical: "https://evolveexpert.com",
   },
   openGraph: {
-    title: "EvolveExpert — 24/7 AI Lead-to-Booking System",
+    title: "24/7 AI Lead-to-Booking System | EvolveExpert",
     description:
       "Every inbound call, WhatsApp message, and web lead answered in under 60 seconds, qualified by AI, and booked into your calendar 24/7. Live in 14 days with 50/50 escrow.",
     url: "https://evolveexpert.com",

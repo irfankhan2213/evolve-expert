@@ -5,14 +5,14 @@ import { StitchFooter } from "@/components/StitchFooter";
 import { AboutAnimatedView } from "@/components/AboutAnimatedView";
 
 export const metadata: Metadata = {
-  title: "About Studio — Anti-Agency Engineering Manifesto",
+  title: "Anti-Agency Engineering Manifesto",
   description:
     "Learn why EvolveExpert operates with 0 account managers and delivers 24/7 AI Lead-to-Booking Systems in 14-day go-live sprints.",
   alternates: {
     canonical: "https://evolveexpert.com/about",
   },
   openGraph: {
-    title: "About EvolveExpert Studio",
+    title: "Anti-Agency Engineering Manifesto | EvolveExpert",
     description:
       "Learn why EvolveExpert operates with 0 account managers and delivers 24/7 AI Lead-to-Booking Systems in 14-day go-live sprints.",
     url: "https://evolveexpert.com/about",

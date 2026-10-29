@@ -98,7 +98,7 @@ export function ContactClientView() {
                   whileTap={{ scale: 0.97 }}
                   href="https://wa.me/917696936377?text=Hi%20EvolveExpert,%20I'd%20like%20to%20discuss%20the%2014-day%20Lead-to-Booking%20System"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="nofollow noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-[#25D366] text-white text-xs font-bold px-5 py-3 rounded-full hover:bg-emerald-600 transition shadow-xs"
                 >
                   <span>Chat on Business WhatsApp</span>
@@ -194,7 +194,7 @@ export function ContactClientView() {
                       <input
                         type="email"
                         required
-                        placeholder="alex@company.com"
+                        placeholder="name@business.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-200 text-sm focus:outline-none focus:border-black transition"
@@ -207,7 +207,7 @@ export function ContactClientView() {
                       <label className="text-xs font-bold text-neutral-700">Current Website URL</label>
                       <input
                         type="text"
-                        placeholder="https://company.com"
+                        placeholder="yourbusiness.com"
                         value={formData.website}
                         onChange={(e) => setFormData({ ...formData, website: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-200 text-sm focus:outline-none focus:border-black transition"
@@ -291,7 +291,7 @@ export function ContactClientView() {
                         `Hi EvolveExpert, I just submitted a sprint application for ${formData.website || formData.name} (${formData.budget}).`
                       )}`}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="nofollow noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-[#25D366] text-white text-xs font-bold px-6 py-3 rounded-full hover:bg-emerald-600 transition shadow-sm"
                     >
                       <MessageSquare className="w-4 h-4" />

@@ -7,11 +7,10 @@ export function LiveDomainTicker() {
   const domains = [
     { name: "manohartraders.com", url: "https://manohartraders.com/" },
     { name: "adigzlabs.com", url: "https://adigzlabs.com" },
-    { name: "marpaminds.com", url: "https://marpaminds.com" },
   ];
 
   // Repeat for a completely seamless, infinite marquee loop
-  const tickerItems = [...domains, ...domains, ...domains, ...domains];
+  const tickerItems = [...domains, ...domains, ...domains, ...domains, ...domains, ...domains];
 
   return (
     <div className="relative bg-white border-y border-neutral-200/80 py-4 sm:py-5 overflow-hidden select-none">
@@ -34,7 +33,7 @@ export function LiveDomainTicker() {
             <a
               href={item.url}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="hover:text-black hover:underline underline-offset-4 transition flex items-center gap-2 text-xs sm:text-sm font-semibold tracking-tight text-neutral-800"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/80 shrink-0"></span>

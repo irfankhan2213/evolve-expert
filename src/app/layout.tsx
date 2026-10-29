@@ -78,30 +78,7 @@ export const metadata: Metadata = {
   },
 };
 
-import { Plus_Jakarta_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { ScrollProgress } from "@/components/ScrollProgress";
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
-  weight: ["400"],
-  style: ["normal", "italic"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-  weight: ["400", "500", "600"],
-});
 
 export default function RootLayout({
   children,
@@ -111,7 +88,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`scroll-smooth ${plusJakartaSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}
+      className="scroll-smooth"
     >
       <head>
         <JsonLd />

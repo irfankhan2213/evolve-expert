@@ -7,7 +7,7 @@ import { ServicesAnimatedView } from "@/components/ServicesAnimatedView";
 import { PhoneCall, MessageSquare, CalendarCheck, RefreshCw, ArrowRight, ShieldCheck, Check } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Lead-to-Booking System Services | 24/7 AI Call Answering",
+  title: "Lead-to-Booking System Services",
   description:
     "Explore EvolveExpert's turnkey 14-day Lead-to-Booking System. Inbound conversational voice AI, sub-60s WhatsApp qualification, calendar booking, and 50/50 milestone escrow.",
   alternates: {

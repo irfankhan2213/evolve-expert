@@ -390,7 +390,7 @@ export function PreviewClientView({ data }: { data: PreviewData }) {
                 data.companyName
               )}`}
               target="_blank"
-              rel="noreferrer"
+              rel="nofollow noopener noreferrer"
               className="px-8 py-4 rounded-full bg-emerald-600 text-white font-bold text-sm hover:bg-emerald-700 transition shadow-sm block"
             >
               Discuss on WhatsApp (+91 76969 36377)

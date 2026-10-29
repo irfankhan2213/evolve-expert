@@ -242,7 +242,7 @@ export function ResourcesClientView() {
                 whileTap={{ scale: 0.98 }}
                 href={whatsappUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="w-full py-3.5 rounded-full bg-[#25D366] text-white font-bold text-xs text-center flex items-center justify-center gap-2 hover:bg-emerald-600 transition shadow-sm"
               >
                 <MessageSquare className="w-4 h-4" />

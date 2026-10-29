@@ -5,14 +5,14 @@ import { StitchFooter } from "@/components/StitchFooter";
 import { ProofCaseStudies } from "@/components/ProofCaseStudies";
 
 export const metadata: Metadata = {
-  title: "Client Proof & Verified Case Studies | 24/7 AI Lead-to-Booking Systems",
+  title: "Verified Client Proof & Case Studies",
   description:
     "Explore verifiable AI Lead-to-Booking deployments by EvolveExpert. Real businesses, sub-10s voice pickup, sub-60s WhatsApp qualification, and calendar slot booking.",
   alternates: {
     canonical: "https://evolveexpert.com/proof",
   },
   openGraph: {
-    title: "Client Proof & Verified Case Studies | EvolveExpert",
+    title: "Verified Client Proof & Case Studies | EvolveExpert",
     description:
       "Explore verifiable AI Lead-to-Booking deployments by EvolveExpert. Real businesses, sub-10s voice pickup, and calendar slot booking.",
     url: "https://evolveexpert.com/proof",

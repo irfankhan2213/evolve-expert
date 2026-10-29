@@ -153,7 +153,7 @@ export function StitchPortfolio() {
               <a
                 href={item.liveUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className={`inline-flex items-center justify-between w-full px-5 py-3 rounded-full text-xs font-mono font-bold transition group ${
                   item.isFeaturedDark
                     ? "bg-white/10 hover:bg-white/20 text-white border border-white/10"

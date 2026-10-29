@@ -351,7 +351,7 @@ export function ProofCaseStudies() {
                   <a
                     href={item.liveUrl}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className={`inline-flex items-center justify-between w-full px-4 py-2.5 rounded-full text-xs font-mono font-bold transition group ${
                       item.isFeaturedDark
                         ? "bg-white/10 hover:bg-white/20 text-white border border-white/10"
@@ -539,7 +539,7 @@ export function ProofCaseStudies() {
             <a
               href="https://wa.me/917696936377?text=Hi%20EvolveExpert,%20I'd%20like%20to%20discuss%20the%2014-day%20Lead-to-Booking%20System"
               target="_blank"
-              rel="noreferrer"
+              rel="nofollow noopener noreferrer"
               className="px-6 py-4 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm text-center transition shadow-sm"
             >
               WhatsApp (+91 76969 36377)
